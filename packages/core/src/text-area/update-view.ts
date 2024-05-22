@@ -106,7 +106,7 @@ function updateView(textarea: TextArea, editor: IDomEditor) {
   }
 
   if (textareaElem == null) {
-    textareaElem = getElementById(elemId)
+    textareaElem = getElementById(elemId, editor)
 
     // 通过 getElementById 获取的有可能是 null （销毁、重建时，可能会发生这种情况）
     if (textareaElem == null) return

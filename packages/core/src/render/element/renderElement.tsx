@@ -113,7 +113,7 @@ function renderElement(elemNode: SlateElement, editor: IDomEditor): VNode {
   // 更新 element 相关的 weakMap
   promiseResolveThen(() => {
     // 异步，否则拿不到 DOM 节点
-    const dom = getElementById(domId)
+    const dom = getElementById(domId, editor)
     if (dom == null) return
     KEY_TO_ELEMENT.set(key, dom)
     NODE_TO_ELEMENT.set(elemNode, dom)

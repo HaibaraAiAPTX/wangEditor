@@ -80,6 +80,7 @@ import DOMText = globalThis.Text
 import DOMRange = globalThis.Range
 import DOMSelection = globalThis.Selection
 import DOMStaticRange = globalThis.StaticRange
+import { IDomEditor } from '../editor/interface'
 export { DOMNode, DOMComment, DOMElement, DOMText, DOMRange, DOMSelection, DOMStaticRange }
 
 export type DOMPoint = [Node, number]
@@ -185,10 +186,11 @@ export const hasShadowRoot = () => {
 /**
  * Get the element with the specified id
  */
-export const getElementById = (id: string): null | HTMLElement => {
+export const getElementById = (id: string, editor?: IDomEditor): null | HTMLElement => {
   return (
     window.document.getElementById(id) ??
-    (window.document.activeElement?.shadowRoot?.getElementById(id) || null)
+    (window.document.activeElement?.shadowRoot?.getElementById(id) || null) ??
+    ((editor?.getEditableContainer().getRootNode() as ShadowRoot)?.getElementById(id) || null)
   )
 }
 
