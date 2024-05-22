@@ -27,14 +27,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wangeditor-team/wangEditor.git"
-  },
   "scripts": {
     "test": "jest",
     "test-c": "jest --coverage",
