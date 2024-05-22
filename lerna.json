@@ -4,13 +4,15 @@
   ],
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true,
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md"],
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
       "message": "chore(release): publish",
       "conventionalCommits": true,
-      "registry": "https://npm.pkg.github.com" 
+      "registry": "https://npm.pkg.github.com"
     },
     "version": {
       "message": "chore(release): publish",

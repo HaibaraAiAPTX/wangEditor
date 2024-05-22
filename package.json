@@ -6,7 +6,6 @@
     "test-c": "cross-env NODE_OPTIONS=--unhandled-rejections=warn jest --coverage",
     "dev": "sh build/build-all.sh dev",
     "build": "sh build/build-all.sh",
-    "bootstrap": "lerna bootstrap --use-workspaces",
     "release:version": "git pull origin master && lerna version --conventional-commits && node ./scripts/release-tag.js",
     "release:publish:experimental": "lerna publish --dist-tag experimental",
     "release:publish:canary": "lerna publish --canary",
