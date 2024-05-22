@@ -58,8 +58,5 @@
   },
   "devDependencies": {
     "@types/is-hotkey": "^0.1.2"
-  },
-  "volta": {
-    "node": "18.20.2"
   }
 }
