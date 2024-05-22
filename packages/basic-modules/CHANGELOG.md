@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/wangeditor-team/wangEditor/compare/@wangeditor/basic-modules@1.1.7...@wangeditor/basic-modules@1.1.8) (2024-05-22)
+
+
+### Bug Fixes
+
+* **indent menu:** 修复了因为设置 fontSize 导致 text-indent 没法对齐的问题 ([a431d46](https://github.com/wangeditor-team/wangEditor/commit/a431d465ff929b331ebc2545aeb52e7ca3eba2d2))
+
+
+
+
+
 ## [1.1.7](https://github.com/wangeditor-team/wangEditor/compare/@wangeditor/basic-modules@1.1.6...@wangeditor/basic-modules@1.1.7) (2022-11-14)
 
 

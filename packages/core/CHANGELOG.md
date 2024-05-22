@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.20](https://github.com/wangeditor-team/wangEditor/compare/@wangeditor/core@1.1.19...@wangeditor/core@1.1.20) (2024-05-22)
+
+
+### Bug Fixes
+
+* fix getElementById is null in shadow ([72e6238](https://github.com/wangeditor-team/wangEditor/commit/72e6238ffdee6591daea4201981738a9adb2d61a))
+
+
+
+
+
 ## [1.1.19](https://github.com/wangeditor-team/wangEditor/compare/@wangeditor/core@1.1.18...@wangeditor/core@1.1.19) (2022-11-14)
 
 
