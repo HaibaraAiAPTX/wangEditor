@@ -24,8 +24,18 @@ export interface IUploadConfig {
   withCredentials?: boolean
   timeout?: number
   onBeforeUpload?: (files: FilesType) => boolean | FilesType
-  onSuccess: (file: UppyFile<{}, {}>, response: any) => void
+  onSuccess: (
+    file: UppyFile<Record<string, unknown>, Record<string, unknown>>,
+    response: any
+  ) => void
   onProgress?: (progress: number) => void
-  onFailed: (file: UppyFile<{}, {}>, response: any) => void
-  onError: (file: UppyFile<{}, {}>, error: any, res: any) => void
+  onFailed: (
+    file: UppyFile<Record<string, unknown>, Record<string, unknown>>,
+    response: any
+  ) => void
+  onError: (
+    file: UppyFile<Record<string, unknown>, Record<string, unknown>>,
+    error: any,
+    res: any
+  ) => void
 }
