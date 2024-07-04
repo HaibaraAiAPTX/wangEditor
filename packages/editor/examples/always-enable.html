@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>default mode</title>
+<link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+<link href="./css/view.css" rel="stylesheet">
+<link href="./css/editor.css" rel="stylesheet">
+
+<link href="../dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div style="width: 1000px; margin: 0 auto;">
+    <!-- 编辑器 -->
+    <div>
+      <div id="editor-toolbar" class="editor-toolbar"></div>
+      <div id="editor-text-area" class="editor-text-area"></div>
+    </div>
+  
+    <!-- 内容状态 -->
+    <p style="background-color: #f1f1f1;">
+      当前文字数量：<span id="total-length"></span>；
+      选中文字数量：<span id="selected-length"></span>；
+      选中文字："<span id="selected-text"></span>"
+    </p>
+  
+    <!-- 显示内容 -->
+    <div id="editor-content-view" class="editor-content-view"></div>
+  </div>
+
+  <script src="js/init-content.js"></script>
+  <script src="../dist/index.js?t=14"></script>
+  <script>
+    const E = window.wangEditor
+
+    const editorConfig = { MENU_CONF: {}, readOnly: true }
+    // editorConfig.autoFocus = false
+    // editorConfig.readOnly = true
+    // editorConfig.scroll = false
+    editorConfig.placeholder = '请输入内容'
+    editorConfig.MENU_CONF['uploadImage'] = {
+      fieldName: 'your-fileName',
+      base64LimitSize: 10 * 1024 * 1024 // 10M 以下插入 base64
+    }
+    editorConfig.onChange = (editor) => {
+      // console.log(editor.children)
+
+      const html = editor.getHtml()
+      document.getElementById('editor-content-view').innerHTML = html
+
+      // 选中文字
+      const selectionText = editor.getSelectionText()
+      document.getElementById('selected-text').innerHTML = selectionText
+      document.getElementById('selected-length').innerHTML = selectionText.length
+      // 全部文字
+      document.getElementById('total-length').innerHTML = editor.getText().length
+    }
+
+    const toolbarConfig = {
+      // excludeKeys: ['uploadVideo'],
+      insertKeys: {
+        index: 100,
+        keys: ['test-select']
+      }
+    }
+
+    // create
+    let editor, toolbar
+    function createEditor () {
+      editor = E.createEditor({
+        selector: '#editor-text-area',
+        // selector: document.getElementById('editor-text-area'),
+        content: window.content1,
+        config: editorConfig
+      })
+
+      toolbar = E.createToolbar({
+        editor,
+        selector: '#editor-toolbar',
+        // selector: document.getElementById('editor-toolbar')
+        config: toolbarConfig
+      })
+    }
+
+    function registerAlwaysEnableSelect() {
+      E.Boot.registerMenu({
+        key: "test-select",
+        factory() {
+          return new TestSelect();
+        }
+      })
+    }
+
+    registerAlwaysEnableSelect();
+    createEditor();
+
+    class TestSelect {
+      alwaysEnable = true;
+
+      tag = "select"
+
+      constructor() {}
+
+      isActive() {
+        return false
+      }
+
+      getValue() {
+        return 'Option1'
+      }
+
+      isDisabled() {
+        return false
+      }
+
+      getOptions () {
+        return [
+          { text: '选项1', value: 'Option1' },
+          { text: '选项2', value: 'Option2' },
+        ]
+      }
+
+      exec(editor, value) {
+        window.alert(value)
+      }
+    }
+  </script>
+</body>
+
+</html>

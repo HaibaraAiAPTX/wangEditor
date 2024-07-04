@@ -189,8 +189,9 @@ export const hasShadowRoot = () => {
 export const getElementById = (id: string, editor?: IDomEditor): null | HTMLElement => {
   return (
     window.document.getElementById(id) ??
-    (window.document.activeElement?.shadowRoot?.getElementById(id) || null) ??
-    ((editor?.getEditableContainer().getRootNode() as ShadowRoot)?.getElementById(id) || null)
+    window.document.activeElement?.shadowRoot?.getElementById(id) ??
+    (editor?.getEditableContainer().getRootNode() as ShadowRoot)?.getElementById(id) ??
+    null
   )
 }
 
