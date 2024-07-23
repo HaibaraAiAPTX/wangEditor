@@ -109,5 +109,8 @@
   "volta": {
     "node": "20.12.2",
     "yarn": "1.22.22"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
   }
 }
