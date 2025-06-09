@@ -24,6 +24,7 @@
     "test": "jest",
     "test-c": "jest --coverage",
     "dev": "cross-env NODE_ENV=development rollup -c rollup.config.js",
+    "dev:rolldown": "rolldown -c rolldown.config.mjs",
     "dev-watch": "cross-env NODE_ENV=development rollup -c rollup.config.js -w",
     "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
     "dev-size-stats": "cross-env NODE_ENV=development:size_stats rollup -c rollup.config.js",
@@ -35,7 +36,7 @@
   "peerDependencies": {
     "@uppy/core": "^2.1.4",
     "@uppy/xhr-upload": "^2.0.7",
-    "@wangeditor/core": "1.x",
+    "@wangeditor/core": "workspace:^",
     "dom7": "^3.0.0",
     "nanoid": "^3.2.0",
     "slate": "^0.72.0",

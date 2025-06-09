@@ -19,7 +19,7 @@
     "jsx": "react",
     "jsxFactory": "jsx", /* snabbdom jsx */
     "downlevelIteration": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "exclude": [
     "node_modules",
@@ -28,6 +28,6 @@
   ],
   "include": [
     "./tests/setup/index.ts",
-    "./packages/custom-types.d.ts"
+    "./custom-types.d.ts"
   ]
 }

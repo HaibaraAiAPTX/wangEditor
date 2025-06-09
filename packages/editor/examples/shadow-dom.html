@@ -33,8 +33,10 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import { createEditor, createToolbar } from 'dist/index.esm.js'
+
     let editor, toolbar
     const editorContainer = document.querySelector('#editor-container')
 
@@ -88,7 +90,7 @@
       }
       create() {
         // 创建编辑器
-        editor = window.wangEditor.createEditor({
+        editor = createEditor({
           selector: this.shadowRoot.querySelector('#editor-text-area'),
           config: editorConfig,
           content: [], // 默认内容，下文有解释
@@ -96,7 +98,7 @@
         })
 
         // 创建工具栏
-        toolbar = window.wangEditor.createToolbar({
+        toolbar = createToolbar({
           editor,
           selector: this.shadowRoot.querySelector('#editor-toolbar'),
           mode: 'default' // 或者 'simple' ，下文有解释

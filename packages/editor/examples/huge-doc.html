@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
 
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p>huge doc 大文件</p>
 
@@ -27,9 +29,9 @@
   </p>
 
   <script src="./js/huge-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     const editorConfig = { MENU_CONF: {} }
     editorConfig.placeholder = '请输入内容'
@@ -53,4 +55,5 @@
     })
   </script>
 </body>
+
 </html>

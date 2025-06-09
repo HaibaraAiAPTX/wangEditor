@@ -52,9 +52,11 @@ function withList<T extends IDomEditor>(editor: T): T {
         // 转换为 p 元素
         Transforms.setNodes(newEditor, {
           type: 'paragraph',
-          ordered: undefined,
-          level: undefined,
+          // ordered: undefined,
+          // level: undefined,
         })
+
+        Transforms.unsetNodes(newEditor, ['ordered', 'level'])
       }
       return
     }

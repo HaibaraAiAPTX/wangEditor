@@ -4,8 +4,8 @@
  */
 
 import createUploader from './createUploader'
-import { IUploadConfig } from './interface'
+export type { IUploadConfig } from './interface'
 
-export { createUploader, IUploadConfig }
+export { createUploader }
 
 // TODO upload 能力，写到文档中，二次开发使用

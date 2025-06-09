@@ -5,7 +5,7 @@
 
 import { Editor, Transforms } from 'slate'
 import { DomEditor } from '../../editor/dom-editor'
-import { IDomEditor } from '../../editor/interface'
+import type { IDomEditor } from '../../editor/interface'
 import TextArea from '../TextArea'
 import { hasTarget } from '../helpers'
 

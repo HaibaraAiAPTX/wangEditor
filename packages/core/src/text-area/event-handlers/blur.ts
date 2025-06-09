@@ -5,7 +5,7 @@
 
 import { Element } from 'slate'
 import { DomEditor } from '../../editor/dom-editor'
-import { IDomEditor } from '../../editor/interface'
+import { type IDomEditor } from '../../editor/interface'
 import TextArea from '../TextArea'
 import { hasEditableTarget } from '../helpers'
 import { isDOMElement, isDOMNode } from '../../utils/dom'
@@ -65,6 +65,7 @@ function handleOnBlur(e: Event, textarea: TextArea, editor: IDomEditor) {
   // https://stackoverflow.com/questions/12353247/force-contenteditable-div-to-stop-accepting-input-after-it-loses-focus-under-web
   // 修复在 Safari 下，即使 contenteditable 元素非聚焦状态，并不会删除所选内容
   if (IS_SAFARI) {
+    // @ts-ignore firefox ShadowRoot don't have getSelection method
     const domSelection = root.getSelection()
     domSelection?.removeAllRanges()
   }

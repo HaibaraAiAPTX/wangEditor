@@ -25,16 +25,16 @@ export { Boot }
 // 导出 core API 和接口（注意，此处按需导出，不可直接用 `*` ）
 export {
   DomEditor,
-  IDomEditor,
-  IEditorConfig,
-  IToolbarConfig,
+  type IDomEditor,
+  type IEditorConfig,
+  type IToolbarConfig,
   Toolbar,
   // 第三方模块 - 接口
-  IModuleConf,
-  IButtonMenu,
-  ISelectMenu,
-  IDropPanelMenu,
-  IModalMenu,
+  type IModuleConf,
+  type IButtonMenu,
+  type ISelectMenu,
+  type IDropPanelMenu,
+  type IModalMenu,
   // 第三方模块 - 多语言
   i18nChangeLanguage,
   i18nAddResources,
@@ -46,13 +46,13 @@ export {
   genModalButtonElems,
   // 第三方模块 - 上传时用到
   createUploader,
-  IUploadConfig,
+  type IUploadConfig,
 } from '@wangeditor/core'
 
 // 导出 slate API 和接口 （需重命名，加 `Slate` 前缀）
 export {
   Transforms as SlateTransforms,
-  Descendant as SlateDescendant,
+  type Descendant as SlateDescendant,
   Editor as SlateEditor,
   Node as SlateNode,
   Element as SlateElement,

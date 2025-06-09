@@ -8,14 +8,13 @@ import { Editor, Node, Element, Text, Path, Range } from 'slate'
 import $ from '../../utils/dom'
 import { MENU_ITEM_FACTORIES } from '../register'
 import { promiseResolveThen } from '../../utils/util'
-import { IDomEditor } from '../../editor/interface'
+import type { IDomEditor } from '../../editor/interface'
 import { DomEditor } from '../../editor/dom-editor'
 import { HOVER_BAR_TO_EDITOR, BAR_ITEM_TO_EDITOR } from '../../utils/weak-maps'
-import { IBarItem, createBarItem } from '../bar-item/index'
+import { type IBarItem, createBarItem } from '../bar-item/index'
 import { gen$barItemDivider } from '../helpers/helpers'
 import { getPositionBySelection, getPositionByNode, correctPosition } from '../helpers/position'
-import { IButtonMenu, ISelectMenu, IDropPanelMenu, IModalMenu } from '../interface'
-import { CustomElement } from '../../../../custom-types'
+import type { IButtonMenu, ISelectMenu, IDropPanelMenu, IModalMenu } from '../interface'
 
 type MenuType = IButtonMenu | ISelectMenu | IDropPanelMenu | IModalMenu
 
@@ -30,7 +29,7 @@ function isSelectedText(editor: IDomEditor, n: Node) {
   if (Range.isCollapsed(selection)) return false // 未选中文字，选区的是折叠的
 
   const selectedElems = DomEditor.getSelectedElems(editor)
-  const notMatch = selectedElems.some((elem: CustomElement) => {
+  const notMatch = selectedElems.some((elem: Element) => {
     if (editor.isVoid(elem)) return true
 
     const { type } = elem

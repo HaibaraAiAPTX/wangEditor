@@ -4,7 +4,7 @@
  */
 
 import { Editor, Transforms, Location, Node, Range, Point } from 'slate'
-import { IDomEditor } from '../interface'
+import type { IDomEditor } from '../interface'
 import { DomEditor } from '../dom-editor'
 import { getPositionByNode, getPositionBySelection } from '../../menus/helpers/position'
 import { EDITOR_TO_SELECTION } from '../../utils/weak-maps'
@@ -21,6 +21,7 @@ export const withSelection = <T extends Editor>(editor: T) => {
   e.deselect = () => {
     const { selection } = e
     const root = DomEditor.findDocumentOrShadowRoot(e)
+    // @ts-ignore firefox getSelection() is not a function
     const domSelection = root.getSelection()
 
     if (domSelection && domSelection.rangeCount > 0) {

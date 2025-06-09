@@ -18,22 +18,22 @@
       <div id="editor-toolbar" class="editor-toolbar"></div>
       <div id="editor-text-area" class="editor-text-area"></div>
     </div>
-  
+
     <!-- 内容状态 -->
     <p style="background-color: #f1f1f1;">
       当前文字数量：<span id="total-length"></span>；
       选中文字数量：<span id="selected-length"></span>；
       选中文字："<span id="selected-text"></span>"
     </p>
-  
+
     <!-- 显示内容 -->
     <div id="editor-content-view" class="editor-content-view"></div>
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js?t=14"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js?t=14"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     const editorConfig = { MENU_CONF: {}, readOnly: true }
     // editorConfig.autoFocus = false
@@ -68,7 +68,7 @@
 
     // create
     let editor, toolbar
-    function createEditor () {
+    function createEditor() {
       editor = E.createEditor({
         selector: '#editor-text-area',
         // selector: document.getElementById('editor-text-area'),
@@ -101,7 +101,7 @@
 
       tag = "select"
 
-      constructor() {}
+      constructor() { }
 
       isActive() {
         return false
@@ -115,7 +115,7 @@
         return false
       }
 
-      getOptions () {
+      getOptions() {
         return [
           { text: '选项1', value: 'Option1' },
           { text: '选项2', value: 'Option2' },

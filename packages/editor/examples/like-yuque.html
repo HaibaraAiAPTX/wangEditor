@@ -92,9 +92,10 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    // const E = window.wangEditor
+    import * as E from 'dist/index.esm.js'
 
     const editorConfig = { MENU_CONF: {} }
     editorConfig.placeholder = '请输入内容'

@@ -4,8 +4,8 @@
  */
 
 import { Node } from 'slate'
-import { IDomEditor } from '../editor/interface'
-import { DOMElement } from '../utils/dom'
+import type { IDomEditor } from '../editor/interface'
+import type { DOMElement } from '../utils/dom'
 
 export interface IMenuGroup {
   key: string

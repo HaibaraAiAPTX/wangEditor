@@ -7,6 +7,7 @@ export const IS_IOS =
   typeof globalThis.navigator !== 'undefined' &&
   typeof globalThis.window !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+  // @ts-ignore MSStream is not defined in all browsers
   !globalThis.window.MSStream
 
 export const IS_APPLE = typeof navigator !== 'undefined' && /Mac OS X/.test(navigator.userAgent)

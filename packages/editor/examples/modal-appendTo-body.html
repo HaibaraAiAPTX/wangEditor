@@ -40,9 +40,9 @@
 
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     const editorConfig = { MENU_CONF: {} }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
 
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p>视频、图片等资源校验，自定义 alert，XSS 预防</p>
 
@@ -21,13 +23,13 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     const editorConfig = { MENU_CONF: {} }
     editorConfig.placeholder = '请输入内容'
-    
+
     editorConfig.customAlert = (info, type) => {
       alert(`customAlert: \n${type}:\n${info}`)
     }
@@ -219,4 +221,5 @@
     })
   </script>
 </body>
+
 </html>

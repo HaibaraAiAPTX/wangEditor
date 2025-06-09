@@ -25,10 +25,10 @@
 </body>
 
 <script src="js/init-content.js"></script>
-<script src="../dist/index.js"></script>
-<script>
+<!-- <script src="../dist/index.js"></script> -->
+<script type="module">
+  import * as E from 'dist/index.esm.js'
   (function () {
-    const E = window.wangEditor
 
     document.getElementById('btn-go')?.addEventListener('click', () => {
       let editor, toolbar

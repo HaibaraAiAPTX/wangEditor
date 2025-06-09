@@ -3,10 +3,10 @@
  * @author wangfupeng
  */
 
-import { Text as SlateText, Ancestor } from 'slate'
-import { jsx, VNode } from 'snabbdom'
+import { Text as SlateText, type Ancestor } from 'slate'
+import { jsx, type VNode } from 'snabbdom'
 import { DomEditor } from '../../editor/dom-editor'
-import { IDomEditor } from '../../editor/interface'
+import type { IDomEditor } from '../../editor/interface'
 import { KEY_TO_ELEMENT, NODE_TO_ELEMENT, ELEMENT_TO_NODE } from '../../utils/weak-maps'
 import genTextVnode from './genVnode'
 import addTextVnodeStyle from './renderStyle'

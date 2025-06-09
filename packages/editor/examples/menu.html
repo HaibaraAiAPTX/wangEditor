@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
 
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p>menu 配置，包括：hoverbar toolbar</p>
 
@@ -21,10 +23,12 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
-    const DomEditor = window.wangEditor.DomEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    // const E = window.wangEditor
+    import * as E from 'dist/index.esm.js'
+
+    const DomEditor = E.DomEditor
 
     const editorConfig = { MENU_CONF: {} }
     editorConfig.placeholder = '请输入内容'
@@ -102,4 +106,5 @@
     })
   </script>
 </body>
+
 </html>

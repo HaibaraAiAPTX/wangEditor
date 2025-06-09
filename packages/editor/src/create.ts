@@ -3,13 +3,13 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
+import { type Descendant } from 'slate'
 import Boot from './Boot'
 import { DOMElement } from './utils/dom'
 import {
-  IEditorConfig,
-  IDomEditor,
-  IToolbarConfig,
+  type IEditorConfig,
+  type IDomEditor,
+  type IToolbarConfig,
   coreCreateEditor,
   coreCreateToolbar,
   Toolbar,

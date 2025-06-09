@@ -4,8 +4,8 @@
  */
 
 import { Element as SlateElement } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor } from '@wangeditor/core'
+import { jsx, type VNode } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
 
 /**
  * render paragraph elem

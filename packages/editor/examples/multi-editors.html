@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     .container {
       display: flex;
     }
+
     .container-item {
       flex: 1;
       margin: 0 5px;
@@ -20,6 +22,7 @@
   </style>
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p>多编辑器 demo</p>
 
@@ -37,9 +40,9 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     // --------------------- editor1 ---------------------
     const editorConfig1 = { MENU_CONF: {} }
@@ -96,4 +99,5 @@
     })
   </script>
 </body>
+
 </html>

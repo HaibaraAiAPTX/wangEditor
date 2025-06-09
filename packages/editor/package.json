@@ -31,7 +31,9 @@
     "test": "jest",
     "test-c": "jest --coverage",
     "example": "concurrently \"yarn dev-watch\" \"http-server -p 8881 -c-1\" ",
+    "example:vite": "vite",
     "dev": "cross-env NODE_ENV=development rollup -c rollup.config.js",
+    "dev:rolldown": "rolldown -c rolldown.config.mjs",
     "dev-watch": "cross-env NODE_ENV=development rollup -c rollup.config.js -w",
     "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
     "dev-size-stats": "cross-env NODE_ENV=development:size_stats rollup -c rollup.config.js",
@@ -43,13 +45,13 @@
   "dependencies": {
     "@uppy/core": "^2.1.1",
     "@uppy/xhr-upload": "^2.0.3",
-    "@wangeditor/basic-modules": "^1.1.8",
-    "@wangeditor/code-highlight": "^1.0.3",
-    "@wangeditor/core": "^1.1.20",
-    "@wangeditor/list-module": "^1.0.5",
-    "@wangeditor/table-module": "^1.1.4",
-    "@wangeditor/upload-image-module": "^1.0.2",
-    "@wangeditor/video-module": "^1.1.4",
+    "@wangeditor/basic-modules": "workspace:^",
+    "@wangeditor/code-highlight": "workspace:^",
+    "@wangeditor/core": "workspace:^",
+    "@wangeditor/list-module": "workspace:^",
+    "@wangeditor/table-module": "workspace:^",
+    "@wangeditor/upload-image-module": "workspace:^",
+    "@wangeditor/video-module": "workspace:^",
     "dom7": "^3.0.0",
     "is-hotkey": "^0.2.0",
     "lodash.camelcase": "^4.3.0",
@@ -62,5 +64,8 @@
     "nanoid": "^3.2.0",
     "slate": "^0.72.0",
     "snabbdom": "^3.1.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
   }
 }

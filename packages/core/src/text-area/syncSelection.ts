@@ -6,13 +6,13 @@
 import { Range, Transforms } from 'slate'
 import scrollIntoView from 'scroll-into-view-if-needed'
 
-import { IDomEditor } from '../editor/interface'
+import { type IDomEditor } from '../editor/interface'
 import { DomEditor } from '../editor/dom-editor'
 import TextArea from './TextArea'
 import { EDITOR_TO_ELEMENT, IS_FOCUSED } from '../utils/weak-maps'
 import { IS_FIREFOX } from '../utils/ua'
 import { hasEditableTarget, isTargetInsideNonReadonlyVoid } from './helpers'
-import { DOMElement } from '../utils/dom'
+import type { DOMElement } from '../utils/dom'
 
 /**
  * editor onchange 时，将 editor selection 同步给 DOM
@@ -24,6 +24,7 @@ export function editorSelectionToDOM(textarea: TextArea, editor: IDomEditor, foc
   const { selection } = editor
   const config = editor.getConfig()
   const root = DomEditor.findDocumentOrShadowRoot(editor)
+  // @ts-ignore firefox ShadowRoot don't have getSelection method
   const domSelection = root.getSelection()
 
   if (!domSelection) return
@@ -165,6 +166,7 @@ export function DOMSelectionToEditor(textarea: TextArea, editor: IDomEditor) {
   const root = DomEditor.findDocumentOrShadowRoot(editor)
   const { activeElement } = root
   const el = DomEditor.toDOMNode(editor, editor)
+  // @ts-ignore firefox ShadowRoot don't have getSelection method
   const domSelection = root.getSelection()
 
   if (activeElement === el) {

@@ -4,7 +4,7 @@
  */
 
 import { Text } from 'slate'
-import { IDomEditor } from '../editor/interface'
+import type { IDomEditor } from '../editor/interface'
 import { DomEditor } from '../editor/dom-editor'
 import { STYLE_TO_HTML_FN_LIST } from './index'
 import { replaceHtmlSpecialSymbols } from '../utils/util'

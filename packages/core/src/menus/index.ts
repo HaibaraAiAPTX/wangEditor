@@ -9,7 +9,7 @@ import Toolbar from './bar/Toolbar'
 export { registerMenu } from './register'
 
 // menu 相关接口
-export {
+export type {
   IButtonMenu,
   ISelectMenu,
   IDropPanelMenu,

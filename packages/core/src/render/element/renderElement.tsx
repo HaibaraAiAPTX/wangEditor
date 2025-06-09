@@ -4,10 +4,10 @@
  */
 
 import { Editor, Node, Element as SlateElement } from 'slate'
-import { jsx, VNode } from 'snabbdom'
+import { jsx, type VNode } from 'snabbdom'
 import { node2Vnode } from '../node2Vnode'
 import { DomEditor } from '../../editor/dom-editor'
-import { IDomEditor } from '../../editor/interface'
+import type { IDomEditor } from '../../editor/interface'
 import {
   KEY_TO_ELEMENT,
   NODE_TO_ELEMENT,

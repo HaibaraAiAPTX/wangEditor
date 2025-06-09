@@ -3,12 +3,12 @@
  * @author wangfupeng
  */
 
-import { IDomEditor } from '../editor/interface'
+import type { IDomEditor } from '../editor/interface'
 import Toolbar from '../menus/bar/Toolbar'
-import { IToolbarConfig } from '../config/interface'
+import { type IToolbarConfig } from '../config/interface'
 import { genToolbarConfig } from '../config/index'
 import { isRepeatedCreateToolbar } from './helper'
-import { DOMElement } from '../utils/dom'
+import type { DOMElement } from '../utils/dom'
 import { TOOLBAR_TO_EDITOR, EDITOR_TO_TOOLBAR } from '../utils/weak-maps'
 
 interface ICreateOption {

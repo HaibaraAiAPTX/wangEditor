@@ -1,0 +1,13 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "dev:rolldown": {
+      "dependsOn": [
+        "^dev:rolldown"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    }
+  }
+}

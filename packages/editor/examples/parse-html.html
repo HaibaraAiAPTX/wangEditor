@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <link href="./css/editor.css" rel="stylesheet">
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p style="background-color: #ccc; padding: 5px 0;"><b>回显 html</b> - 使用 html 初始化编辑器内容</p>
 
@@ -17,7 +19,8 @@
     <button id="btn-v5-html">填入 V5 html 示例</button>
     <span style="color: red;"><b>【注意】只识别从 wangEditor 生成的 html</b> ，不可以随意自定义 html 代码（html 格式太灵活了，不会全部兼容）</span>
   </div>
-  <textarea id="text-html" style="width: 100%; height: 300px; font-size: 12px;" placeholder="输入 html 然后创建编辑器">&lt;p&gt;hello world&lt;/p&gt;</textarea>
+  <textarea id="text-html" style="width: 100%; height: 300px; font-size: 12px;"
+    placeholder="输入 html 然后创建编辑器">&lt;p&gt;hello world&lt;/p&gt;</textarea>
 
   <div style="margin: 10px 0;">
     <button id="btn-create">创建编辑器</button>
@@ -29,9 +32,9 @@
     <div id="editor-text-area" class="editor-text-area"></div>
   </div>
 
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
     const textarea = document.getElementById('text-html')
     let editor
 
@@ -50,13 +53,13 @@
       })
     })
 
-      // setHtml
-      document.getElementById('btn-set-html').addEventListener('click', () => {
-        if (!editor) alert('editor 尚未创建')
+    // setHtml
+    document.getElementById('btn-set-html').addEventListener('click', () => {
+      if (!editor) alert('editor 尚未创建')
 
-        const html = textarea.value
-        editor.setHtml(html)
-      })
+      const html = textarea.value
+      editor.setHtml(html)
+    })
 
     // 填入 v4 html
     document.getElementById('btn-v4-html').addEventListener('click', () => {
@@ -178,4 +181,5 @@ function fn() {
     })
   </script>
 </body>
+
 </html>

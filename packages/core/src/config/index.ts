@@ -5,7 +5,7 @@
 
 import forEach from 'lodash.foreach'
 import cloneDeep from 'lodash.clonedeep'
-import { IEditorConfig, IMenuConfig, IToolbarConfig } from './interface'
+import type { IEditorConfig, IMenuConfig, IToolbarConfig } from './interface'
 import { GLOBAL_MENU_CONF } from './register'
 
 /**

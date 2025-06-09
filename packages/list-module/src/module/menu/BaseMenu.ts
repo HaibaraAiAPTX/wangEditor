@@ -51,16 +51,18 @@ abstract class BaseMenu implements IButtonMenu {
       // 如果当前 active ，则转换为 p 标签
       Transforms.setNodes(editor, {
         type: 'paragraph',
-        ordered: undefined,
-        level: undefined,
+        // ordered: undefined,
+        // level: undefined,
       })
+      Transforms.unsetNodes(editor, ['ordered', 'level'])
     } else {
       // 否则，转换为 list-item
       Transforms.setNodes(editor, {
         type: 'list-item',
         ordered: this.ordered, // 有序/无序
-        indent: undefined,
+        // indent: undefined,
       })
+      Transforms.unsetNodes(editor, ['indent'])
     }
   }
 }

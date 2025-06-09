@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>content to html</title>
   <link href="../dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <p>content to html</p>
 
@@ -29,9 +31,9 @@
     <textarea id="text-html" readonly style="width: 100%; height: 300px;"></textarea>
   </div>
 
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
 
     document.getElementById('btn-convert').addEventListener('click', () => {
       const contentStr = document.getElementById('text-content').value
@@ -41,4 +43,5 @@
     })
   </script>
 </body>
+
 </html>

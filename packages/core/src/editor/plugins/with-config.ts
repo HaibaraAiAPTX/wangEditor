@@ -4,9 +4,9 @@
  */
 
 import { Editor } from 'slate'
-import { IDomEditor } from '../..'
+import type { IDomEditor } from '../..'
 import { EDITOR_TO_CONFIG } from '../../utils/weak-maps'
-import { IEditorConfig, AlertType, ISingleMenuConfig } from '../../config/interface'
+import type { IEditorConfig, AlertType, ISingleMenuConfig } from '../../config/interface'
 import { MENU_ITEM_FACTORIES } from '../../menus/register'
 
 export const withConfig = <T extends Editor>(editor: T) => {

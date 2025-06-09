@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { createEditor, Descendant } from 'slate'
+import { createEditor, type Descendant } from 'slate'
 import { withHistory } from 'slate-history'
 import { withDOM } from '../editor/plugins/with-dom'
 import { withConfig } from '../editor/plugins/with-config'
@@ -15,9 +15,9 @@ import { withMaxLength } from '../editor/plugins/with-max-length'
 import TextArea from '../text-area/TextArea'
 import HoverBar from '../menus/bar/HoverBar'
 import { genEditorConfig } from '../config/index'
-import { IDomEditor } from '../editor/interface'
+import type { IDomEditor } from '../editor/interface'
 import { DomEditor } from '../editor/dom-editor'
-import { IEditorConfig } from '../config/interface'
+import type { IEditorConfig } from '../config/interface'
 import { promiseResolveThen } from '../utils/util'
 import { isRepeatedCreateTextarea, genDefaultContent, htmlToContent } from './helper'
 import type { DOMElement } from '../utils/dom'

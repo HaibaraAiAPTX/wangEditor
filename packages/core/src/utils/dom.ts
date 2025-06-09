@@ -33,9 +33,9 @@ import $, {
   find,
   each,
   empty,
-  Dom7Array,
+  type Dom7Array,
 } from 'dom7'
-export { Dom7Array } from 'dom7'
+export type { Dom7Array } from 'dom7'
 
 if (css) $.fn.css = css
 if (append) $.fn.append = append
@@ -73,15 +73,14 @@ export default $
 // COMPAT: This is required to prevent TypeScript aliases from doing some very
 // weird things for Slate's types with the same name as globals. (2019/11/27)
 // https://github.com/microsoft/TypeScript/issues/35002
-import DOMNode = globalThis.Node
-import DOMComment = globalThis.Comment
-import DOMElement = globalThis.Element
-import DOMText = globalThis.Text
-import DOMRange = globalThis.Range
-import DOMSelection = globalThis.Selection
-import DOMStaticRange = globalThis.StaticRange
-import { IDomEditor } from '../editor/interface'
-export { DOMNode, DOMComment, DOMElement, DOMText, DOMRange, DOMSelection, DOMStaticRange }
+export type DOMNode = globalThis.Node
+export type DOMComment = globalThis.Comment
+export type DOMElement = globalThis.Element
+export type DOMText = globalThis.Text
+export type DOMRange = globalThis.Range
+export type DOMSelection = globalThis.Selection
+export type DOMStaticRange = globalThis.StaticRange
+import type { IDomEditor } from '../editor/interface'
 
 export type DOMPoint = [Node, number]
 
@@ -155,7 +154,7 @@ export const normalizeDOMPoint = (domPoint: DOMPoint): DOMPoint => {
   if (isDOMElement(node) && node.childNodes.length) {
     let isLast = offset === node.childNodes.length
     let index = isLast ? offset - 1 : offset
-    ;[node, index] = getEditableChildAndIndex(node, index, isLast ? 'backward' : 'forward')
+      ;[node, index] = getEditableChildAndIndex(node, index, isLast ? 'backward' : 'forward')
 
     // If the editable child found is in front of input offset, we instead seek to its end
     // 如果编辑区域的内容被发现在输入光标位置前面，也就是光标位置不正常，则修正光标的位置到结尾
@@ -348,7 +347,7 @@ export function walkTextNodes(
   // void elem 内部的 text 不处理
   if (elem instanceof HTMLElement && elem.dataset.slateVoid === 'true') return
 
-  for (let nodes = elem.childNodes, i = nodes.length; i--; ) {
+  for (let nodes = elem.childNodes, i = nodes.length; i--;) {
     const node = nodes[i]
     const nodeType = node.nodeType
     if (nodeType == 3) {

@@ -4,7 +4,7 @@
  */
 
 import toArray from 'lodash.toarray'
-import { Editor, Node, Element, Path, Point, Range, Ancestor, Text } from 'slate'
+import { Editor, Node, Element, Path, Point, Range, type Ancestor, Text } from 'slate'
 import type { IDomEditor } from './interface'
 import { Key } from '../utils/key'
 import TextArea from '../text-area/TextArea'
@@ -23,12 +23,12 @@ import {
   EDITOR_TO_WINDOW,
 } from '../utils/weak-maps'
 import $, {
-  DOMElement,
-  DOMNode,
-  DOMPoint,
-  DOMRange,
-  DOMSelection,
-  DOMStaticRange,
+  type DOMElement,
+  type DOMNode,
+  type DOMPoint,
+  type DOMRange,
+  type DOMSelection,
+  type DOMStaticRange,
   isDOMElement,
   normalizeDOMPoint,
   isDOMSelection,
@@ -122,6 +122,7 @@ export const DomEditor = {
     const el = DomEditor.toDOMNode(editor, editor)
     const root = el.getRootNode()
 
+    // @ts-ignore firefox ShadowRoot does not have getSelection method
     if ((root instanceof Document || root instanceof ShadowRoot) && root.getSelection != null) {
       return root
     }
@@ -202,7 +203,7 @@ export const DomEditor = {
     // https://github.com/ianstormtaylor/slate/issues/1819
     try {
       targetEl = (isDOMElement(target) ? target : target.parentElement) as HTMLElement
-    } catch (err) {
+    } catch (err: any) {
       if (!err.message.includes('Permission denied to access property "nodeType"')) {
         throw err
       }

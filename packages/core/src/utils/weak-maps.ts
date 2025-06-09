@@ -3,17 +3,21 @@
  * @author wangfupeng
  */
 
-import { Emitter } from 'event-emitter'
-import { VNode } from 'snabbdom'
-import { Node, Ancestor, Editor, Path, Range } from 'slate'
-import { IDomEditor } from '../editor/interface'
+/**
+ * @description 对象关联关系（部分参考 slate-react weak-maps.ts）
+ * @author wangfupeng
+ */
+import type { Emitter } from 'event-emitter'
+import type { VNode } from 'snabbdom'
+import { Node, type Ancestor, Editor, Path, Range } from 'slate'
+import type { IDomEditor } from '../editor/interface'
 import TextArea from '../text-area/TextArea'
 import Toolbar from '../menus/bar/Toolbar'
 import HoverBar from '../menus/bar/HoverBar'
-import { IBarItem } from '../menus/bar-item/index'
+import type { IBarItem } from '../menus/bar-item/index'
 import { Key } from './key'
-import { PatchFn } from '../utils/vdom'
-import { IEditorConfig } from '../config/interface'
+import type { PatchFn } from '../utils/vdom'
+import type { IEditorConfig } from '../config/interface'
 import PanelAndModal from '../menus/panel-and-modal/BaseClass'
 
 // textarea - editor

@@ -3,9 +3,9 @@
  * @author wangfupeng
  */
 
-import { Dom7Array } from '../../utils/dom'
-import { IButtonMenu, ISelectMenu, IDropPanelMenu, IModalMenu, IMenuGroup } from '../interface'
-import { IDomEditor } from '../../editor/interface'
+import type { Dom7Array } from '../../utils/dom'
+import type { IButtonMenu, ISelectMenu, IDropPanelMenu, IModalMenu, IMenuGroup } from '../interface'
+import type { IDomEditor } from '../../editor/interface'
 import { BAR_ITEM_TO_EDITOR } from '../../utils/weak-maps'
 import SimpleButton from './SimpleButton'
 import DropPanelButton from './DropPanelButton'

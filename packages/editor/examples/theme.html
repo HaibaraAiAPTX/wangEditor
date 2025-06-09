@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,12 @@
   <link href="./css/editor.css" rel="stylesheet">
   <link href="../dist/css/style.css" rel="stylesheet">
   <style>
-    html.dark  {
+    html.dark {
       --w-e-textarea-bg-color: #999;
     }
   </style>
 </head>
+
 <body>
   <p>
     Theme
@@ -27,9 +29,9 @@
   </div>
 
   <script src="js/init-content.js"></script>
-  <script src="../dist/index.js"></script>
-  <script>
-    const E = window.wangEditor
+  <!-- <script src="../dist/index.js"></script> -->
+  <script type="module">
+    import * as E from 'dist/index.esm.js'
     const editorConfig = {
       placeholder: '请输入内容...',
       MENU_CONF: {}
@@ -65,4 +67,5 @@
     })
   </script>
 </body>
+
 </html>
