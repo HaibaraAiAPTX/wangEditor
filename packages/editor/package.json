@@ -66,6 +66,6 @@
     "snabbdom": "^3.1.0"
   },
   "devDependencies": {
-    "vite": "^6.3.5"
+    "vite": "npm:rolldown-vite@latest"
   }
 }
