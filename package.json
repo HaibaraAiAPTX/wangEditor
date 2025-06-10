@@ -5,7 +5,7 @@
     "test": "cross-env NODE_OPTIONS=--unhandled-rejections=warn jest --detectOpenHandles --passWithNoTests",
     "test-c": "cross-env NODE_OPTIONS=--unhandled-rejections=warn jest --coverage",
     "dev": "pnpm clear && turbo watch build",
-    "build": "pnpm clear && turbo build --no-daemon --force",
+    "build": "pnpm clear && turbo build --no-daemon",
     "release:version": "git pull origin master && lerna version --conventional-commits && node ./scripts/release-tag.js",
     "release:publish:experimental": "lerna publish --dist-tag experimental",
     "release:publish:canary": "lerna publish --canary",
@@ -40,6 +40,7 @@
     }
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "@eslint/js": "^9.28.0",
     "@microsoft/api-extractor": "^7.52.8",
     "@testing-library/jest-dom": "^5.14.1",

@@ -1,6 +1,6 @@
 {
   "name": "@wangeditor/basic-modules",
-  "version": "1.1.10",
+  "version": "2.0.0",
   "description": "wangEditor basic modules",
   "author": "wangfupeng1988 <wangfupeng1988@163.com>",
   "contributors": [],
@@ -35,7 +35,7 @@
     "url": "https://github.com/wangeditor-team/wangEditor/issues"
   },
   "peerDependencies": {
-    "@wangeditor/core": "workspace:^",
+    "@wangeditor/core": "workspace:*",
     "dom7": "^3.0.0",
     "lodash.throttle": "^4.1.1",
     "nanoid": "^3.2.0",
@@ -43,6 +43,7 @@
     "snabbdom": "^3.1.0"
   },
   "dependencies": {
+    "@wangeditor/core": "workspace:*",
     "is-url": "^1.2.4"
   },
   "devDependencies": {
