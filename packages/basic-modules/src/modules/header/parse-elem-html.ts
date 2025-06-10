@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import { Descendant, Text } from 'slate'
-import $, { DOMElement } from '../../utils/dom'
-import { IDomEditor } from '@wangeditor/core'
-import {
+import type { Descendant } from 'slate'
+import { Text } from 'slate'
+import type { DOMElement } from '../../utils/dom'
+import $ from '../../utils/dom'
+import type { IDomEditor } from '@wangeditor/core'
+import type {
   Header1Element,
   Header2Element,
   Header3Element,

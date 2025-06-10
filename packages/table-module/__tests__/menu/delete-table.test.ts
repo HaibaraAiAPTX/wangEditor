@@ -55,7 +55,7 @@ describe('Table Module Delete Table Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({} as any))
+    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
 
     expect(deleteTableMenu.isDisabled(editor)).toBeFalsy()
   })

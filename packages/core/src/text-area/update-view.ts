@@ -5,7 +5,7 @@
 
 import { h, type VNode } from 'snabbdom'
 import type { IDomEditor } from '../editor/interface'
-import TextArea from './TextArea'
+import type TextArea from './TextArea'
 import { genPatchFn, normalizeVnodeData } from '../utils/vdom'
 import $, { type Dom7Array, getDefaultView, getElementById } from '../utils/dom'
 import { node2Vnode } from '../render/node2Vnode'
@@ -40,9 +40,9 @@ function genRootVnode(elemId: string, readOnly = false): VNode {
 /**
  * 生成编辑区域的 elem
  * @param elemId elemId
- * @param readOnly readOnly
+ * @param _readOnly readOnly
  */
-function genRootElem(elemId: string, readOnly = false): Dom7Array {
+function genRootElem(elemId: string, _readOnly = false): Dom7Array {
   const $elem = $(`<div
         id="${elemId}"
         data-slate-editor
@@ -73,7 +73,7 @@ function updateView(textarea: TextArea, editor: IDomEditor) {
   const newVnode = genRootVnode(elemId, readOnly)
   const content = editor.children || []
   newVnode.children = content.map((node, i) => {
-    let vnode = node2Vnode(node, i, editor, editor)
+    const vnode = node2Vnode(node, i, editor, editor)
     normalizeVnodeData(vnode) // 整理 vnode.data 以符合 snabbdom 的要求
     return vnode
   })
@@ -130,7 +130,7 @@ function updateView(textarea: TextArea, editor: IDomEditor) {
   // 存储相关信息
   if (isFirstPatch) {
     const window = getDefaultView(textareaElem)
-    window && EDITOR_TO_WINDOW.set(editor, window)
+    if (window) EDITOR_TO_WINDOW.set(editor, window)
   }
 
   EDITOR_TO_ELEMENT.set(editor, textareaElem) // 存储 editor -> elem 对应关系

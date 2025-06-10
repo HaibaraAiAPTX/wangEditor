@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
-import { jsx, VNode } from 'snabbdom'
+import type { Descendant } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
 import { addVnodeStyle } from '../../utils/vdom'
-import { FontSizeAndFamilyText } from './custom-types'
+import type { FontSizeAndFamilyText } from './custom-types'
 
 /**
  * 添加样式
@@ -16,7 +17,7 @@ import { FontSizeAndFamilyText } from './custom-types'
  */
 export function renderStyle(node: Descendant, vnode: VNode): VNode {
   const { fontSize, fontFamily } = node as FontSizeAndFamilyText
-  let styleVnode: VNode = vnode
+  const styleVnode: VNode = vnode
 
   if (fontSize) {
     addVnodeStyle(styleVnode, { fontSize })

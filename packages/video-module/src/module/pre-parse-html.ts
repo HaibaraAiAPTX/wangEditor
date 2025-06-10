@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import $, { getTagName, DOMElement } from '../utils/dom'
+import type { DOMElement } from '../utils/dom'
+import $, { getTagName } from '../utils/dom'
 
 /**
  * pre-prase video ，兼容 V4

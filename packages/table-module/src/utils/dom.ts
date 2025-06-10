@@ -16,9 +16,9 @@ import $, {
   children,
   each,
   find,
-  Dom7Array,
+  type Dom7Array,
 } from 'dom7'
-export { Dom7Array } from 'dom7'
+export type { Dom7Array } from 'dom7'
 
 if (append) $.fn.append = append
 if (on) $.fn.on = on

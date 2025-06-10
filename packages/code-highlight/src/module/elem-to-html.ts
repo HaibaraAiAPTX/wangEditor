@@ -3,8 +3,8 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
-import { CodeElement } from '../custom-types'
+import type { Element } from 'slate'
+import type { CodeElement } from '../custom-types'
 
 function codeToHtml(elem: Element, childrenHtml: string): string {
   const { language = '' } = elem as CodeElement

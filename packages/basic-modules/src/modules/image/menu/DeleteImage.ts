@@ -4,7 +4,8 @@
  */
 
 import { Transforms } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { TRASH_SVG } from '../../../constants/icon-svg'
 
 class DeleteImage implements IButtonMenu {
@@ -12,12 +13,12 @@ class DeleteImage implements IButtonMenu {
   readonly iconSvg = TRASH_SVG
   readonly tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 无需获取 val
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 无需 active
     return false
   }
@@ -33,7 +34,7 @@ class DeleteImage implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (this.isDisabled(editor)) return
 
     // 删除图片

@@ -5,7 +5,7 @@
 
 import { type IDomEditor } from '../../editor/interface'
 // import { DomEditor } from '../../editor/dom-editor'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { hasEditableTarget } from '../helpers'
 
 function handleOnCopy(e: Event, textarea: TextArea, editor: IDomEditor) {

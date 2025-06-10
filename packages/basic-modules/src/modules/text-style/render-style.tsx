@@ -3,9 +3,9 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { StyledText } from './custom-types'
+import type { Descendant } from 'slate'
+import { jsx, type VNode } from 'snabbdom'
+import type { StyledText } from './custom-types'
 
 /**
  * 添加样式

@@ -3,8 +3,9 @@
  * @author wangfupeng
  */
 
-import { Editor, Location, Node, type Ancestor, Element } from 'slate'
-import ee from 'event-emitter'
+import type { Editor, Location, Node, Element } from 'slate'
+import { type Ancestor } from 'slate'
+import type ee from 'event-emitter'
 import type { IEditorConfig, AlertType, ISingleMenuConfig } from '../config/interface'
 import type { IPositionStyle } from '../menus/interface'
 import type { DOMElement } from '../utils/dom'

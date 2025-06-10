@@ -3,21 +3,23 @@
  * @author wangfupeng
  */
 
-import { Transforms, Node } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor } from '@wangeditor/core'
-import { ImageElement } from '../custom-types'
+import type { Node } from 'slate'
+import { Transforms } from 'slate'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { ImageElement } from '../custom-types'
 
 abstract class ImageWidthBaseClass implements IButtonMenu {
   abstract readonly title: string // 菜单标题
   readonly tag = 'button'
   abstract readonly value: string // css width 的值
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 无需获取 val
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 无需 active
     return false
   }
@@ -37,7 +39,7 @@ abstract class ImageWidthBaseClass implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (this.isDisabled(editor)) return
 
     const imageNode = this.getSelectedNode(editor)

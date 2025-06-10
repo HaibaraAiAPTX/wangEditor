@@ -15,7 +15,7 @@ import $ from '../../utils/dom'
 class ModalButton extends BaseButton {
   private $body = $('body')
   private modal: Modal | null = null
-  menu: IModalMenu
+  declare menu: IModalMenu
 
   constructor(key: string, menu: IModalMenu, inGroup = false) {
     super(key, menu, inGroup)

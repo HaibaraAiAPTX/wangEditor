@@ -4,7 +4,8 @@
  */
 
 import { Transforms, Element } from 'slate'
-import { IDomEditor, t } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import BaseMenu from './BaseMenu'
 import { JUSTIFY_RIGHT_SVG } from '../../../constants/icon-svg'
 
@@ -12,7 +13,7 @@ class JustifyRightMenu extends BaseMenu {
   readonly title = t('justify.right')
   readonly iconSvg = JUSTIFY_RIGHT_SVG
 
-  exec(editor: IDomEditor, value: string | boolean): void {
+  exec(editor: IDomEditor, _value: string | boolean): void {
     Transforms.setNodes(
       editor,
       {

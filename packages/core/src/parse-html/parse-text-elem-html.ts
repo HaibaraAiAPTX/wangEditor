@@ -4,7 +4,7 @@
  */
 
 import { type Dom7Array } from 'dom7'
-import { Text } from 'slate'
+import type { Text } from 'slate'
 import { type IDomEditor } from '../editor/interface'
 import { PARSE_STYLE_HTML_FN_LIST } from './index'
 import { deReplaceHtmlSpecialSymbols } from '../utils/util'

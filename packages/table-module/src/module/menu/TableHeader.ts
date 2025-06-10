@@ -4,9 +4,10 @@
  */
 
 import { Transforms, Range } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { TABLE_HEADER_SVG } from '../../constants/svg'
-import { TableElement } from '../custom-types'
+import type { TableElement } from '../custom-types'
 import { getFirstRowCells, isTableWithHeader } from '../helpers'
 
 class TableHeader implements IButtonMenu {

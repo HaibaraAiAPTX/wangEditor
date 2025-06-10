@@ -3,15 +3,18 @@
  * @author wangfupeng
  */
 
-import $, { DOMElement } from '../utils/dom'
-import { Descendant, Element } from 'slate'
-import { DomEditor, IDomEditor } from '@wangeditor/core'
-import { CodeElement } from '../custom-types'
+import type { DOMElement } from '../utils/dom'
+import $ from '../utils/dom'
+import type { Descendant } from 'slate'
+import { Element } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { CodeElement } from '../custom-types'
 
 export function parseCodeStyleHtml(
   elem: DOMElement,
   node: Descendant,
-  editor: IDomEditor
+  _editor: IDomEditor
 ): Descendant {
   const $elem = $(elem)
 

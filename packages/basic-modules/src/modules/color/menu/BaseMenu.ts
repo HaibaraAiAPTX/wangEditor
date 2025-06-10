@@ -3,9 +3,11 @@
  * @author wangfupeng
  */
 
-import { Editor, Range } from 'slate'
-import { IDropPanelMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../../utils/dom'
+import { Editor } from 'slate'
+import type { IDropPanelMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../../utils/dom'
+import $ from '../../../utils/dom'
 import { CLEAN_SVG } from '../../../constants/icon-svg'
 
 abstract class BaseMenu implements IDropPanelMenu {
@@ -16,7 +18,7 @@ abstract class BaseMenu implements IDropPanelMenu {
   protected abstract readonly mark: string
   private $content: Dom7Array | null = null
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(_editor: IDomEditor, _value: string | boolean) {
     // 点击菜单时，弹出 droPanel 之前，不需要执行其他代码
     // 此处空着即可
   }
@@ -24,7 +26,6 @@ abstract class BaseMenu implements IDropPanelMenu {
   getValue(editor: IDomEditor): string | boolean {
     const mark = this.mark
     const curMarks = Editor.marks(editor)
-    // @ts-ignore
     if (curMarks && curMarks[mark]) return curMarks[mark]
     return ''
   }

@@ -6,7 +6,7 @@
 import { Editor, Range, Element } from 'slate'
 import { type IDomEditor } from '../../editor/interface'
 import { DomEditor } from '../../editor/dom-editor'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { hasEditableTarget } from '../helpers'
 import { IS_SAFARI, IS_CHROME, IS_FIREFOX } from '../../utils/ua'
 import type { DOMNode } from '../../utils/dom'

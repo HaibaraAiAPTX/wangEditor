@@ -3,12 +3,16 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
-import $, { DOMElement } from '../../utils/dom'
-import { IDomEditor } from '@wangeditor/core'
-import { DividerElement } from './custom-types'
+import type { Descendant } from 'slate'
+import type { DOMElement } from '../../utils/dom'
+import type { IDomEditor } from '@wangeditor/core'
+import type { DividerElement } from './custom-types'
 
-function parseHtml(elem: DOMElement, children: Descendant[], editor: IDomEditor): DividerElement {
+function parseHtml(
+  _elem: DOMElement,
+  _children: Descendant[],
+  _editor: IDomEditor
+): DividerElement {
   return {
     type: 'divider',
     children: [{ text: '' }], // void node 有一个空白 text

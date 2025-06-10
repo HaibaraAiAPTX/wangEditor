@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
-import { h, jsx, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { VideoElement } from './custom-types'
+import type { Element } from 'slate'
+import type { VNode } from 'snabbdom'
+import { h, jsx } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { VideoElement } from './custom-types'
 import { genSizeStyledIframeHtml } from '../utils/dom'
 
 function renderVideo(elemNode: Element, children: VNode[] | null, editor: IDomEditor): VNode {

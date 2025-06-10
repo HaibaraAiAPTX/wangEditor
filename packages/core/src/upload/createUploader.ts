@@ -21,13 +21,13 @@ function createUploader(config: IUploadConfig): Uppy {
     withCredentials = false,
     timeout = 10 * 1000, // 10s
     onBeforeUpload = files => files,
-    onSuccess = (file, res) => {
+    onSuccess = (_file, _res) => {
       /* on success */
     },
     onError = (file, err, res?) => {
       console.error(`${file.name} upload error`, err, res)
     },
-    onProgress = progress => {
+    onProgress = _progress => {
       /* on progress */
     },
   } = config

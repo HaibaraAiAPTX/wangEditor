@@ -4,7 +4,8 @@
  */
 
 import { Range, Transforms, Editor } from 'slate'
-import { IButtonMenu, IDomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import { ENTER_SVG } from '../../../constants/icon-svg'
 
 class EnterMenu implements IButtonMenu {
@@ -12,11 +13,11 @@ class EnterMenu implements IButtonMenu {
   iconSvg = ENTER_SVG
   tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     return false
   }
 
@@ -27,7 +28,7 @@ class EnterMenu implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     const { selection } = editor
     if (selection == null) return
     const { anchor } = selection

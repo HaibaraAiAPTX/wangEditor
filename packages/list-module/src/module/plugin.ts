@@ -4,8 +4,9 @@
  */
 
 import { Editor, Transforms, Range } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { ListItemElement } from './custom-types'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { ListItemElement } from './custom-types'
 
 /**
  * 获取选中的 top elems

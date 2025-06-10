@@ -3,9 +3,10 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor } from '@wangeditor/core'
+import type { Element as SlateElement } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
 
 function renderTableRow(
   elemNode: SlateElement,

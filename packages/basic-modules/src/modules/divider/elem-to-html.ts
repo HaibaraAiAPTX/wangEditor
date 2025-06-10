@@ -3,9 +3,9 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
+import type { Element } from 'slate'
 
-function dividerToHtml(elem: Element, childrenHtml: string): string {
+function dividerToHtml(_elem: Element, _childrenHtml: string): string {
   return `<hr/>`
 }
 

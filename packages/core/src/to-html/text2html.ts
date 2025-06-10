@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Text } from 'slate'
+import type { Text } from 'slate'
 import type { IDomEditor } from '../editor/interface'
 import { DomEditor } from '../editor/dom-editor'
 import { STYLE_TO_HTML_FN_LIST } from './index'

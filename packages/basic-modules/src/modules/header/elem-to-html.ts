@@ -3,10 +3,10 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
+import type { Element } from 'slate'
 
 function genToHtmlFn(level: number) {
-  function headerToHtml(elem: Element, childrenHtml: string): string {
+  function headerToHtml(_elem: Element, childrenHtml: string): string {
     return `<h${level}>${childrenHtml}</h${level}>`
   }
   return headerToHtml

@@ -4,7 +4,7 @@
  */
 
 import { Editor, Transforms } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import { type IButtonMenu, type IDomEditor, DomEditor, t } from '@wangeditor/core'
 import { QUOTE_SVG } from '../../../constants/icon-svg'
 
 class BlockquoteMenu implements IButtonMenu {
@@ -12,7 +12,7 @@ class BlockquoteMenu implements IButtonMenu {
   readonly iconSvg = QUOTE_SVG
   readonly tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 用不到 getValue
     return ''
   }
@@ -50,9 +50,9 @@ class BlockquoteMenu implements IButtonMenu {
   /**
    * 执行命令
    * @param editor editor
-   * @param value node.type
+   * @param _value node.type
    */
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (this.isDisabled(editor)) return
 
     const active = this.isActive(editor)

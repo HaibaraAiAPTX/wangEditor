@@ -8,3 +8,6 @@ onlyBuiltDependencies:
   - es5-ext
   - husky
   - nx
+
+patchedDependencies:
+  unplugin-dts: patches/unplugin-dts.patch

@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Editor } from 'slate'
+import type { Editor } from 'slate'
 import type { IDomEditor } from '../..'
 import { EDITOR_TO_CONFIG } from '../../utils/weak-maps'
 import type { IEditorConfig, AlertType, ISingleMenuConfig } from '../../config/interface'
@@ -14,7 +14,7 @@ export const withConfig = <T extends Editor>(editor: T) => {
 
   e.getAllMenuKeys = (): string[] => {
     const arr: string[] = []
-    for (let key in MENU_ITEM_FACTORIES) {
+    for (const key in MENU_ITEM_FACTORIES) {
       arr.push(key)
     }
     return arr

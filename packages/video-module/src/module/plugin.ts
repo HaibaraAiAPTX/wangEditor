@@ -3,8 +3,10 @@
  * @author wangfupeng
  */
 
-import { Transforms, Element } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Element } from 'slate'
+import { Transforms } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 function withVideo<T extends IDomEditor>(editor: T): T {
   const { isVoid, normalizeNode } = editor

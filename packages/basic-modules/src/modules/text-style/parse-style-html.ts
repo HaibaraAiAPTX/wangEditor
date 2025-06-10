@@ -3,10 +3,10 @@
  * @author wangfupeng
  */
 
-import { Descendant, Text } from 'slate'
-import { IDomEditor } from '@wangeditor/core'
-import { StyledText } from './custom-types'
-import $, { Dom7Array, DOMElement } from '../../utils/dom'
+import { type Descendant, Text } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import type { StyledText } from './custom-types'
+import $, { type Dom7Array, type DOMElement } from '../../utils/dom'
 
 /**
  * $text 是否匹配 tags
@@ -26,7 +26,7 @@ function isMatch($text: Dom7Array, selector: string): boolean {
 export function parseStyleHtml(
   textElem: DOMElement,
   node: Descendant,
-  editor: IDomEditor
+  _editor: IDomEditor
 ): Descendant {
   const $text = $(textElem)
 

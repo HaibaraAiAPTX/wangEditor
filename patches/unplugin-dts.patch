@@ -1,0 +1,24 @@
+diff --git a/dist/shared/unplugin-dts.DVgXC96N.mjs b/dist/shared/unplugin-dts.DVgXC96N.mjs
+index c051b589344f426bcc6fa4c123abbcb1752ad216..41dc2968d6d0e0ec8c3e8364d251764595607d45 100644
+--- a/dist/shared/unplugin-dts.DVgXC96N.mjs
++++ b/dist/shared/unplugin-dts.DVgXC96N.mjs
+@@ -1231,12 +1231,14 @@ ${content}`;
+         emittedFiles.clear();
+         const declared = declareModules.join("\n");
+         await runParallel(cpus().length, [...rollupFiles], async (filePath) => {
+-          await writeOutput(
+-            filePath,
+-            await readFile(filePath, "utf-8") + (declared ? `
++          if (existsSync(filePath)) {
++            await writeOutput(
++              filePath,
++              await readFile(filePath, "utf-8") + (declared ? `
+ ${declared}` : ""),
+-            dirname(filePath)
+-          );
++              dirname(filePath)
++            );
++          }
+         });
+         handleDebug("rollup output");
+       }

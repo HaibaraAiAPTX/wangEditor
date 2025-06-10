@@ -3,19 +3,10 @@
  * @author wangfupeng
  */
 
-import {
-  Editor,
-  Transforms,
-  Location,
-  Point,
-  Element as SlateElement,
-  Descendant,
-  NodeEntry,
-  Node,
-  BaseText,
-  Path,
-} from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Location, Element as SlateElement, Descendant, NodeEntry, BaseText } from 'slate'
+import { Editor, Transforms, Point, Node, Path } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 // table cell 内部的删除处理
 function deleteHandler(newEditor: IDomEditor): boolean {

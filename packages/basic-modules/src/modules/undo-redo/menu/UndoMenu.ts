@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { IButtonMenu, IDomEditor, t } from '@wangeditor/core'
+import { type IButtonMenu, type IDomEditor, t } from '@wangeditor/core'
 import { UNDO_SVG } from '../../../constants/icon-svg'
 
 class UndoMenu implements IButtonMenu {
@@ -11,11 +11,11 @@ class UndoMenu implements IButtonMenu {
   iconSvg = UNDO_SVG
   tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     return false
   }
 
@@ -24,7 +24,7 @@ class UndoMenu implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (typeof editor.undo === 'function') {
       editor.undo()
     }

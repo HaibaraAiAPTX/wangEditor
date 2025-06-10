@@ -121,8 +121,8 @@ export const isDOMNode = (value: any): value is DOMNode => {
  * Check if a value is a DOM selection.
  */
 export const isDOMSelection = (value: any): value is DOMSelection => {
-  const window = value && value.anchorNode && getDefaultView(value.anchorNode)
-  return !!window && value instanceof window.Selection
+  const win = value && value.anchorNode && getDefaultView(value.anchorNode)
+  return !!win && value instanceof window.Selection
 }
 
 /**
@@ -154,7 +154,7 @@ export const normalizeDOMPoint = (domPoint: DOMPoint): DOMPoint => {
   if (isDOMElement(node) && node.childNodes.length) {
     let isLast = offset === node.childNodes.length
     let index = isLast ? offset - 1 : offset
-      ;[node, index] = getEditableChildAndIndex(node, index, isLast ? 'backward' : 'forward')
+    ;[node, index] = getEditableChildAndIndex(node, index, isLast ? 'backward' : 'forward')
 
     // If the editable child found is in front of input offset, we instead seek to its end
     // 如果编辑区域的内容被发现在输入光标位置前面，也就是光标位置不正常，则修正光标的位置到结尾
@@ -347,7 +347,7 @@ export function walkTextNodes(
   // void elem 内部的 text 不处理
   if (elem instanceof HTMLElement && elem.dataset.slateVoid === 'true') return
 
-  for (let nodes = elem.childNodes, i = nodes.length; i--;) {
+  for (let nodes = elem.childNodes, i = nodes.length; i--; ) {
     const node = nodes[i]
     const nodeType = node.nodeType
     if (nodeType == 3) {

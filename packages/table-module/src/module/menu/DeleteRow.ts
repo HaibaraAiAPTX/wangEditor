@@ -4,7 +4,8 @@
  */
 
 import { Editor, Transforms, Range } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { DEL_ROW_SVG } from '../../constants/svg'
 
 class DeleteRow implements IButtonMenu {

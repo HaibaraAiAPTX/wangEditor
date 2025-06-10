@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Transforms, Element } from 'slate'
+import type { Element } from 'slate'
+import { Editor, Transforms } from 'slate'
 import createEditor from '../../../../tests/utils/create-editor'
 import CodeBlockMenu from '../../src/modules/code-block/menu/CodeBlockMenu'
 

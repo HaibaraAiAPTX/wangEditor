@@ -4,10 +4,13 @@
  */
 
 import throttle from 'lodash.throttle'
-import { Element as SlateElement, Transforms, Location } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { TableCellElement } from '../custom-types'
+import type { Element as SlateElement, Location } from 'slate'
+import { Transforms } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { TableCellElement } from '../custom-types'
 import { isCellInFirstRow } from '../helpers'
 import $ from '../../utils/dom'
 

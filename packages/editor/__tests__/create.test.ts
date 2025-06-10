@@ -4,7 +4,7 @@
  */
 
 import { createEditor, createToolbar } from '../../../packages/editor/src/index'
-import { ICreateEditorOption, ICreateToolbarOption } from '../../../packages/editor/src/create'
+import type { ICreateEditorOption, ICreateToolbarOption } from '../../../packages/editor/src/create'
 
 function customCreateEditor(config: Partial<ICreateEditorOption> = {}) {
   const editorContainer = document.createElement('div')

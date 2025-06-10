@@ -3,15 +3,16 @@
  * @author wangfupeng
  */
 
-import { Editor, Range, Node } from 'slate'
+import type { Node } from 'slate'
+import { Editor, Range } from 'slate'
 import {
-  IModalMenu,
-  IDomEditor,
+  type IModalMenu,
+  type IDomEditor,
   genModalInputElems,
   genModalButtonElems,
   t,
 } from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../../utils/dom'
+import $, { type Dom7Array, type DOMElement } from '../../../utils/dom'
 import { genRandomStr } from '../../../utils/util'
 import { LINK_SVG } from '../../../constants/icon-svg'
 import { isMenuDisabled, insertLink } from '../helper'
@@ -34,17 +35,17 @@ class InsertLinkMenu implements IModalMenu {
   private readonly urlInputId = genDomID()
   private readonly buttonId = genDomID()
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 插入菜单，不需要 value
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 任何时候，都不用激活 menu
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(_editor: IDomEditor, _value: string | boolean) {
     // 点击菜单时，弹出 modal 之前，不需要执行其他代码
     // 此处空着即可
   }
@@ -53,7 +54,7 @@ class InsertLinkMenu implements IModalMenu {
     return isMenuDisabled(editor)
   }
 
-  getModalPositionNode(editor: IDomEditor): Node | null {
+  getModalPositionNode(_editor: IDomEditor): Node | null {
     return null // modal 依据选区定位
   }
 

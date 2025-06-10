@@ -4,10 +4,11 @@
  */
 
 import { Editor, Transforms } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 function withHeader<T extends IDomEditor>(editor: T): T {
-  const { insertBreak, insertNode } = editor
+  const { insertBreak } = editor
   const newEditor = editor
 
   // 重写 insertBreak - header 末尾回车时要插入 paragraph

@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Range } from 'slate'
+import type { Range } from 'slate'
 import throttle from 'lodash.throttle'
 import forEach from 'lodash.foreach'
 import $, { type Dom7Array, type DOMElement } from '../utils/dom'

@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import { Element, Descendant } from 'slate'
-import { jsx, VNode } from 'snabbdom'
+import type { Descendant } from 'slate'
+import { Element } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
 import { addVnodeStyle } from '../../utils/vdom'
-import { IndentElement } from './custom-types'
+import type { IndentElement } from './custom-types'
 
 /**
  * 添加样式
@@ -18,7 +20,7 @@ export function renderStyle(node: Descendant, vnode: VNode): VNode {
   if (!Element.isElement(node)) return vnode
 
   const { indent } = node as IndentElement // 如 '2em'
-  let styleVnode: VNode = vnode
+  const styleVnode: VNode = vnode
 
   if (indent) {
     addVnodeStyle(styleVnode, { textIndent: indent })

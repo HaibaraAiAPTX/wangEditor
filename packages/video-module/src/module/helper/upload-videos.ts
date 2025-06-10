@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import Uppy, { UppyFile } from '@uppy/core'
-import { IDomEditor, createUploader } from '@wangeditor/core'
+import type { UppyFile } from '@uppy/core'
+import type Uppy from '@uppy/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { createUploader } from '@wangeditor/core'
 import insertVideo from './insert-video'
-import { IUploadConfigForVideo } from '../menu/config'
+import type { IUploadConfigForVideo } from '../menu/config'
 
 function getMenuConfig(editor: IDomEditor): IUploadConfigForVideo {
   // 获取配置，见 `./config.js`
@@ -42,7 +44,7 @@ function getUppy(editor: IDomEditor): Uppy {
       return
     }
 
-    let { errno = 1, data = {} } = res
+    const { errno = 1, data = {} } = res
     if (errno !== 0) {
       // failed 回调
       onFailed(file, res)
@@ -61,7 +63,7 @@ function getUppy(editor: IDomEditor): Uppy {
     editor.showProgressBar(progress)
 
     // 回调函数
-    onProgress && onProgress(progress)
+    if (onProgress) onProgress(progress)
   }
 
   // onError 提示错误

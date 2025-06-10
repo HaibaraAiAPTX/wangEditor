@@ -4,9 +4,10 @@
  */
 
 import { Transforms, Element } from 'slate'
-import { ISelectMenu, IDomEditor, IOption, DomEditor, t } from '@wangeditor/core'
+import type { ISelectMenu, IDomEditor, IOption } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { JS_SVG } from '../../constants/svg'
-import { CodeElement } from '../../custom-types'
+import type { CodeElement } from '../../custom-types'
 
 class SelectLangMenu implements ISelectMenu {
   readonly title = t('highLightModule.selectLang')
@@ -43,7 +44,7 @@ class SelectLangMenu implements ISelectMenu {
     return options
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // select menu 会显示 selected value ，用不到 active
     return false
   }

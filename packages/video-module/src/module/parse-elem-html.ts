@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
-import { IDomEditor } from '@wangeditor/core'
-import { VideoElement } from './custom-types'
-import $, { DOMElement } from '../utils/dom'
+import type { Descendant } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import type { VideoElement } from './custom-types'
+import type { DOMElement } from '../utils/dom'
+import $ from '../utils/dom'
 
 function genVideoElem(
   src: string,

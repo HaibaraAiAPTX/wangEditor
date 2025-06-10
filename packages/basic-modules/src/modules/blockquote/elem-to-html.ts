@@ -3,9 +3,9 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
+import type { Element } from 'slate'
 
-function quoteToHtml(elem: Element, childrenHtml: string): string {
+function quoteToHtml(_elem: Element, childrenHtml: string): string {
   return `<blockquote>${childrenHtml}</blockquote>`
 }
 

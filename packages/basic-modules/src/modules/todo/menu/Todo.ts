@@ -3,8 +3,9 @@
  * @author wangfupeng
  */
 
-import { Editor, Element, Transforms } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { Element } from 'slate'
+import { Editor, Transforms } from 'slate'
+import { type IButtonMenu, type IDomEditor, DomEditor, t } from '@wangeditor/core'
 import { CHECK_BOX_SVG } from '../../../constants/icon-svg'
 
 class TodoMenu implements IButtonMenu {
@@ -12,7 +13,7 @@ class TodoMenu implements IButtonMenu {
   readonly iconSvg = CHECK_BOX_SVG
   readonly tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 无需获取 val
     return ''
   }
@@ -36,7 +37,7 @@ class TodoMenu implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     const active = this.isActive(editor)
     Transforms.setNodes(editor, { type: active ? 'paragraph' : 'todo' })
   }

@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Element } from 'slate'
+import type { Element } from 'slate'
+import { Editor } from 'slate'
 import type { IDomEditor } from '../editor/interface'
 import node2html from './node2html'
 import { type ElemToHtmlFnType, ELEM_TO_HTML_CONF, STYLE_TO_HTML_FN_LIST } from './index'

@@ -3,7 +3,5 @@
  * @author wangfupeng
  */
 
-import coreCreateEditor from './create-editor'
-import coreCreateToolbar from './create-toolbar'
-
-export { coreCreateEditor, coreCreateToolbar }
+export { default as coreCreateEditor } from './create-editor'
+export { default as coreCreateToolbar } from './create-toolbar'

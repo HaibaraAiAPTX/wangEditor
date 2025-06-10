@@ -10,7 +10,7 @@ import {
   Node as SlateNode,
   Text as SlateText,
 } from 'slate'
-import { IDomEditor } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
 
 function deleteHandler(newEditor: IDomEditor): boolean {
   const [nodeEntry] = Editor.nodes(newEditor, {
@@ -36,7 +36,7 @@ function deleteHandler(newEditor: IDomEditor): boolean {
 }
 
 function withParagraph<T extends IDomEditor>(editor: T): T {
-  const { deleteBackward, deleteForward, insertText, insertBreak } = editor
+  const { deleteBackward, deleteForward } = editor
   const newEditor = editor
 
   // 删除非 p 的文本 elem（如 header blockQuote 等），删除没有内容时，切换为 p

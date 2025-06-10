@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement } from 'slate'
+import type { Element as SlateElement } from 'slate'
 import { jsx, type VNode } from 'snabbdom'
 import type { IDomEditor } from '../../editor/interface'
 import { RENDER_ELEM_CONF, type RenderElemFnType } from '../index'

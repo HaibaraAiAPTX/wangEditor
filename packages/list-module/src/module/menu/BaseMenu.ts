@@ -3,9 +3,11 @@
  * @author wangfupeng
  */
 
-import { Editor, Node, Transforms, Element } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor } from '@wangeditor/core'
-import { ListItemElement } from '../custom-types'
+import type { Node, Element } from 'slate'
+import { Editor, Transforms } from 'slate'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { ListItemElement } from '../custom-types'
 
 abstract class BaseMenu implements IButtonMenu {
   readonly type = 'list-item'

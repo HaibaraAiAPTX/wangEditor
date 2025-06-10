@@ -44,7 +44,7 @@ interface ICreateOption {
 /**
  * 创建编辑器
  */
-export default function (option: Partial<ICreateOption>) {
+export default function coreCreateEditor(option: Partial<ICreateOption>) {
   const { selector = '', config = {}, content, html, plugins = [] } = option
 
   // 创建实例 - 使用插件

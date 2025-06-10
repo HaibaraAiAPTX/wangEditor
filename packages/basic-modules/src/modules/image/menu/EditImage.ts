@@ -3,20 +3,16 @@
  * @author wangfupeng
  */
 
-import { Node, Range } from 'slate'
-import {
-  IModalMenu,
-  IDomEditor,
-  DomEditor,
-  genModalInputElems,
-  genModalButtonElems,
-  t,
-} from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../../utils/dom'
+import type { Node } from 'slate'
+import { Range } from 'slate'
+import type { IModalMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, genModalInputElems, genModalButtonElems, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../../utils/dom'
+import $ from '../../../utils/dom'
 import { genRandomStr } from '../../../utils/util'
 import { PENCIL_SVG } from '../../../constants/icon-svg'
 import { updateImageNode } from '../helper'
-import { ImageElement, ImageStyle } from '../custom-types'
+import type { ImageElement, ImageStyle } from '../custom-types'
 
 /**
  * 生成唯一的 DOM ID
@@ -37,7 +33,7 @@ class EditImage implements IModalMenu {
   private readonly hrefInputId = genDomID()
   private readonly buttonId = genDomID()
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 编辑图片，用不到 getValue
     return ''
   }
@@ -46,12 +42,12 @@ class EditImage implements IModalMenu {
     return DomEditor.getSelectedNodeByType(editor, 'image')
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 无需 active
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(_editor: IDomEditor, _value: string | boolean) {
     // 点击菜单时，弹出 modal 之前，不需要执行其他代码
     // 此处空着即可
   }

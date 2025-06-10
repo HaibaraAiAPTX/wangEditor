@@ -5,14 +5,14 @@
 
 import { type Descendant } from 'slate'
 import Boot from './Boot'
-import { DOMElement } from './utils/dom'
+import type { DOMElement } from './utils/dom'
+import type { Toolbar } from '@wangeditor/core'
 import {
   type IEditorConfig,
   type IDomEditor,
   type IToolbarConfig,
   coreCreateEditor,
   coreCreateToolbar,
-  Toolbar,
 } from '@wangeditor/core'
 
 export interface ICreateEditorOption {
@@ -36,7 +36,7 @@ export interface ICreateToolbarOption {
 export function createEditor(option: Partial<ICreateEditorOption> = {}): IDomEditor {
   const { selector = '', content = [], html, config = {}, mode = 'default' } = option
 
-  let globalConfig = mode === 'simple' ? Boot.simpleEditorConfig : Boot.editorConfig
+  const globalConfig = mode === 'simple' ? Boot.simpleEditorConfig : Boot.editorConfig
 
   // 单独处理 hoverbarKeys
   const newHoverbarKeys = {
@@ -68,7 +68,7 @@ export function createToolbar(option: ICreateToolbarOption): Toolbar {
     throw new Error(`Cannot find 'selector' when create toolbar`)
   }
 
-  let globalConfig = mode === 'simple' ? Boot.simpleToolbarConfig : Boot.toolbarConfig
+  const globalConfig = mode === 'simple' ? Boot.simpleToolbarConfig : Boot.toolbarConfig
 
   const toolbar = coreCreateToolbar(editor, {
     selector,

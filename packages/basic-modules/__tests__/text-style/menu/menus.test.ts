@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Transforms, Element } from 'slate'
+import type { Element } from 'slate'
+import { Editor, Transforms } from 'slate'
 import createEditor from '../../../../../tests/utils/create-editor'
 import BoldMenu from '../../../src/modules/text-style/menu/BoldMenu'
 import CodeMenu from '../../../src/modules/text-style/menu/CodeMenu'
@@ -24,7 +25,7 @@ const MENU_INFO_LIST = [
 ]
 
 describe('text style menus', () => {
-  let editor = createEditor()
+  const editor = createEditor()
   const startLocation = Editor.start(editor, [])
 
   afterEach(() => {

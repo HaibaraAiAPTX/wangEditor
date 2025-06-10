@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Node } from 'slate'
+import type { Node } from 'slate'
 import type { IDomEditor } from '../editor/interface'
 import type { DOMElement } from '../utils/dom'
 
@@ -44,6 +44,7 @@ interface IBaseMenu {
   exec: (editor: IDomEditor, value: string | boolean) => void // button click 或 select change 时触发
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IButtonMenu extends IBaseMenu {
   /* 其他属性 */
 }

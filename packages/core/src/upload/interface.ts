@@ -5,7 +5,7 @@
 
 import { type UppyFile } from '@uppy/core'
 
-type FilesType = { [key: string]: UppyFile<{}, {}> }
+type FilesType = { [key: string]: UppyFile<any, any> }
 
 /**
  * 配置参考 https://uppy.io/docs/uppy/
@@ -18,9 +18,9 @@ export interface IUploadConfig {
   meta?: Record<string, unknown>
   metaWithUrl: boolean
   headers?:
-  | Headers
-  | ((file: UppyFile<Record<string, unknown>, Record<string, unknown>>) => Headers)
-  | undefined
+    | Headers
+    | ((file: UppyFile<Record<string, unknown>, Record<string, unknown>>) => Headers)
+    | undefined
   withCredentials?: boolean
   timeout?: number
   onBeforeUpload?: (files: FilesType) => boolean | FilesType

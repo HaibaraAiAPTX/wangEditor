@@ -6,7 +6,7 @@
 import { isHotkey } from 'is-hotkey'
 import { Editor, Transforms, Range, Node, Element } from 'slate'
 import type { IDomEditor } from '../../editor/interface'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import Hotkeys from '../../utils/hotkeys'
 import { hasEditableTarget } from '../helpers'
 import { HAS_BEFORE_INPUT_SUPPORT, IS_CHROME, IS_SAFARI } from '../../utils/ua'
@@ -25,7 +25,7 @@ function triggerMenuHotKey(editor: IDomEditor, event: KeyboardEvent) {
 
   // 合并所有 menus
   const allMenus = { ...toolbarMenus, ...hoverbarMenus }
-  for (let key in allMenus) {
+  for (const key in allMenus) {
     const menu = allMenus[key]
     const { hotkey } = menu
     if (hotkey && isHotkey(hotkey, event)) {

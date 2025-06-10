@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement, Transforms } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { TodoElement } from './custom-types'
+import type { Element as SlateElement } from 'slate'
+import { Transforms } from 'slate'
+import { jsx, type VNode } from 'snabbdom'
+import { type IDomEditor, DomEditor } from '@wangeditor/core'
+import { type TodoElement } from './custom-types'
 
 /**
  * render todo elem

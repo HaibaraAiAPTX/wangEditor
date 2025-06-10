@@ -8,7 +8,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 
 import { type IDomEditor } from '../editor/interface'
 import { DomEditor } from '../editor/dom-editor'
-import TextArea from './TextArea'
+import type TextArea from './TextArea'
 import { EDITOR_TO_ELEMENT, IS_FOCUSED } from '../utils/weak-maps'
 import { IS_FIREFOX } from '../utils/ua'
 import { hasEditableTarget, isTargetInsideNonReadonlyVoid } from './helpers'
@@ -118,7 +118,7 @@ export function editorSelectionToDOM(textarea: TextArea, editor: IDomEditor, foc
     }
 
     // 滚动到选区
-    let leafEl = newDomRange.startContainer.parentElement! as Element
+    const leafEl = newDomRange.startContainer.parentElement! as Element
     const spacer = leafEl.closest('[data-slate-spacer]')
 
     // 这个 if 防止选中图片时发生滚动

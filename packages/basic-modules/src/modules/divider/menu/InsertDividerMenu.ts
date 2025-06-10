@@ -4,20 +4,21 @@
  */
 
 import { Transforms } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { DIVIDER_SVG } from '../../../constants/icon-svg'
-import { DividerElement } from '../custom-types'
+import type { DividerElement } from '../custom-types'
 
 class InsertDividerMenu implements IButtonMenu {
   readonly title = t('divider.title')
   readonly iconSvg = DIVIDER_SVG
   readonly tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 不需要 active
     return false
   }
@@ -38,7 +39,7 @@ class InsertDividerMenu implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean): void {
+  exec(editor: IDomEditor, _value: string | boolean): void {
     const node: DividerElement = {
       type: 'divider',
       children: [{ text: '' }], // 【注意】void node 需要一个空 text 作为 children

@@ -3,8 +3,10 @@
  * @author wangfupeng
  */
 
-import { Editor, Node } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Node } from 'slate'
+import { Editor } from 'slate'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 abstract class BaseMenu implements IButtonMenu {
   abstract readonly title: string
@@ -28,7 +30,7 @@ abstract class BaseMenu implements IButtonMenu {
     return n.indent || ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 不需要 active
     return false
   }

@@ -4,8 +4,10 @@
  */
 
 import { Editor } from 'slate'
-import { IDropPanelMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../../utils/dom'
+import type { IDropPanelMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../../utils/dom'
+import $ from '../../../utils/dom'
 import { EMOTION_SVG } from '../../../constants/icon-svg'
 
 class EmotionMenu implements IDropPanelMenu {
@@ -15,17 +17,17 @@ class EmotionMenu implements IDropPanelMenu {
   readonly showDropPanel = true // 点击 button 时显示 dropPanel
   private $content: Dom7Array | null = null
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(_editor: IDomEditor, _value: string | boolean) {
     // 点击菜单时，弹出 droPanel 之前，不需要执行其他代码
     // 此处空着即可
   }
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 不需要 getValue
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 不需要 active
     return false
   }

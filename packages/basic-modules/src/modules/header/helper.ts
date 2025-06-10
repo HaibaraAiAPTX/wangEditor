@@ -4,7 +4,8 @@
  */
 
 import { Editor, Transforms } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 /**
  * 获取 node type（'header1' 'header2' 等），未匹配则返回 'paragraph'

@@ -2,8 +2,8 @@ import { defineConfig } from 'rolldown'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 import fs from 'fs'
-import dts from 'unplugin-dts/rolldown'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { dts } from '../../build/get-dts-plugin.mjs'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 const name = 'WangEditorCodeHighLight'
@@ -59,7 +59,7 @@ export default defineConfig([
         plugins: [autoprefixer()],
         extract: 'css/style.css',
       }),
-      dts({}),
+      dts('code-highlight'),
       visualizer(),
     ],
   },

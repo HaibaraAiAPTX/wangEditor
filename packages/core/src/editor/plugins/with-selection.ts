@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Transforms, Location, Node, Range, Point } from 'slate'
+import type { Location, Node } from 'slate'
+import { Editor, Transforms, Range, Point } from 'slate'
 import type { IDomEditor } from '../interface'
 import { DomEditor } from '../dom-editor'
 import { getPositionByNode, getPositionBySelection } from '../../menus/helpers/position'

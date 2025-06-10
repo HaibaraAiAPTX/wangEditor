@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Node, Element } from 'slate'
+import type { Node } from 'slate'
+import { Element } from 'slate'
 import { type Dom7Array, getFirstVoidChild } from '../../utils/dom'
 import type { IDomEditor } from '../../editor/interface'
 import { DomEditor } from '../../editor/dom-editor'
@@ -63,13 +64,13 @@ export function getPositionBySelection(editor: IDomEditor): Partial<IPositionSty
   const positionStyle: Partial<IPositionStyle> = {}
 
   // 获取 选区 top left 和 container top left 的差值（< 0 则使用 0）
-  let relativeTop = rangeTop - containerTop
-  let relativeLeft = rangeLeft - containerLeft
+  const relativeTop = rangeTop - containerTop
+  const relativeLeft = rangeLeft - containerLeft
 
   // 判断水平位置： modal/bar 显示在选区左侧，还是右侧？
   if (relativeLeft > containerWidth / 2) {
     // 选区 left 大于 containerWidth/2 （选区在 container 的右侧），则 modal/bar 显示在选区左侧
-    let r = containerWidth - relativeLeft
+    const r = containerWidth - relativeLeft
     positionStyle.right = `${r + 5}px` // 5px 间隔
   } else {
     // 否则（选区在 container 的左侧），modal/bar 显示在选区右侧
@@ -79,7 +80,7 @@ export function getPositionBySelection(editor: IDomEditor): Partial<IPositionSty
   // 判断垂直的位置： modal/bar 显示在选区上面，还是下面？
   if (relativeTop > containerHeight / 2) {
     // 选区 top  > containerHeight/2 （选区在 container 的下半部分），则 modal/bar 显示在选区的上面
-    let b = containerHeight - relativeTop
+    const b = containerHeight - relativeTop
     positionStyle.bottom = `${b + 5}px` // 5px 间隔
   } else {
     // 否则（选区在 container 的上半部分），则 modal/bar 显示在选区的下面
@@ -115,8 +116,10 @@ export function getPositionByNode(
   if (elem == null) return defaultStyle // 默认 position
   let {
     top: elemTop,
+    // eslint-disable-next-line prefer-const
     left: elemLeft,
     height: elemHeight,
+    // eslint-disable-next-line prefer-const
     width: elemWidth,
   } = elem.getBoundingClientRect()
   if (isVoidElem) {
@@ -143,8 +146,8 @@ export function getPositionByNode(
   const positionStyle: Partial<IPositionStyle> = {}
 
   // 获取 elem top left 和 container top left 的差值（< 0 则使用 0）
-  let relativeTop = elemTop - containerTop
-  let relativeLeft = elemLeft - containerLeft
+  const relativeTop = elemTop - containerTop
+  const relativeLeft = elemLeft - containerLeft
 
   if (type === 'bar') {
     // bar - 1. left 对齐 elem.left ；2. 尽量显示在 elem 上方

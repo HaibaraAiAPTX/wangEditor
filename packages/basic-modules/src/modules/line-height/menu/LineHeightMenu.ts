@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import { Editor, Node, Element, Transforms } from 'slate'
-import { ISelectMenu, IDomEditor, DomEditor, IOption, t } from '@wangeditor/core'
+import type { Node } from 'slate'
+import { Editor, Element, Transforms } from 'slate'
+import type { ISelectMenu, IDomEditor, IOption } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { LINE_HEIGHT_SVG } from '../../../constants/icon-svg'
-import { LineHeightElement } from '../custom-types'
+import type { LineHeightElement } from '../custom-types'
 
 class LineHeightMenu implements ISelectMenu {
   readonly title = t('lineHeight.title')
@@ -70,7 +72,7 @@ class LineHeightMenu implements ISelectMenu {
     return nodeEntry[0]
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // select menu 会显示 selected value ，用不到 active
     return false
   }

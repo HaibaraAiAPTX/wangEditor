@@ -11,7 +11,7 @@ import { getEditorInstance } from './index'
 
 class DropPanelButton extends BaseButton {
   private dropPanel: DropPanel | null = null
-  menu: IDropPanelMenu
+  declare menu: IDropPanelMenu
 
   constructor(key: string, menu: IDropPanelMenu, inGroup = false) {
     super(key, menu, inGroup)

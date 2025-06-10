@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { IDomEditor, IOption, t } from '@wangeditor/core'
+import type { IDomEditor, IOption } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import BaseMenu from './BaseMenu'
 import { FONT_SIZE_SVG } from '../../../constants/icon-svg'
 

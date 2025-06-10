@@ -4,10 +4,11 @@
  */
 
 import { Transforms, Element } from 'slate'
-import { IDomEditor, t } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import BaseMenu from './BaseMenu'
 import { INDENT_LEFT_SVG } from '../../../constants/icon-svg'
-import { IndentElement } from '../custom-types'
+import type { IndentElement } from '../custom-types'
 
 class DecreaseIndentMenu extends BaseMenu {
   readonly title = t('indent.decrease')
@@ -26,7 +27,7 @@ class DecreaseIndentMenu extends BaseMenu {
     return false // 其他情况，不禁用
   }
 
-  exec(editor: IDomEditor, value: string | boolean): void {
+  exec(editor: IDomEditor, _value: string | boolean): void {
     Transforms.setNodes(
       editor,
       {

@@ -3,8 +3,19 @@
  * @author wangfupeng
  */
 
-import $, { append, on, focus, attr, val, html, parent, hasClass, Dom7Array, empty } from 'dom7'
-export { Dom7Array } from 'dom7'
+import $, {
+  append,
+  on,
+  focus,
+  attr,
+  val,
+  html,
+  parent,
+  hasClass,
+  type Dom7Array,
+  empty,
+} from 'dom7'
+export type { Dom7Array } from 'dom7'
 
 if (append) $.fn.append = append
 if (on) $.fn.on = on

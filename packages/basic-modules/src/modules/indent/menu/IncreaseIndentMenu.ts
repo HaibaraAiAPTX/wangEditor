@@ -3,11 +3,12 @@
  * @author wangfupeng
  */
 
-import { Transforms, Element, Editor, Text } from 'slate'
-import { IDomEditor, t, DomEditor } from '@wangeditor/core'
+import { Transforms, Element, Text } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import BaseMenu from './BaseMenu'
 import { INDENT_RIGHT_SVG } from '../../../constants/icon-svg'
-import { IndentElement } from '../custom-types'
+import type { IndentElement } from '../custom-types'
 import type { FontSizeAndFamilyText } from '../../font-size-family/custom-types'
 
 class IncreaseIndentMenu extends BaseMenu {
@@ -46,7 +47,7 @@ class IncreaseIndentMenu extends BaseMenu {
     return `${value * 2}${unit}`
   }
 
-  exec(editor: IDomEditor, value: string | boolean): void {
+  exec(editor: IDomEditor, _value: string | boolean): void {
     const indent = this.getIndentValue(editor)
 
     Transforms.setNodes(

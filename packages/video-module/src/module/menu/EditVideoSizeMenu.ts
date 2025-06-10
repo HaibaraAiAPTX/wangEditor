@@ -3,18 +3,14 @@
  * @author wangfupeng
  */
 
-import { Node as SlateNode, Transforms } from 'slate'
-import {
-  IModalMenu,
-  IDomEditor,
-  DomEditor,
-  genModalInputElems,
-  genModalButtonElems,
-  t,
-} from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../utils/dom'
+import type { Node as SlateNode } from 'slate'
+import { Transforms } from 'slate'
+import type { IModalMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, genModalInputElems, genModalButtonElems, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../utils/dom'
+import $ from '../../utils/dom'
 import { genRandomStr } from '../../utils/util'
-import { VideoElement } from '../custom-types'
+import type { VideoElement } from '../custom-types'
 
 /**
  * 生成唯一的 DOM ID

@@ -3,9 +3,10 @@
  * @author wangfupeng
  */
 
-import { Text, Descendant } from 'slate'
+import type { Descendant } from 'slate'
+import { Text } from 'slate'
 import $, { getOuterHTML, getTagName, isPlainText } from '../../utils/dom'
-import { ColorText } from './custom-types'
+import type { ColorText } from './custom-types'
 
 /**
  * style to html

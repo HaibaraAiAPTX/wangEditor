@@ -3,10 +3,12 @@
  * @author wangfupeng
  */
 
-import Uppy, { UppyFile } from '@uppy/core'
-import { IDomEditor, createUploader } from '@wangeditor/core'
+import type { UppyFile } from '@uppy/core'
+import type Uppy from '@uppy/core'
+import type { IDomEditor } from '@wangeditor/core'
+import { createUploader } from '@wangeditor/core'
 import { insertImageNode } from '@wangeditor/basic-modules'
-import { IUploadConfigForImage } from './menu/config'
+import type { IUploadConfigForImage } from './menu/config'
 
 // 存储 editor uppy 的关系 - 缓存 uppy ，不重复创建
 const EDITOR_TO_UPPY_MAP = new WeakMap<IDomEditor, Uppy>()
@@ -37,7 +39,7 @@ function getUppy(editor: IDomEditor): Uppy {
       return
     }
 
-    let { errno = 1, data = {} } = res
+    const { errno = 1, data = {} } = res
     if (errno !== 0) {
       // failed 回调
       onFailed(file, res)
@@ -66,7 +68,7 @@ function getUppy(editor: IDomEditor): Uppy {
     editor.showProgressBar(progress)
 
     // 回调函数
-    onProgress && onProgress(progress)
+    if (onProgress) onProgress(progress)
   }
 
   // onError 提示错误
@@ -105,7 +107,7 @@ async function insertBase64(editor: IDomEditor, file: File) {
       const { result } = reader
       if (!result) return
       const src = result.toString()
-      let href = src.indexOf('data:image') === 0 ? '' : src // base64 格式则不设置 href
+      const href = src.indexOf('data:image') === 0 ? '' : src // base64 格式则不设置 href
       insertImageNode(editor, src, file.name, href)
 
       resolve('ok')

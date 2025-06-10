@@ -2,7 +2,7 @@ import { defineConfig } from 'rolldown'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 import fs from 'fs'
-import dts from 'unplugin-dts/rolldown'
+import { dts } from '../../build/get-dts-plugin.mjs'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
@@ -51,7 +51,7 @@ export default defineConfig([
         plugins: [autoprefixer()],
         extract: 'css/style.css',
       }),
-      dts({}),
+      dts('basic-modules'),
       visualizer(),
     ],
   },

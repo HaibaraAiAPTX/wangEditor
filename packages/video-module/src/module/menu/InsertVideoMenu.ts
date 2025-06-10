@@ -3,16 +3,12 @@
  * @author wangfupeng
  */
 
-import { Range, Node } from 'slate'
-import {
-  IModalMenu,
-  IDomEditor,
-  DomEditor,
-  genModalInputElems,
-  genModalButtonElems,
-  t,
-} from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../utils/dom'
+import type { Node } from 'slate'
+import { Range } from 'slate'
+import type { IModalMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, genModalInputElems, genModalButtonElems, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../utils/dom'
+import $ from '../../utils/dom'
 import { genRandomStr } from '../../utils/util'
 import { VIDEO_SVG } from '../../constants/svg'
 import insertVideo from '../helper/insert-video'

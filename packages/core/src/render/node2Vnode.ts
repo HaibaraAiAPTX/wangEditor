@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Element, Text, Node, type Ancestor } from 'slate'
+import type { Text, Node } from 'slate'
+import { Element, type Ancestor } from 'slate'
 import type { VNode } from 'snabbdom'
 import type { IDomEditor } from '../editor/interface'
 import renderElement from './element/renderElement'

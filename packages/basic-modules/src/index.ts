@@ -27,7 +27,7 @@ import wangEditorCodeBlockModule from './modules/code-block'
 import wangEditorFullScreenModule from './modules/full-screen'
 import wangEditorCommonModule from './modules/common'
 
-export default [
+export const basicModules = [
   // text style
   wangEditorTextStyleModule,
   wangEditorColorModule,

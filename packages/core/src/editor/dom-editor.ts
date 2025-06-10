@@ -4,12 +4,13 @@
  */
 
 import toArray from 'lodash.toarray'
-import { Editor, Node, Element, Path, Point, Range, type Ancestor, Text } from 'slate'
+import type { Path, Point } from 'slate'
+import { Editor, Node, Element, Range, type Ancestor, Text } from 'slate'
 import type { IDomEditor } from './interface'
 import { Key } from '../utils/key'
-import TextArea from '../text-area/TextArea'
-import Toolbar from '../menus/bar/Toolbar'
-import HoverBar from '../menus/bar/HoverBar'
+import type TextArea from '../text-area/TextArea'
+import type Toolbar from '../menus/bar/Toolbar'
+import type HoverBar from '../menus/bar/HoverBar'
 import {
   EDITOR_TO_ELEMENT,
   ELEMENT_TO_NODE,
@@ -81,7 +82,6 @@ export const DomEditor = {
     const path: Path = []
     let child = node
 
-    // eslint-disable-next-line
     while (true) {
       const parent = NODE_TO_PARENT.get(child)
 
@@ -593,7 +593,7 @@ export const DomEditor = {
     const elems: Element[] = []
 
     const nodeEntries = Editor.nodes(editor, { universal: true })
-    for (let nodeEntry of nodeEntries) {
+    for (const nodeEntry of nodeEntries) {
       const [node] = nodeEntry
       if (Element.isElement(node)) elems.push(node)
     }
@@ -718,7 +718,7 @@ export const DomEditor = {
       },
       universal: true,
     })
-    for (let nodeEntry of nodeEntries) {
+    for (const nodeEntry of nodeEntries) {
       if (nodeEntry != null) {
         const n = nodeEntry[0]
         const elem = DomEditor.toDOMNode(editor, n)

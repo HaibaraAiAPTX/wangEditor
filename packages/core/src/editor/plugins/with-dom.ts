@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Node, Editor, Transforms } from 'slate'
+import type { Node } from 'slate'
+import { Editor, Transforms } from 'slate'
 import { DomEditor } from '../dom-editor'
 import type { IDomEditor } from '../..'
 import $, { type Dom7Array } from '../../utils/dom'
@@ -77,10 +78,10 @@ export const withDOM = <T extends Editor>(editor: T) => {
     textarea.changeViewState()
 
     const toolbar = DomEditor.getToolbar(e)
-    toolbar && toolbar.changeToolbarState()
+    if (toolbar) toolbar.changeToolbarState()
 
     const hoverbar = DomEditor.getHoverbar(e)
-    hoverbar && hoverbar.changeHoverbarState()
+    if (hoverbar) hoverbar.changeHoverbarState()
   }
 
   // destroy

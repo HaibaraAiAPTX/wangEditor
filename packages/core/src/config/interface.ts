@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Range, type NodeEntry, Node } from 'slate'
+import type { Range, Node } from 'slate'
+import { type NodeEntry } from 'slate'
 import type { IDomEditor } from '../editor/interface'
 import type { IMenuGroup } from '../menus/interface'
 

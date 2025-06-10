@@ -3,12 +3,16 @@
  * @author wangfupeng
  */
 
-import { Descendant } from 'slate'
-import $, { DOMElement } from '../../utils/dom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { PreElement, CodeElement } from './custom-types'
+import { type Descendant } from 'slate'
+import $, { type DOMElement } from '../../utils/dom'
+import { type IDomEditor, DomEditor } from '@wangeditor/core'
+import type { PreElement, CodeElement } from './custom-types'
 
-function parseCodeHtml(elem: DOMElement, children: Descendant[], editor: IDomEditor): CodeElement {
+function parseCodeHtml(
+  elem: DOMElement,
+  _children: Descendant[],
+  _editor: IDomEditor
+): CodeElement {
   const $elem = $(elem)
 
   return {
@@ -23,7 +27,7 @@ export const parseCodeHtmlConf = {
   parseElemHtml: parseCodeHtml,
 }
 
-function parsePreHtml(elem: DOMElement, children: Descendant[], editor: IDomEditor): PreElement {
+function parsePreHtml(elem: DOMElement, children: Descendant[], _editor: IDomEditor): PreElement {
   const $elem = $(elem)
 
   children = children.filter(child => DomEditor.getNodeType(child) === 'code')

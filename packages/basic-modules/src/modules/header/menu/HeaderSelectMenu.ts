@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { ISelectMenu, IDomEditor, IOption, t } from '@wangeditor/core'
+import type { ISelectMenu, IDomEditor, IOption } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import { HEADER_SVG } from '../../../constants/icon-svg'
 import { getHeaderType, isMenuDisabled, setHeaderType } from '../helper'
 
@@ -58,7 +59,7 @@ class HeaderSelectMenu implements ISelectMenu {
     return options
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // select menu 会显示 selected value ，用不到 active
     return false
   }

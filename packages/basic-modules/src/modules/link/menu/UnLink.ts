@@ -4,7 +4,7 @@
  */
 
 import { Transforms } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import { type IButtonMenu, type IDomEditor, DomEditor, t } from '@wangeditor/core'
 import { UN_LINK_SVG } from '../../../constants/icon-svg'
 
 class UnLink implements IButtonMenu {
@@ -12,12 +12,12 @@ class UnLink implements IButtonMenu {
   readonly iconSvg = UN_LINK_SVG
   readonly tag = 'button'
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     // 无需获取 val
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 无需 active
     return false
   }
@@ -33,7 +33,7 @@ class UnLink implements IButtonMenu {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (this.isDisabled(editor)) return
 
     // 取消链接

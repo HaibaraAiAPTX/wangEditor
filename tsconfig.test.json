@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react",
+    "jsxFactory": "jsx", /* snabbdom jsx */
+    "moduleResolution": "node",
+  },
+  "include": [
+    "./packages/*/__tests__",
+    "./packages/*/src",
+  ]
+}

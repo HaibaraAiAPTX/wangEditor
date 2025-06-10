@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Node, NodeEntry, Range, Text } from 'slate'
+import type { Node, NodeEntry, Range } from 'slate'
+import { Text } from 'slate'
 import { DomEditor } from '@wangeditor/core'
 import { getPrismTokens, getPrismTokenLength } from '../vendor/prism'
-import { CodeElement } from '../custom-types'
+import type { CodeElement } from '../custom-types'
 
 /**
  * 获取 code elem

@@ -3,9 +3,10 @@
  * @author wangfupeng
  */
 
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import { EXTERNAL_SVG } from '../../../constants/icon-svg'
-import { ImageElement } from '../custom-types'
+import type { ImageElement } from '../custom-types'
 
 class ViewImageLink implements IButtonMenu {
   readonly title = t('image.viewLink')
@@ -21,7 +22,7 @@ class ViewImageLink implements IButtonMenu {
     return ''
   }
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // 无需 active
     return false
   }

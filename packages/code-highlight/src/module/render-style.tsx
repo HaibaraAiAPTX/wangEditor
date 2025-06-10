@@ -3,8 +3,9 @@
  * @author wangfupeng
  */
 
-import { Text as SlateText, Descendant } from 'slate'
-import { jsx, VNode } from 'snabbdom'
+import type { Text as SlateText, Descendant } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
 import { addVnodeClassName } from '../utils/vdom'
 import { prismTokenTypes } from '../vendor/prism'
 
@@ -16,7 +17,7 @@ import { prismTokenTypes } from '../vendor/prism'
  */
 export function renderStyle(node: Descendant, vnode: VNode): VNode {
   const leafNode = node as SlateText & { [key: string]: string }
-  let styleVnode: VNode = vnode
+  const styleVnode: VNode = vnode
 
   let className = ''
   prismTokenTypes.forEach(type => {

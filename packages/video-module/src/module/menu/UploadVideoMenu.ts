@@ -4,10 +4,11 @@
  */
 
 import { Range } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
 import $ from '../../utils/dom'
 import { UPLOAD_VIDEO_SVG } from '../../constants/svg'
-import { IUploadConfigForVideo } from './config'
+import type { IUploadConfigForVideo } from './config'
 import insertVideo from '../helper/insert-video'
 import uploadVideos from '../helper/upload-videos'
 

@@ -3,23 +3,14 @@
  * @author wangfupeng
  */
 
-import {
-  Editor,
-  Node,
-  Text,
-  Path,
-  Operation,
-  Range,
-  Transforms,
-  Element,
-  type Descendant,
-} from 'slate'
+import type { Operation } from 'slate'
+import { Editor, Node, Text, Path, Range, Transforms, Element, type Descendant } from 'slate'
 import { DomEditor } from '../dom-editor'
 import type { IDomEditor } from '../..'
 import { EDITOR_TO_SELECTION, NODE_TO_KEY } from '../../utils/weak-maps'
 import node2html from '../../to-html/node2html'
 import { genElemId } from '../../render/helper'
-import { Key } from '../../utils/key'
+import type { Key } from '../../utils/key'
 import $, { type DOMElement, NodeType } from '../../utils/dom'
 import { findCurrentLineRange } from '../../utils/line'
 import type { ElementWithId } from '../interface'
@@ -180,11 +171,11 @@ export const withContent = <T extends Editor>(editor: T) => {
       at: [],
       universal: true,
     })
-    for (let nodeEntry of nodeEntries) {
+    for (const nodeEntry of nodeEntries) {
       const [node] = nodeEntry
       if (Element.isElement(node)) {
         // 判断 type （前缀 or 全等）
-        let flag = isPrefix ? node.type.indexOf(type) >= 0 : node.type === type
+        const flag = isPrefix ? node.type.indexOf(type) >= 0 : node.type === type
         if (flag) {
           const key = DomEditor.findKey(e, node)
           const id = genElemId(key.id)
@@ -328,7 +319,7 @@ export const withContent = <T extends Editor>(editor: T) => {
         // text elem，如 <span>
         isParseMatch = true
       } else {
-        for (let selector in PARSE_ELEM_HTML_CONF) {
+        for (const selector in PARSE_ELEM_HTML_CONF) {
           if (el.matches(selector)) {
             // 普通 elem，如 <p> <a> 等（非 text elem）
             isParseMatch = true

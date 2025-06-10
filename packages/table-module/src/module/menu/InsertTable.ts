@@ -4,11 +4,13 @@
  */
 
 import { Editor, Transforms, Range, Node } from 'slate'
-import { IDropPanelMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
-import $, { Dom7Array, DOMElement } from '../../utils/dom'
+import type { IDropPanelMenu, IDomEditor } from '@wangeditor/core'
+import { DomEditor, t } from '@wangeditor/core'
+import type { Dom7Array, DOMElement } from '../../utils/dom'
+import $ from '../../utils/dom'
 import { genRandomStr } from '../../utils/util'
 import { TABLE_SVG } from '../../constants/svg'
-import { TableElement, TableCellElement, TableRowElement } from '../custom-types'
+import type { TableElement, TableCellElement, TableRowElement } from '../custom-types'
 
 function genTableNode(rowNum: number, colNum: number): TableElement {
   // 拼接 rows

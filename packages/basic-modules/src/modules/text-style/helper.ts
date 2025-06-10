@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Editor, Node } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Node } from 'slate'
+import { Editor } from 'slate'
+import { type IDomEditor, DomEditor } from '@wangeditor/core'
 
-export function isMenuDisabled(editor: IDomEditor, mark?: string): boolean {
+export function isMenuDisabled(editor: IDomEditor, _mark?: string): boolean {
   if (editor.selection == null) return true
 
   const [match] = Editor.nodes(editor, {

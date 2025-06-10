@@ -6,7 +6,7 @@
 import { Editor, Transforms } from 'slate'
 import { DomEditor } from '../../editor/dom-editor'
 import type { IDomEditor } from '../../editor/interface'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { hasTarget } from '../helpers'
 
 export function handleOnDragstart(e: Event, textarea: TextArea, editor: IDomEditor) {

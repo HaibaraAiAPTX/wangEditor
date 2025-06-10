@@ -4,7 +4,8 @@
  */
 
 import { Editor } from 'slate'
-import { ISelectMenu, IDomEditor, DomEditor, IOption } from '@wangeditor/core'
+import type { ISelectMenu, IDomEditor, IOption } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 abstract class BaseMenu implements ISelectMenu {
   abstract readonly title: string
@@ -15,7 +16,7 @@ abstract class BaseMenu implements ISelectMenu {
 
   abstract getOptions(editor: IDomEditor): IOption[]
 
-  isActive(editor: IDomEditor): boolean {
+  isActive(_editor: IDomEditor): boolean {
     // select menu 会显示 selected value ，用不到 active
     return false
   }
@@ -23,7 +24,6 @@ abstract class BaseMenu implements ISelectMenu {
   getValue(editor: IDomEditor): string | boolean {
     const mark = this.mark
     const curMarks = Editor.marks(editor)
-    // @ts-ignore
     if (curMarks && curMarks[mark]) return curMarks[mark]
     return ''
   }
@@ -31,7 +31,7 @@ abstract class BaseMenu implements ISelectMenu {
   isDisabled(editor: IDomEditor): boolean {
     if (editor.selection == null) return true
 
-    const mark = this.mark
+    // const mark = this.mark
     const [match] = Editor.nodes(editor, {
       match: n => {
         const type = DomEditor.getNodeType(n)

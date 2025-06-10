@@ -5,7 +5,7 @@
 
 import { Editor } from 'slate'
 import type { IDomEditor } from '../../editor/interface'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { HAS_BEFORE_INPUT_SUPPORT } from '../../utils/ua'
 import { hasEditableTarget } from '../helpers'
 

@@ -4,7 +4,7 @@
  */
 
 import { type IDomEditor } from '../editor/interface'
-import TextArea from './TextArea'
+import type TextArea from './TextArea'
 import $ from '../utils/dom'
 
 /**

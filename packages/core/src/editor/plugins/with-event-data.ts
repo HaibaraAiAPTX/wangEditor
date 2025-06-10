@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Node, Transforms, Range } from 'slate'
+import type { Node } from 'slate'
+import { Editor, Transforms, Range } from 'slate'
 import { DomEditor } from '../dom-editor'
 import type { IDomEditor } from '../..'
 

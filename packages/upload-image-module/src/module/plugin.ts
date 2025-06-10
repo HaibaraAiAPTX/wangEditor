@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { IDomEditor } from '@wangeditor/core'
+import type { IDomEditor } from '@wangeditor/core'
 import { isInsertImageMenuDisabled } from '@wangeditor/basic-modules'
 import uploadImages from './upload-images'
 
@@ -34,7 +34,7 @@ function withUploadImage<T extends IDomEditor>(editor: T): T {
 
     // 判断是否有图片文件（可能是其他类型的文件）
     const fileList = Array.prototype.slice.call(files)
-    let _hasImageFiles = fileList.some(file => {
+    const _hasImageFiles = fileList.some(file => {
       const [mime] = file.type.split('/')
       return mime === 'image'
     })

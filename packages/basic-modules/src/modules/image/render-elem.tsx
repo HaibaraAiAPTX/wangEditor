@@ -4,11 +4,15 @@
  */
 
 import throttle from 'lodash.throttle'
-import { Element as SlateElement, Transforms } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import $, { Dom7Array } from '../../utils/dom'
-import { ImageElement } from './custom-types'
+import type { Element as SlateElement } from 'slate'
+import { Transforms } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { Dom7Array } from '../../utils/dom'
+import $ from '../../utils/dom'
+import type { ImageElement } from './custom-types'
 
 interface IImageSize {
   width?: string
@@ -112,7 +116,7 @@ function renderResizeContainer(
     $container.css('height', `${newHeight}px`)
   }, 100)
 
-  function onMouseup(e: Event) {
+  function onMouseup(_e: Event) {
     // 取消监听 mousemove
     $body.off('mousemove', onMousemove)
 
@@ -172,7 +176,7 @@ function renderResizeContainer(
   )
 }
 
-function renderImage(elemNode: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
+function renderImage(elemNode: SlateElement, _children: VNode[] | null, editor: IDomEditor): VNode {
   const { src, alt = '', href = '', style = {} } = elemNode as ImageElement
   const { width = '', height = '' } = style
   const selected = DomEditor.isNodeSelected(editor, elemNode) // 图片是否选中

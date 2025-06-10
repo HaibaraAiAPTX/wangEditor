@@ -1,13 +1,14 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
-    "dev:rolldown": {
+    "build": {
       "dependsOn": [
-        "^dev:rolldown"
+        "^build"
       ],
       "outputs": [
         "dist/**"
       ]
-    }
+    },
+    "example": {}
   }
 }

@@ -13,12 +13,18 @@
   "contributors": [],
   "homepage": "https://www.wangeditor.com/",
   "license": "MIT",
-  "types": "dist/editor/src/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "browser": {
-    "./dist/index.js": "./dist/index.js",
-    "./dist/index.esm.js": "./dist/index.esm.js"
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./*": {
+      "default": "./*"
+    }
   },
   "directories": {
     "lib": "dist",
@@ -30,14 +36,8 @@
   "scripts": {
     "test": "jest",
     "test-c": "jest --coverage",
-    "example": "concurrently \"yarn dev-watch\" \"http-server -p 8881 -c-1\" ",
-    "example:vite": "vite",
-    "dev": "cross-env NODE_ENV=development rollup -c rollup.config.js",
-    "dev:rolldown": "rolldown -c rolldown.config.mjs",
-    "dev-watch": "cross-env NODE_ENV=development rollup -c rollup.config.js -w",
-    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "dev-size-stats": "cross-env NODE_ENV=development:size_stats rollup -c rollup.config.js",
-    "size-stats": "cross-env NODE_ENV=production:size_stats rollup -c rollup.config.js"
+    "example": "vite -c vite.config.mjs --host",
+    "build": "rolldown -c rolldown.config.mjs"
   },
   "bugs": {
     "url": "https://github.com/wangeditor-team/wangEditor/issues"

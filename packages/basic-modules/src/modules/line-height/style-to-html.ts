@@ -3,9 +3,10 @@
  * @author wangfupeng
  */
 
-import { Element, Descendant } from 'slate'
+import type { Descendant } from 'slate'
+import { Element } from 'slate'
 import $, { getOuterHTML } from '../../utils/dom'
-import { LineHeightElement } from './custom-types'
+import type { LineHeightElement } from './custom-types'
 
 export function styleToHtml(node: Descendant, elemHtml: string): string {
   if (!Element.isElement(node)) return elemHtml

@@ -3,12 +3,18 @@
  * @author wangfupeng
  */
 
-import { Descendant, Element } from 'slate'
-import { IDomEditor } from '@wangeditor/core'
-import { JustifyElement } from './custom-types'
-import $, { DOMElement, getStyleValue } from '../../utils/dom'
+import type { Descendant } from 'slate'
+import { Element } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import type { JustifyElement } from './custom-types'
+import type { DOMElement } from '../../utils/dom'
+import $, { getStyleValue } from '../../utils/dom'
 
-export function parseStyleHtml(elem: DOMElement, node: Descendant, editor: IDomEditor): Descendant {
+export function parseStyleHtml(
+  elem: DOMElement,
+  node: Descendant,
+  _editor: IDomEditor
+): Descendant {
   const $elem = $(elem)
   if (!Element.isElement(node)) return node
 

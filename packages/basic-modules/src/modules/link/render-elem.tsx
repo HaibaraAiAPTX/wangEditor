@@ -3,19 +3,19 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor } from '@wangeditor/core'
-import { LinkElement } from './custom-types'
+import type { Element as SlateElement } from 'slate'
+import { jsx, type VNode } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import type { LinkElement } from './custom-types'
 
 /**
  * render link elem
  * @param elemNode slate elem
  * @param children children
- * @param editor editor
+ * @param _editor editor
  * @returns vnode
  */
-function renderLink(elemNode: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
+function renderLink(elemNode: SlateElement, children: VNode[] | null, _editor: IDomEditor): VNode {
   const { url, target = '_blank' } = elemNode as LinkElement
   const vnode = (
     <a href={url} target={target}>

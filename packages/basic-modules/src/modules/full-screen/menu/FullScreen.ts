@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { IButtonMenu, IDomEditor, t } from '@wangeditor/core'
+import type { IButtonMenu, IDomEditor } from '@wangeditor/core'
+import { t } from '@wangeditor/core'
 import { FULL_SCREEN_SVG } from '../../../constants/icon-svg'
 
 class FullScreen implements IButtonMenu {
@@ -12,7 +13,7 @@ class FullScreen implements IButtonMenu {
   tag = 'button'
   alwaysEnable = true
 
-  getValue(editor: IDomEditor): string | boolean {
+  getValue(_editor: IDomEditor): string | boolean {
     return ''
   }
 
@@ -20,11 +21,11 @@ class FullScreen implements IButtonMenu {
     return editor.isFullScreen
   }
 
-  isDisabled(editor: IDomEditor): boolean {
+  isDisabled(_editor: IDomEditor): boolean {
     return false
   }
 
-  exec(editor: IDomEditor, value: string | boolean) {
+  exec(editor: IDomEditor, _value: string | boolean) {
     if (editor.isFullScreen) {
       editor.unFullScreen()
     } else {

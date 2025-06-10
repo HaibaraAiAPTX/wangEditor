@@ -3,8 +3,10 @@
  * @author wangfupeng
  */
 
-import { Editor, Transforms, Node as SlateNode, Element as SlateElement } from 'slate'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Element as SlateElement } from 'slate'
+import { Editor, Transforms, Node as SlateNode } from 'slate'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 function getLastTextLineBeforeSelection(codeNode: SlateNode, editor: IDomEditor): string {
   const selection = editor.selection
@@ -21,7 +23,7 @@ function getLastTextLineBeforeSelection(codeNode: SlateNode, editor: IDomEditor)
 }
 
 function withCodeBlock<T extends IDomEditor>(editor: T): T {
-  const { insertBreak, normalizeNode, insertData, insertNode } = editor
+  const { insertBreak, normalizeNode, insertData } = editor
   const newEditor = editor
 
   // 重写换行操作

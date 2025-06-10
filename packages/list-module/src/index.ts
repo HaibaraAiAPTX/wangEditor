@@ -10,4 +10,4 @@ import './locale/index'
 
 // 导出 module
 import wangEditorListModule from './module/index'
-export default wangEditorListModule
+export { wangEditorListModule }

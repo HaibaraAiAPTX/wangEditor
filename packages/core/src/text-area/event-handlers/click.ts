@@ -6,7 +6,7 @@
 import { Editor, Path, Transforms, Node } from 'slate'
 import { type IDomEditor } from '../../editor/interface'
 import { DomEditor } from '../../editor/dom-editor'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { hasTarget } from '../helpers'
 import { isDOMNode } from '../../utils/dom'
 

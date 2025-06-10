@@ -3,10 +3,11 @@
  * @author wangfupeng
  */
 
-import { Editor, Element, Transforms, Node, Range } from 'slate'
-import { IButtonMenu, IDomEditor, DomEditor, t } from '@wangeditor/core'
+import type { Element } from 'slate'
+import { Editor, Transforms, Node } from 'slate'
+import { type IButtonMenu, type IDomEditor, DomEditor, t } from '@wangeditor/core'
 import { CODE_BLOCK_SVG } from '../../../constants/icon-svg'
-import { CodeElement } from '../custom-types'
+import type { CodeElement } from '../custom-types'
 
 class CodeBlockMenu implements IButtonMenu {
   readonly title = t('codeBlock.title')
@@ -90,7 +91,7 @@ class CodeBlockMenu implements IButtonMenu {
       match: n => editor.children.includes(n as Element), // 匹配选中的最高层级的节点
       universal: true,
     })
-    for (let nodeEntry of nodeEntries) {
+    for (const nodeEntry of nodeEntries) {
       const [n] = nodeEntry
       if (n) strArr.push(Node.string(n))
     }

@@ -113,7 +113,7 @@ class BarItemSelect implements IBarItem {
   private onChange(value: string) {
     const editor = getEditorInstance(this)
     const menu = this.menu
-    menu.exec && menu.exec(editor, value)
+    if (menu.exec) menu.exec(editor, value)
   }
 
   private setSelectedValue() {

@@ -8,7 +8,7 @@ import createEditor from '../../../../../tests/utils/create-editor'
 import ClearStyleMenu from '../../../src/modules/text-style/menu/ClearStyleMenu'
 
 describe('clear style menu', () => {
-  let editor = createEditor()
+  const editor = createEditor()
   const startLocation = Editor.start(editor, [])
   const menu = new ClearStyleMenu()
 

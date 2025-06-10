@@ -17,7 +17,7 @@ export function genRandomStr(prefix: string = 'r'): string {
   return `${prefix}-${nanoid()}`
 }
 
-export function promiseResolveThen(fn: Function) {
+export function promiseResolveThen(fn: () => void) {
   Promise.resolve().then(fn as PromiseCallback)
 }
 
@@ -27,6 +27,7 @@ export function promiseResolveThen(fn: Function) {
  * @param data data
  */
 export function addQueryToUrl(url: string, data: object): string {
+  // eslint-disable-next-line prefer-const
   let [urlWithoutHash, hash] = url.split('#')
 
   // 拼接 query string

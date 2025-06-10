@@ -3,8 +3,8 @@
  * @author wangfupeng
  */
 
-import { IUploadConfig } from '@wangeditor/core'
-import { VideoElement } from '../custom-types'
+import type { IUploadConfig } from '@wangeditor/core'
+import type { VideoElement } from '../custom-types'
 
 type InsertFn = (src: string, poster: string) => void
 

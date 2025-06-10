@@ -69,7 +69,7 @@ describe('Table Module Delete Row Menu', () => {
     setEditorSelection(editor)
 
     jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({} as any))
+    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
 
     expect(deleteRowMenu.isDisabled(editor)).toBeFalsy()
   })

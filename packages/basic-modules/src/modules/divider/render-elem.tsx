@@ -3,13 +3,15 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement } from 'slate'
-import { h, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
+import type { Element as SlateElement } from 'slate'
+import type { VNode } from 'snabbdom'
+import { h } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
 
 function renderDivider(
   elemNode: SlateElement,
-  children: VNode[] | null,
+  _children: VNode[] | null,
   editor: IDomEditor
 ): VNode {
   const renderStyle: any = {}

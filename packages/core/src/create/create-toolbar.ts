@@ -16,7 +16,10 @@ interface ICreateOption {
   config?: Partial<IToolbarConfig>
 }
 
-export default function (editor: IDomEditor | null, option: ICreateOption): Toolbar {
+export default function coreCreateToolbar(
+  editor: IDomEditor | null,
+  option: ICreateOption
+): Toolbar {
   if (editor == null) {
     throw new Error(`Cannot create toolbar, because editor is null`)
   }

@@ -3,8 +3,9 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
-import { TableCellElement, TableRowElement, TableElement } from './custom-types'
+import type { Element } from 'slate'
+import type { TableCellElement, TableElement } from './custom-types'
+import { TableRowElement } from './custom-types'
 
 function tableToHtml(elemNode: Element, childrenHtml: string): string {
   const { width = 'auto' } = elemNode as TableElement

@@ -3,8 +3,8 @@
  * @author wangfupeng
  */
 
-import { Element } from 'slate'
-import { VideoElement } from './custom-types'
+import type { Element } from 'slate'
+import type { VideoElement } from './custom-types'
 import { genSizeStyledIframeHtml } from '../utils/dom'
 
 function videoToHtml(elemNode: Element, childrenHtml?: string): string {

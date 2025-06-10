@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import { Editor, Node, Element as SlateElement } from 'slate'
+import type { Element as SlateElement } from 'slate'
+import { Editor, Node } from 'slate'
 import { jsx, type VNode } from 'snabbdom'
 import { node2Vnode } from '../node2Vnode'
 import { DomEditor } from '../../editor/dom-editor'
@@ -27,7 +28,7 @@ interface IAttrs {
   'data-slate-node': 'element'
   'data-slate-inline'?: boolean
   'data-slate-void'?: boolean
-  contentEditable?: Boolean
+  contentEditable?: boolean
 }
 
 function renderElement(elemNode: SlateElement, editor: IDomEditor): VNode {
@@ -45,7 +46,7 @@ function renderElement(elemNode: SlateElement, editor: IDomEditor): VNode {
 
   // 根据 type 生成 vnode 的函数
   const { type, children = [] } = elemNode
-  let renderElem = getRenderElem(type)
+  const renderElem = getRenderElem(type)
 
   let childrenVnode
   if (isVoid) {

@@ -4,7 +4,8 @@
  */
 
 import debounce from 'lodash.debounce'
-import { Editor, Node, Element, Text, Path, Range } from 'slate'
+import type { Node } from 'slate'
+import { Editor, Element, Text, Path, Range } from 'slate'
 import $ from '../../utils/dom'
 import { MENU_ITEM_FACTORIES } from '../register'
 import { promiseResolveThen } from '../../utils/util'

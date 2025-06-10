@@ -4,12 +4,12 @@
  */
 
 import { Editor, Node, Transforms } from 'slate'
-import { DomEditor, IDomEditor } from '@wangeditor/core'
+import { DomEditor, type IDomEditor } from '@wangeditor/core'
 import isUrl from 'is-url'
 import { isMenuDisabled, insertLink } from './helper'
 
 function withLink<T extends IDomEditor>(editor: T): T {
-  const { isInline, insertData, normalizeNode, insertNode, insertText } = editor
+  const { isInline, insertData, normalizeNode } = editor
   const newEditor = editor
 
   // 重写 isInline

@@ -6,7 +6,7 @@
 import { Element } from 'slate'
 import { DomEditor } from '../../editor/dom-editor'
 import { type IDomEditor } from '../../editor/interface'
-import TextArea from '../TextArea'
+import type TextArea from '../TextArea'
 import { hasEditableTarget } from '../helpers'
 import { isDOMElement, isDOMNode } from '../../utils/dom'
 import { IS_FOCUSED } from '../../utils/weak-maps'

@@ -3,10 +3,13 @@
  * @author wangfupeng
  */
 
-import { Element as SlateElement, Path, Editor, Text } from 'slate'
-import { jsx, VNode } from 'snabbdom'
-import { IDomEditor, DomEditor } from '@wangeditor/core'
-import { ListItemElement } from './custom-types'
+import type { Element as SlateElement } from 'slate'
+import { Path, Editor, Text } from 'slate'
+import type { VNode } from 'snabbdom'
+import { jsx } from 'snabbdom'
+import type { IDomEditor } from '@wangeditor/core'
+import { DomEditor } from '@wangeditor/core'
+import type { ListItemElement } from './custom-types'
 import { ELEM_TO_EDITOR } from '../utils/maps'
 
 /**

@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import { Text } from 'slate'
+import type { Text } from 'slate'
 
 import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx'
