@@ -18,6 +18,9 @@ import './register-builtin-modules/index'
 // 初始化默认配置
 import './init-default-config'
 
+// 导出所有内置元素的模型
+export * from './types'
+
 // 全局注册
 import Boot from './Boot'
 export { Boot }

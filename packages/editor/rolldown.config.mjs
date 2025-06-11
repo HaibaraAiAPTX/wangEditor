@@ -51,7 +51,7 @@ export default defineConfig([
         plugins: [autoprefixer()],
         extract: 'css/style.css',
       }),
-      dts('editor'),
+      dts('editor', false),
       visualizer(),
     ],
   },

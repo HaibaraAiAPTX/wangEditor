@@ -6,13 +6,13 @@
 import { type Descendant } from 'slate'
 import Boot from './Boot'
 import type { DOMElement } from './utils/dom'
-import type { Toolbar } from '@wangeditor/core'
 import {
+  coreCreateEditor,
+  coreCreateToolbar,
+  type Toolbar,
   type IEditorConfig,
   type IDomEditor,
   type IToolbarConfig,
-  coreCreateEditor,
-  coreCreateToolbar,
 } from '@wangeditor/core'
 
 export interface ICreateEditorOption {

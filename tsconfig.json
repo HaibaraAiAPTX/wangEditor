@@ -31,7 +31,7 @@
   "include": [
     "./tests/setup/index.ts",
     "./custom-types.d.ts",
-    "./packages/*/src/**/*",
+    "./packages/*/src/**/*", "packages/editor/src/global.d.ts",
   ],
   "references": [
     {

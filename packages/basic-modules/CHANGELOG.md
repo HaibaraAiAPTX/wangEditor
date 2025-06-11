@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- 新增类型导出
+- Updated dependencies
+  - @wangeditor/core@1.2.1
+
 ## 2.0.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.1
+
+### Patch Changes
+
+- 新增类型导出
+
 ## 1.2.0
 
 ### Minor Changes

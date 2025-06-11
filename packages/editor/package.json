@@ -1,6 +1,6 @@
 {
   "name": "@wangeditor/editor",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "Web rich text editor, Web 富文本编辑器",
   "keywords": [
     "wangeditor",
@@ -13,12 +13,12 @@
   "contributors": [],
   "homepage": "https://www.wangeditor.com/",
   "license": "MIT",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/editor/src/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/editor/src/index.d.ts",
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js"
     },

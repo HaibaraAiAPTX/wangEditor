@@ -2,36 +2,36 @@
  * @description 自定义扩展 slate 接口属性
  * @author wangfupeng
  */
-import { StyledText } from './packages/basic-modules/src/modules/text-style/custom-types'
-import { ColorText } from './packages/basic-modules/src/modules/color/custom-types'
-import { FontSizeAndFamilyText } from './packages/basic-modules/src/modules/font-size-family/custom-types'
-import { LineHeightElement } from './packages/basic-modules/src/modules/line-height/custom-types'
-import { JustifyElement } from './packages/basic-modules/src/modules/justify/custom-types'
-import { IndentElement } from './packages/basic-modules/src/modules/indent/custom-types'
-import { ParagraphElement } from './packages/basic-modules/src/modules/paragraph/custom-types'
-import { LinkElement } from './packages/basic-modules/src/modules/link/custom-types'
-import { BlockQuoteElement } from './packages/basic-modules/src/modules/blockquote/custom-types'
-import {
+import type { StyledText } from './packages/basic-modules/src/modules/text-style/custom-types'
+import type { ColorText } from './packages/basic-modules/src/modules/color/custom-types'
+import type { FontSizeAndFamilyText } from './packages/basic-modules/src/modules/font-size-family/custom-types'
+import type { LineHeightElement } from './packages/basic-modules/src/modules/line-height/custom-types'
+import type { JustifyElement } from './packages/basic-modules/src/modules/justify/custom-types'
+import type { IndentElement } from './packages/basic-modules/src/modules/indent/custom-types'
+import type { ParagraphElement } from './packages/basic-modules/src/modules/paragraph/custom-types'
+import type { LinkElement } from './packages/basic-modules/src/modules/link/custom-types'
+import type { BlockQuoteElement } from './packages/basic-modules/src/modules/blockquote/custom-types'
+import type {
   Header1Element,
   Header2Element,
   Header3Element,
   Header4Element,
   Header5Element,
 } from './packages/basic-modules/src/modules/header/custom-types'
-import { DividerElement } from './packages/basic-modules/src/modules/divider/custom-types'
-import { ImageElement } from './packages/basic-modules/src/modules/image/custom-types'
-import { TodoElement } from './packages/basic-modules/src/modules/todo/custom-types'
-import {
+import type { DividerElement } from './packages/basic-modules/src/modules/divider/custom-types'
+import type { ImageElement } from './packages/basic-modules/src/modules/image/custom-types'
+import type { TodoElement } from './packages/basic-modules/src/modules/todo/custom-types'
+import type {
   PreElement,
   CodeElement,
 } from './packages/basic-modules/src/modules/code-block/custom-types'
-import { VideoElement } from './packages/video-module/src/module/custom-types'
-import {
+import type { VideoElement } from './packages/video-module/src/module/custom-types'
+import type {
   TableCellElement,
   TableRowElement,
   TableElement,
 } from './packages/table-module/src/module/custom-types'
-import { ListItemElement } from './packages/list-module/src/module/custom-types'
+import type { ListItemElement } from './packages/list-module/src/module/custom-types'
 
 type PureText = {
   text: string
