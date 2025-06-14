@@ -43,11 +43,11 @@ function isSelectedText(editor: IDomEditor, n: Node) {
 }
 
 class HoverBar {
-  private readonly $elem = $('<div class="w-e-bar w-e-bar-hidden w-e-hover-bar"></div>')
-  private menus: { [key: string]: MenuType } = {}
-  private hoverbarItems: IBarItem[] = []
-  private prevSelectedNode: Node | null = null // 上一次选中的 node
-  private isShow = false
+  public readonly $elem = $('<div class="w-e-bar w-e-bar-hidden w-e-hover-bar"></div>')
+  public menus: { [key: string]: MenuType } = {}
+  public hoverbarItems: IBarItem[] = []
+  public prevSelectedNode: Node | null = null // 上一次选中的 node
+  public isShow = false
 
   constructor() {
     // 异步，否则获取不到 DOM 和 editor
@@ -93,7 +93,7 @@ class HoverBar {
    * 判断 hoverbar 是否在网页下部？
    * 如果是，SelectList 和 DropPanel 要显示在 hoverbar 上面
    */
-  private checkPositionBottom() {
+  checkPositionBottom() {
     const $elem = this.$elem
 
     let isBottom = false
@@ -113,7 +113,7 @@ class HoverBar {
     }
   }
 
-  private show() {
+  show() {
     this.$elem.removeClass('w-e-bar-hidden').addClass('w-e-bar-show')
     this.isShow = true
 
@@ -121,7 +121,7 @@ class HoverBar {
     this.checkPositionBottom()
   }
 
-  private changeItemsState() {
+  changeItemsState() {
     promiseResolveThen(() => {
       this.hoverbarItems.forEach(item => {
         item.changeMenuState()
@@ -129,7 +129,7 @@ class HoverBar {
     })
   }
 
-  private registerItems(menuKeys: string[]) {
+  registerItems(menuKeys: string[]) {
     const $elem = this.$elem
 
     menuKeys.forEach(key => {
@@ -146,7 +146,7 @@ class HoverBar {
   }
 
   // 注册单个 bar item
-  private registerSingleItem(key: string) {
+  registerSingleItem(key: string) {
     const editor = this.getEditorInstance()
 
     // 尝试从缓存中获取
@@ -179,7 +179,7 @@ class HoverBar {
     $elem.append(barItem.$elem)
   }
 
-  private setPosition(node: Node) {
+  setPosition(node: Node) {
     const editor = this.getEditorInstance()
     const $elem = this.$elem
     $elem.attr('style', '') // 先清空 style ，再重新设置
@@ -205,7 +205,7 @@ class HoverBar {
   /**
    * 获取选中的 node ，以及对应的 menu keys
    */
-  private getSelectedNodeAndMenuKeys(): { node: Node; menuKeys: string[] } | null {
+  getSelectedNodeAndMenuKeys(): { node: Node; menuKeys: string[] } | null {
     const editor = this.getEditorInstance()
 
     if (editor.selection == null) {
@@ -288,7 +288,7 @@ class HoverBar {
     this.prevSelectedNode = node
   }, 200)
 
-  private getEditorInstance(): IDomEditor {
+  getEditorInstance(): IDomEditor {
     const editor = HOVER_BAR_TO_EDITOR.get(this)
     if (editor == null) throw new Error('Can not get editor instance')
     return editor
@@ -310,7 +310,7 @@ class HoverBar {
   /**
    * 检查两个 node 是否 path 相等
    */
-  private isSamePath(node1: Node | null, node2: Node | null) {
+  isSamePath(node1: Node | null, node2: Node | null) {
     if (node1 == null || node2 == null) {
       return false
     }

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- 更新导出
+
 ## 1.2.2
 
 ### Patch Changes
