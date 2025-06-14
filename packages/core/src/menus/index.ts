@@ -4,6 +4,7 @@
  */
 
 import Toolbar from './bar/Toolbar'
+import HoverBar from './bar/HoverBar'
 
 // 注册
 export { registerMenu } from './register'
@@ -25,4 +26,4 @@ export {
   genModalTextareaElems,
 } from './panel-and-modal/Modal'
 
-export { Toolbar }
+export { Toolbar, HoverBar }
