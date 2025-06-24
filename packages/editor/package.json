@@ -13,12 +13,11 @@
   "contributors": [],
   "homepage": "https://www.wangeditor.com/",
   "license": "MIT",
-  "types": "./dist/editor/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "exports": {
     ".": {
-      "types": "./dist/editor/src/index.d.ts",
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js"
     },
@@ -37,7 +36,9 @@
     "test": "jest",
     "test-c": "jest --coverage",
     "example": "vite -c vite.config.mjs --host",
-    "build": "rolldown -c rolldown.config.mjs"
+    "build": "rolldown -c rolldown.config.mjs",
+    "build:rollup": "cross-env NODE_ENV=production,size_stats rollup -c rollup.config.js && pnpm build:type",
+    "build:type": "node ../../build/build-type.mjs"
   },
   "bugs": {
     "url": "https://github.com/wangeditor-team/wangEditor/issues"

@@ -8,6 +8,7 @@ onlyBuiltDependencies:
   - es5-ext
   - husky
   - nx
+  - unrs-resolver
 
 patchedDependencies:
   unplugin-dts: patches/unplugin-dts.patch
