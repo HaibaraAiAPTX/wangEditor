@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.4
+
+### Patch Changes
+
+- 更新产出
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.4
+  - @wangeditor/code-highlight@2.0.4
+  - @wangeditor/core@1.2.4
+  - @wangeditor/list-module@2.0.4
+  - @wangeditor/table-module@2.0.4
+  - @wangeditor/upload-image-module@2.0.4
+  - @wangeditor/video-module@2.0.4
+
 ## 5.2.3
 
 ### Patch Changes
