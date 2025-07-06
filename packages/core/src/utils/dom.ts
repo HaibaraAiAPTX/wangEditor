@@ -11,6 +11,8 @@ import $, {
   removeClass,
   hasClass,
   on,
+  once,
+  off,
   focus,
   attr,
   hide,
@@ -43,6 +45,8 @@ if (addClass) $.fn.addClass = addClass
 if (removeClass) $.fn.removeClass = removeClass
 if (hasClass) $.fn.hasClass = hasClass
 if (on) $.fn.on = on
+if (once) $.fn.once = once
+if (off) $.fn.off = off
 if (focus) $.fn.focus = focus
 if (attr) $.fn.attr = attr
 if (removeAttr) $.fn.removeAttr = removeAttr

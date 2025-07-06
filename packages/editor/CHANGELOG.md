@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.5
+
+### Patch Changes
+
+- 添加 $textArea 的方法
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.5
+  - @wangeditor/code-highlight@2.0.5
+  - @wangeditor/core@1.2.5
+  - @wangeditor/list-module@2.0.5
+  - @wangeditor/table-module@2.0.5
+  - @wangeditor/upload-image-module@2.0.5
+  - @wangeditor/video-module@2.0.5
+
 ## 5.2.4
 
 ### Patch Changes

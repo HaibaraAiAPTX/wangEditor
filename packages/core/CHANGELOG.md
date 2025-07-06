@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.5
+
+### Patch Changes
+
+- 添加 $textArea 的方法
+
 ## 1.2.4
 
 ### Patch Changes
