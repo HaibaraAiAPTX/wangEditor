@@ -13,6 +13,7 @@ import {
   type IEditorConfig,
   type IDomEditor,
   type IToolbarConfig,
+  type PluginFnType,
 } from '@wangeditor/core'
 
 export interface ICreateEditorOption {
@@ -21,6 +22,7 @@ export interface ICreateEditorOption {
   content?: Descendant[]
   html?: string
   mode: string
+  plugins?: PluginFnType[]
 }
 
 export interface ICreateToolbarOption {
@@ -34,7 +36,7 @@ export interface ICreateToolbarOption {
  * 创建 editor 实例
  */
 export function createEditor(option: Partial<ICreateEditorOption> = {}): IDomEditor {
-  const { selector = '', content = [], html, config = {}, mode = 'default' } = option
+  const { selector = '', content = [], html, config = {}, mode = 'default', plugins = [] } = option
 
   const globalConfig = mode === 'simple' ? Boot.simpleEditorConfig : Boot.editorConfig
 
@@ -53,7 +55,10 @@ export function createEditor(option: Partial<ICreateEditorOption> = {}): IDomEdi
     },
     content,
     html,
-    plugins: Boot.plugins,
+    plugins: [
+      ...Boot.plugins,
+      ...plugins
+    ],
   })
 
   return editor

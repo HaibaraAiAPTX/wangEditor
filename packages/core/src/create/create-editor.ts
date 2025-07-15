@@ -31,7 +31,7 @@ import {
 import bindNodeRelation from './bind-node-relation'
 import $ from '../utils/dom'
 
-type PluginFnType = <T extends IDomEditor>(editor: T) => T
+export type PluginFnType = <T extends IDomEditor>(editor: T) => T
 
 interface ICreateOption {
   selector: string | DOMElement
