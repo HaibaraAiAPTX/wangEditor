@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.6
+
+### Patch Changes
+
+- 添加单个编辑器的插件
+- Updated dependencies
+  - @wangeditor/core@1.2.6
+  - @wangeditor/basic-modules@2.0.6
+  - @wangeditor/code-highlight@2.0.6
+  - @wangeditor/list-module@2.0.6
+  - @wangeditor/table-module@2.0.6
+  - @wangeditor/upload-image-module@2.0.6
+  - @wangeditor/video-module@2.0.6
+
 ## 5.2.5
 
 ### Patch Changes

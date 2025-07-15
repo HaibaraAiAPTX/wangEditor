@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.6
+
+### Patch Changes
+
+- 添加单个编辑器的插件
+
 ## 1.2.5
 
 ### Patch Changes
