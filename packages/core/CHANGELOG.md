@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.7
+
+### Patch Changes
+
+- 将 renderStyle 修改为所有元素都可用
+
 ## 1.2.6
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.7
+
+### Patch Changes
+
+- 将 renderStyle 修改为所有元素都可用
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.7
+  - @wangeditor/code-highlight@2.0.7
+  - @wangeditor/core@1.2.7
+  - @wangeditor/list-module@2.0.7
+  - @wangeditor/table-module@2.0.7
+  - @wangeditor/upload-image-module@2.0.7
+  - @wangeditor/video-module@2.0.7
+
 ## 5.2.6
 
 ### Patch Changes
