@@ -55,10 +55,7 @@ export function createEditor(option: Partial<ICreateEditorOption> = {}): IDomEdi
     },
     content,
     html,
-    plugins: [
-      ...Boot.plugins,
-      ...plugins
-    ],
+    plugins: [...Boot.plugins, ...plugins],
   })
 
   return editor

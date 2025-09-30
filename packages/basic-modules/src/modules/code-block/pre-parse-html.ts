@@ -4,8 +4,7 @@
  */
 
 import type { DOMElement } from '../../utils/dom'
-import $ from '../../utils/dom'
-import { getTagName } from '../../utils/dom'
+import $, { getTagName } from '../../utils/dom'
 
 /**
  * pre-prase <code> ，去掉其中的 <xmp> （兼容 V4）

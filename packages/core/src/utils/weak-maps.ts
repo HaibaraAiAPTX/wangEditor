@@ -9,8 +9,8 @@
  */
 import type { Emitter } from 'event-emitter'
 import type { VNode } from 'snabbdom'
-import type { Node, Editor, Path, Range } from 'slate'
-import { type Ancestor } from 'slate'
+import type { Node, Editor, Path, Range, type Ancestor } from 'slate'
+
 import type { IDomEditor } from '../editor/interface'
 import type TextArea from '../text-area/TextArea'
 import type Toolbar from '../menus/bar/Toolbar'

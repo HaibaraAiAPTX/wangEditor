@@ -107,7 +107,7 @@ function renderElement(elemNode: SlateElement, editor: IDomEditor): VNode {
 
   // 添加文本相关的样式，如 text-align
   if (!isVoid) {
-  // if (!isVoid && !isInline) {
+    // if (!isVoid && !isInline) {
     // 非 void + 非 inline
     vnode = renderStyle(elemNode, vnode)
   }

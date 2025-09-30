@@ -4,6 +4,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 import { createNodeResolver, importX } from 'eslint-plugin-import-x'
 import { globalIgnores } from 'eslint/config'
+import globals from 'globals'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -11,8 +12,10 @@ export default tseslint.config(
   eslintPluginPrettierRecommended,
   importX.flatConfigs.recommended,
   {
-    env: {
-      browser: true
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
     },
     rules: {
       'no-unused-vars': 'off',

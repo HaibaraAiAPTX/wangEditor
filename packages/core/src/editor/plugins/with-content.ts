@@ -3,8 +3,18 @@
  * @author wangfupeng
  */
 
-import type { Operation } from 'slate'
-import { Editor, Node, Text, Path, Range, Transforms, Element, type Descendant } from 'slate'
+import type {
+  Operation,
+  Editor,
+  Node,
+  Text,
+  Path,
+  Range,
+  Transforms,
+  Element,
+  type Descendant,
+} from 'slate'
+
 import { DomEditor } from '../dom-editor'
 import type { IDomEditor } from '../..'
 import { EDITOR_TO_SELECTION, NODE_TO_KEY } from '../../utils/weak-maps'

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.8
+
+### Patch Changes
+
+- 修复在 Shadow 模式下 findEventRange 方法通过 caretPositionFromPoint 方法拿到错误的位置
+
 ## 1.2.7
 
 ### Patch Changes

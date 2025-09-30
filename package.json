@@ -21,19 +21,14 @@
     "e2e:dev": "concurrently \"pnpm example\" \"pnpm run cypress:open\"",
     "e2e": "concurrently \"pnpm example\" \"pnpm run cypress:run\"",
     "example": "turbo example --filter @wangeditor/editor",
-    "clear": "rimraf -g packages/*/dist"
+    "clear": "rimraf -g packages/*/dist",
+    "prepare": "husky"
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [
       "pnpm format",
       "git add ."
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "config": {
     "commitizen": {
@@ -72,7 +67,8 @@
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import-x": "^4.15.1",
     "eslint-plugin-prettier": "^5.4.1",
-    "husky": "^4.2.5",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "jest": "^27.0.6",
     "lerna": "^8.2.2",
     "lerna-changelog": "^1.0.1",

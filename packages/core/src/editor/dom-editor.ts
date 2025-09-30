@@ -4,8 +4,8 @@
  */
 
 import toArray from 'lodash.toarray'
-import type { Path, Point } from 'slate'
-import { Editor, Node, Element, Range, type Ancestor, Text } from 'slate'
+import type { Path, Point, Editor, Node, Element, Range, type Ancestor, Text } from 'slate'
+
 import type { IDomEditor } from './interface'
 import { Key } from '../utils/key'
 import type TextArea from '../text-area/TextArea'
@@ -33,8 +33,8 @@ import $, {
   isDOMElement,
   normalizeDOMPoint,
   isDOMSelection,
-  hasShadowRoot,
   walkTextNodes,
+  hasShadowRoot,
 } from '../utils/dom'
 import { IS_CHROME, IS_FIREFOX } from '../utils/ua'
 
@@ -363,12 +363,15 @@ export const DomEditor = {
     // Else resolve a range from the caret position where the drop occured.
     let domRange
     const { document } = this.getWindow(editor)
+    const shadowRoot = target.getRootNode() instanceof ShadowRoot
 
     // COMPAT: In Firefox, `caretRangeFromPoint` doesn't exist. (2016/07/25)
-    if (document.caretRangeFromPoint) {
+    if (document.caretRangeFromPoint && !shadowRoot) {
       domRange = document.caretRangeFromPoint(x, y)
     } else {
-      const position = document.caretPositionFromPoint(x, y)
+      const position = !shadowRoot
+        ? document.caretPositionFromPoint(x, y)
+        : document.caretPositionFromPoint(x, y, { shadowRoots: [target.getRootNode()] })
       if (position) {
         domRange = document.createRange()
         domRange.setStart(position.offsetNode, position.offset)
