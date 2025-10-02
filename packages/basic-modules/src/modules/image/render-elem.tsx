@@ -67,8 +67,11 @@ function renderResizeContainer(
   let revers = false // 是否反转。如向右拖拽 right-top 需增加宽度（非反转），但向右拖拽 left-top 则需要减少宽度（反转）
   let $container: Dom7Array | null = null
 
-  function getContainerElem(): Dom7Array {
-    const $container = $(`#${containerId}`)
+  function getContainerElem(target: HTMLElement): Dom7Array {
+    let $container = $(`#${containerId}`)
+    if ($container.length === 0) {
+      $container = $(target).parent(`#${containerId}`)
+    }
     if ($container.length === 0) throw new Error('Cannot find image container elem')
     return $container
   }
@@ -76,11 +79,11 @@ function renderResizeContainer(
   /**
    * 初始化。监听事件，记录原始数据
    */
-  function init(clientX: number) {
-    $container = getContainerElem()
+  function init(ev: MouseEvent) {
+    $container = getContainerElem(ev.target as HTMLElement)
 
     // 记录当前 x 坐标值
-    originalX = clientX
+    originalX = ev.clientX
 
     // 记录 img 原始宽高
     const $img = $container.find('img')
@@ -161,7 +164,7 @@ function renderResizeContainer(
           if ($target.hasClass('left-top') || $target.hasClass('left-bottom')) {
             revers = true // 反转。向右拖拽，减少宽度
           }
-          init(e.clientX) // 初始化
+          init(e) // 初始化
         },
       }}
     >

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+- 修复图片在 shadow 模式下，不能拖拽调整大小的bug
+
 ## 2.0.8
 
 ### Patch Changes
