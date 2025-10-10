@@ -6,6 +6,7 @@ onlyBuiltDependencies:
   - core-js-pure
   - cypress
   - es5-ext
+  - esbuild
   - husky
   - nx
   - unrs-resolver

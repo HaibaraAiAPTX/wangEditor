@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import type { Editor, Location, Node, Element, type Ancestor } from 'slate'
+import type { Editor, Location, Node, Element, Ancestor } from 'slate'
 
 import type ee from 'event-emitter'
 import type { IEditorConfig, AlertType, ISingleMenuConfig } from '../config/interface'

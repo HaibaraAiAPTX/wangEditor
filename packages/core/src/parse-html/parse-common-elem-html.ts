@@ -4,7 +4,8 @@
  */
 
 import $, { type Dom7Array } from 'dom7'
-import type { Element, Editor, type Descendant, Text } from 'slate'
+import type { Element, Descendant } from 'slate'
+import { Editor, Text } from 'slate'
 
 import type { IDomEditor } from '../editor/interface'
 import parseElemHtml from './parse-elem-html'

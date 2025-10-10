@@ -3,7 +3,7 @@
  * @author wangfupeng
  */
 
-import type { Element as SlateElement, type Descendant } from 'slate'
+import type { Element as SlateElement, Descendant } from 'slate'
 
 import type { VNode } from 'snabbdom'
 import type { IDomEditor } from '../editor/interface'

@@ -4,7 +4,8 @@
  */
 
 import toArray from 'lodash.toarray'
-import type { Path, Point, Editor, Node, Element, Range, type Ancestor, Text } from 'slate'
+import type { Path, Point, Ancestor } from 'slate'
+import { Editor, Node, Element, Range, Text } from 'slate'
 
 import type { IDomEditor } from './interface'
 import { Key } from '../utils/key'
