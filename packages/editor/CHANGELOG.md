@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.10
+  - @wangeditor/upload-image-module@2.0.10
+
 ## 5.2.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.10
+
+### Patch Changes
+
+- 将图片的包裹元素由div修改为span
+
 ## 2.0.9
 
 ### Patch Changes

@@ -42,9 +42,9 @@ function renderContainer(
   const containerId = genContainerId(editor, elemNode)
 
   return (
-    <div id={containerId} style={style} className="w-e-image-container">
+    <span id={containerId} style={style} className="w-e-image-container">
       {imageVnode}
-    </div>
+    </span>
   )
 }
 
@@ -147,7 +147,7 @@ function renderResizeContainer(
   // style.boxShadow = '0 0 0 1px #B4D5FF' // 自定义 selected 样式，因为有拖拽触手
 
   return (
-    <div
+    <span
       id={containerId}
       style={style}
       className="w-e-image-container w-e-selected-image-container"
@@ -171,11 +171,11 @@ function renderResizeContainer(
       {imageVnode}
 
       {/* 拖拽的触手，会统一在上级 DOM 绑定拖拽事件 */}
-      <div className="w-e-image-dragger left-top"></div>
-      <div className="w-e-image-dragger right-top"></div>
-      <div className="w-e-image-dragger left-bottom"></div>
-      <div className="w-e-image-dragger right-bottom"></div>
-    </div>
+      <span className="w-e-image-dragger left-top"></span>
+      <span className="w-e-image-dragger right-top"></span>
+      <span className="w-e-image-dragger left-bottom"></span>
+      <span className="w-e-image-dragger right-bottom"></span>
+    </span>
   )
 }
 
