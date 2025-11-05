@@ -3,7 +3,8 @@
  * @author wangfupeng
  */
 
-import type { Text as SlateText, Editor, Path, Node, type Ancestor } from 'slate'
+import type { Text as SlateText } from 'slate'
+import { Editor, Path, Node, type Ancestor } from 'slate'
 
 import { jsx, type VNode } from 'snabbdom'
 import { DomEditor } from '../../editor/dom-editor'

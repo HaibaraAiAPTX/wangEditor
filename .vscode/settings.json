@@ -41,7 +41,9 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.validate": [
     "javascript",
-    "typescript"
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
