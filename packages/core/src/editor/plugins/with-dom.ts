@@ -14,6 +14,7 @@ import {
   EDITOR_TO_TEXTAREA,
   TEXTAREA_TO_EDITOR,
   EDITOR_TO_TOOLBAR,
+  EDITOR_TO_TOOLBARS,
   TOOLBAR_TO_EDITOR,
   EDITOR_TO_HOVER_BAR,
   HOVER_BAR_TO_EDITOR,
@@ -77,8 +78,10 @@ export const withDOM = <T extends Editor>(editor: T) => {
     const textarea = DomEditor.getTextarea(e)
     textarea.changeViewState()
 
-    const toolbar = DomEditor.getToolbar(e)
-    if (toolbar) toolbar.changeToolbarState()
+    const toolbars = DomEditor.getToolbars(e)
+    if (toolbars && toolbars.length > 0) {
+      toolbars.forEach(tb => tb.changeToolbarState())
+    }
 
     const hoverbar = DomEditor.getHoverbar(e)
     if (hoverbar) hoverbar.changeHoverbarState()
@@ -94,11 +97,19 @@ export const withDOM = <T extends Editor>(editor: T) => {
     EDITOR_TO_TEXTAREA.delete(e)
     TEXTAREA_TO_EDITOR.delete(textarea)
 
-    const toolbar = DomEditor.getToolbar(e)
-    if (toolbar) {
-      toolbar.destroy()
+    const toolbars = DomEditor.getToolbars(e)
+    if (toolbars && toolbars.length > 0) {
+      for (const toolbar of toolbars) {
+        try {
+          toolbar.destroy()
+        } catch (err) {
+          // swallow individual destroy errors to allow others to run
+        }
+        TOOLBAR_TO_EDITOR.delete(toolbar)
+      }
+      // remove plural mapping and legacy mapping
+      EDITOR_TO_TOOLBARS.delete(e)
       EDITOR_TO_TOOLBAR.delete(e)
-      TOOLBAR_TO_EDITOR.delete(toolbar)
     }
 
     const hoverbar = DomEditor.getHoverbar(e)
@@ -194,7 +205,8 @@ export const withDOM = <T extends Editor>(editor: T) => {
     if (e.isFullScreen) return
 
     let $toolbarBox: Dom7Array | null = null
-    const toolbar = DomEditor.getToolbar(e)
+    const toolbars = DomEditor.getToolbars(e)
+    const toolbar = toolbars && toolbars.length > 0 ? toolbars[0] : DomEditor.getToolbar(e)
     if (toolbar) {
       $toolbarBox = toolbar.$box
     }

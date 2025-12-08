@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Editor + Multiple Toolbars 示例</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link href="./css/view.css" rel="stylesheet">
+  <link href="./css/editor.css" rel="stylesheet">
+  <style>
+    .wrapper {
+      max-width: 1100px;
+      margin: 10px auto;
+    }
+
+    .toolbar-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    #toolbar-top,
+    #toolbar-bottom {
+      flex: 1;
+    }
+
+    .editor-area {
+      border: 1px solid #e6e6e6;
+      padding: 0;
+    }
+
+    .content-views {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .content-views > div {
+      flex: 1;
+    }
+
+    .meta { color: #666; font-size: 13px }
+  </style>
+  <link href="../dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <h3>单个编辑器绑定多个 Toolbar（示例）</h3>
+
+    <div class="toolbar-row">
+      <div id="toolbar-top"></div>
+      <button id="destroy-top">销毁 Top Toolbar</button>
+      <button id="create-top">重建 Top Toolbar</button>
+    </div>
+
+    <div class="editor-area">
+      <div id="editor-text-area" class="editor-text-area"></div>
+    </div>
+
+    <div class="toolbar-row" style="margin-top:6px">
+      <div id="toolbar-bottom"></div>
+      <button id="destroy-bottom">销毁 Bottom Toolbar</button>
+      <button id="create-bottom">重建 Bottom Toolbar</button>
+    </div>
+
+    <div class="meta">说明：两个 toolbar 都绑定到同一个 editor，任意一个 toolbar 的操作都会作用于该编辑器。</div>
+
+    <div class="content-views">
+      <div>
+        <h4>编辑器 HTML（实时）</h4>
+        <div id="content-view" class="editor-content-view"></div>
+      </div>
+      <div>
+        <h4>调试信息</h4>
+        <pre id="debug" style="white-space:pre-wrap;background:#fafafa;border:1px solid #eee;padding:8px;height:150px;overflow:auto"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/init-content.js"></script>
+  <script type="module">
+    import * as E from '@wangeditor/editor'
+
+    // 编辑器配置
+    const config = { MENU_CONF: {} }
+    config.MENU_CONF['uploadImage'] = { base64LimitSize: 5 * 1024 * 1024 }
+
+    // 创建 editor
+    const editor = E.createEditor({
+      selector: '#editor-text-area',
+      config,
+      content: [{ type: 'paragraph', children: [{ text: '这是绑定了两个 toolbar 的编辑器。试试工具栏按钮。' }] }]
+    })
+
+    // 创建两个 toolbar（顶部和底部），都绑定到同一个 editor
+    let toolbarTop = E.createToolbar({ editor, selector: '#toolbar-top' })
+    let toolbarBottom = E.createToolbar({ editor, selector: '#toolbar-bottom' })
+
+    // 同步编辑器内容到视图
+    function updateView() {
+      document.getElementById('content-view').innerHTML = editor.getHtml()
+      document.getElementById('debug').innerText = `Toolbar Top: ${toolbarTop ? '存在' : '已销毁'}\nToolbar Bottom: ${toolbarBottom ? '存在' : '已销毁'}`
+    }
+
+    // 监听 change
+    editor.on('change', () => {
+      // 异步更新以避免与 editor 内部冲突
+      Promise.resolve().then(updateView)
+    })
+
+    // 控制按钮
+    document.getElementById('destroy-top').addEventListener('click', () => {
+      if (toolbarTop && typeof toolbarTop.destroy === 'function') toolbarTop.destroy()
+      toolbarTop = null
+      updateView()
+    })
+
+    document.getElementById('create-top').addEventListener('click', () => {
+      try {
+        if (toolbarTop && typeof toolbarTop.destroy === 'function') toolbarTop.destroy()
+      } catch (e) { /* ignore */ }
+      toolbarTop = E.createToolbar({ editor, selector: '#toolbar-top' })
+      updateView()
+    })
+
+    document.getElementById('destroy-bottom').addEventListener('click', () => {
+      if (toolbarBottom && typeof toolbarBottom.destroy === 'function') toolbarBottom.destroy()
+      toolbarBottom = null
+      updateView()
+    })
+
+    document.getElementById('create-bottom').addEventListener('click', () => {
+      try { if (toolbarBottom && typeof toolbarBottom.destroy === 'function') toolbarBottom.destroy() } catch (e) {}
+      // 重建为 simple 模式示例
+      try {
+        toolbarBottom = E.createToolbar({ editor, selector: '#toolbar-bottom', mode: 'simple' })
+      } catch (e) {
+        toolbarBottom = E.createToolbar({ editor, selector: '#toolbar-bottom' })
+      }
+      updateView()
+    })
+
+  </script>
+</body>
+
+</html>

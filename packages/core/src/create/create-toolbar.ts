@@ -9,7 +9,7 @@ import { type IToolbarConfig } from '../config/interface'
 import { genToolbarConfig } from '../config/index'
 import { isRepeatedCreateToolbar } from './helper'
 import type { DOMElement } from '../utils/dom'
-import { TOOLBAR_TO_EDITOR, EDITOR_TO_TOOLBAR } from '../utils/weak-maps'
+import { TOOLBAR_TO_EDITOR, EDITOR_TO_TOOLBAR, EDITOR_TO_TOOLBARS } from '../utils/weak-maps'
 
 interface ICreateOption {
   selector: string | DOMElement
@@ -37,7 +37,21 @@ export default function coreCreateToolbar(
   // 创建 toolbar ，并记录和 editor 关系
   const toolbar = new Toolbar(selector, toolbarConfig)
   TOOLBAR_TO_EDITOR.set(toolbar, editor)
-  EDITOR_TO_TOOLBAR.set(editor, toolbar)
+
+  // maintain plural mapping: editor -> Set<toolbar>
+  const existing = EDITOR_TO_TOOLBARS.get(editor)
+  if (existing) {
+    existing.add(toolbar)
+  } else {
+    const s = new Set<Toolbar>()
+    s.add(toolbar)
+    EDITOR_TO_TOOLBARS.set(editor, s)
+  }
+
+  // keep legacy single-toolbar mapping for compatibility: if none set yet, set it
+  if (!EDITOR_TO_TOOLBAR.has(editor)) {
+    EDITOR_TO_TOOLBAR.set(editor, toolbar)
+  }
 
   return toolbar
 }

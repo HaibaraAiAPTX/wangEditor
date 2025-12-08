@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.11
+
+### Patch Changes
+
+- 修改为一个编辑器可以创建多个toolbar
+- Updated dependencies
+  - @wangeditor/core@1.2.9
+
 ## 2.0.10
 
 ### Patch Changes

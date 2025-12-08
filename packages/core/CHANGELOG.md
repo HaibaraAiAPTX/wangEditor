@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.9
+
+### Patch Changes
+
+- 修改为一个编辑器可以创建多个toolbar
+
 ## 1.2.8
 
 ### Patch Changes

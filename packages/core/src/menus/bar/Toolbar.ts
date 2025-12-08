@@ -213,6 +213,8 @@ class Toolbar {
     // 清空属性
     this.menus = {}
     this.toolbarItems = []
+
+    this.$box.removeAttr('data-w-e-toolbar')
   }
 }
 

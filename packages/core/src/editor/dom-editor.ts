@@ -21,6 +21,7 @@ import {
   NODE_TO_PARENT,
   EDITOR_TO_TEXTAREA,
   EDITOR_TO_TOOLBAR,
+  EDITOR_TO_TOOLBARS,
   EDITOR_TO_HOVER_BAR,
   EDITOR_TO_WINDOW,
 } from '../utils/weak-maps'
@@ -658,7 +659,17 @@ export const DomEditor = {
 
   // 获取 toolbar 实例
   getToolbar(editor: IDomEditor): Toolbar | null {
-    return EDITOR_TO_TOOLBAR.get(editor) || null
+    const t = EDITOR_TO_TOOLBAR.get(editor)
+    if (t) return t
+    const set = EDITOR_TO_TOOLBARS.get(editor)
+    if (set && set.size > 0) return Array.from(set)[0]
+    return null
+  },
+
+  // 获取所有绑定的 toolbars
+  getToolbars(editor: IDomEditor): Toolbar[] {
+    const set = EDITOR_TO_TOOLBARS.get(editor)
+    return set ? Array.from(set) : []
   },
 
   // 获取 hoverbar 实例

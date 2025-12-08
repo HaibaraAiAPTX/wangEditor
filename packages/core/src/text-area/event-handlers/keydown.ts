@@ -10,7 +10,7 @@ import type TextArea from '../TextArea'
 import Hotkeys from '../../utils/hotkeys'
 import { hasEditableTarget } from '../helpers'
 import { HAS_BEFORE_INPUT_SUPPORT, IS_CHROME, IS_SAFARI } from '../../utils/ua'
-import { EDITOR_TO_TOOLBAR, EDITOR_TO_HOVER_BAR } from '../../utils/weak-maps'
+import { EDITOR_TO_TOOLBAR, EDITOR_TO_HOVER_BAR, EDITOR_TO_TOOLBARS } from '../../utils/weak-maps'
 
 function preventDefault(event: Event) {
   event.preventDefault()
@@ -18,8 +18,19 @@ function preventDefault(event: Event) {
 
 // 触发 menu 快捷键
 function triggerMenuHotKey(editor: IDomEditor, event: KeyboardEvent) {
-  const toolbar = EDITOR_TO_TOOLBAR.get(editor)
-  const toolbarMenus = toolbar && toolbar.getMenus()
+  // collect menus from all bound toolbars and hoverbar
+  const toolbarSet = EDITOR_TO_TOOLBARS.get(editor)
+  const toolbarMenus: Record<string, any> = {}
+  if (toolbarSet) {
+    for (const tb of toolbarSet) {
+      const m = tb && tb.getMenus()
+      if (m) Object.assign(toolbarMenus, m)
+    }
+  } else {
+    const toolbar = EDITOR_TO_TOOLBAR.get(editor)
+    if (toolbar) Object.assign(toolbarMenus, toolbar.getMenus())
+  }
+
   const hoverbar = EDITOR_TO_HOVER_BAR.get(editor)
   const hoverbarMenus = hoverbar && hoverbar.getMenus()
 

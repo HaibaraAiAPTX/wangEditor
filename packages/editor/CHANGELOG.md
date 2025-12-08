@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.11
+
+### Patch Changes
+
+- 修改为一个编辑器可以创建多个toolbar
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.11
+  - @wangeditor/code-highlight@2.0.9
+  - @wangeditor/core@1.2.9
+  - @wangeditor/list-module@2.0.9
+  - @wangeditor/table-module@2.0.9
+  - @wangeditor/upload-image-module@2.0.11
+  - @wangeditor/video-module@2.0.9
+
 ## 5.2.10
 
 ### Patch Changes
