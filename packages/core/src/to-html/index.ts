@@ -13,6 +13,8 @@ export type styleToHtmlFnType = (node: Descendant, elemHtml: string) => string
 
 export const STYLE_TO_HTML_FN_LIST: styleToHtmlFnType[] = []
 
+export { default as node2html } from './node2html'
+
 /**
  * 注册 toHtml 处理文本样式的函数
  * @param fn 处理 toHtml 文本样式的函数
