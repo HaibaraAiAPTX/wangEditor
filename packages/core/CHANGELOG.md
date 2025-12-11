@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.10
+
+### Patch Changes
+
+- 对外暴露两个 node 和 html 互转的 api
+
 ## 1.2.9
 
 ### Patch Changes
