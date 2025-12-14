@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.13
+
+### Patch Changes
+
+- 图片模块添加属性支持
+
 ## 2.0.12
 
 ### Patch Changes
