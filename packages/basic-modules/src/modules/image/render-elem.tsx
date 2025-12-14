@@ -13,6 +13,7 @@ import { DomEditor } from '@wangeditor/core'
 import type { Dom7Array } from '../../utils/dom'
 import $ from '../../utils/dom'
 import type { ImageElement } from './custom-types'
+import { isPxValue, pxNumber } from './_utils'
 
 interface IImageSize {
   width?: string
@@ -188,8 +189,12 @@ function renderImage(elemNode: SlateElement, _children: VNode[] | null, editor: 
   if (width) imageStyle.width = '100%'
   if (height) imageStyle.height = '100%'
 
+  const imgAttrs: any = {}
+  if (isPxValue(width)) imgAttrs.width = pxNumber(width)
+  if (isPxValue(height)) imgAttrs.height = pxNumber(height)
+
   // 【注意】void node 中，renderElem 不用处理 children 。core 会统一处理。
-  const vnode = <img style={imageStyle} src={src} alt={alt} data-href={href} />
+  const vnode = <img {...imgAttrs} style={imageStyle} src={src} alt={alt} data-href={href} />
 
   const isDisabled = editor.isDisabled()
 

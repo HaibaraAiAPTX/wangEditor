@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>image module test</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link href="./css/view.css" rel="stylesheet">
+  <link href="./css/editor.css" rel="stylesheet">
+  <link href="../dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <h3>Image module manual test</h3>
+
+  <div>
+    <div id="editor-toolbar" class="editor-toolbar"></div>
+    <div id="editor-text-area" class="editor-text-area" style="min-height:200px;border:1px solid #ddd"></div>
+  </div>
+
+  <div style="margin-top:12px;">
+    <button id="btn-render-node">Render Node</button>
+    <button id="btn-get-html">Get HTML</button>
+    <button id="btn-parse-html">Parse HTML to Nodes</button>
+  </div>
+
+  <div style="margin-top:12px; display:flex; gap:12px;">
+    <div style="flex:1">
+      <div><strong>HTML</strong></div>
+      <textarea id="html-content" style="width:100%;height:160px"></textarea>
+    </div>
+    <div style="flex:1">
+      <div><strong>Parse Result (JSON)</strong></div>
+      <textarea id="parse-result" readonly style="width:100%;height:160px"></textarea>
+    </div>
+  </div>
+
+  <script type="module">
+    import * as E from '@wangeditor/editor'
+
+    let editor
+    let toolbar
+
+    function createEditor(opts = {}) {
+      if (editor && toolbar) {
+        editor.destroy()
+        toolbar.destroy()
+        editor = null
+        toolbar = null
+      }
+
+      // destroy existing editor by clearing containers (simple approach for examples)
+      document.getElementById('editor-text-area').innerHTML = ''
+      document.getElementById('editor-toolbar').innerHTML = ''
+
+      editor = E.createEditor({
+        selector: '#editor-text-area',
+        config: opts.config || {},
+        html: opts.html,
+        content: opts.content,
+        mode: opts.mode || 'default'
+      })
+
+      toolbar = E.createToolbar({
+        editor,
+        selector: '#editor-toolbar',
+        config: {},
+        mode: opts.mode || 'default'
+      })
+
+      return editor
+    }
+
+    // initial editor
+    createEditor({ html: '<p><img src="https://media.istockphoto.com/id/1965074929/photo/light-the-starry-sky.jpg?s=2048x2048&w=is&k=20&c=MsW9SxJjUEtErvgp9PSfVfvtZib8WBbWpYvvGjqk8EQ=" width="250" /><img src="https://media.istockphoto.com/id/1965074929/photo/light-the-starry-sky.jpg?s=2048x2048&w=is&k=20&c=MsW9SxJjUEtErvgp9PSfVfvtZib8WBbWpYvvGjqk8EQ=" style="width: 250px" /></p>' })
+
+    // a sample image node to render
+    const sampleImageNode = {
+      type: 'image',
+      src: 'https://media.istockphoto.com/id/1965074929/photo/light-the-starry-sky.jpg?s=2048x2048&w=is&k=20&c=MsW9SxJjUEtErvgp9PSfVfvtZib8WBbWpYvvGjqk8EQ=',
+      alt: 'placeholder',
+      style: {
+        width: '50%'
+      },
+      children: [{ text: '' }]
+    }
+
+    document.getElementById('btn-render-node').addEventListener('click', () => {
+      // create a new editor instance with content as the image node
+      createEditor({ content: [sampleImageNode] })
+    })
+
+    document.getElementById('btn-get-html').addEventListener('click', () => {
+      if (!editor) return
+      const html = editor.getHtml()
+      document.getElementById('html-content').value = html
+    })
+
+    document.getElementById('btn-parse-html').addEventListener('click', () => {
+      const html = document.getElementById('html-content').value || editor.getHtml()
+      // create a temporary editor to parse html into nodes
+      const containerId = 'temp-editor-area'
+      let tmpArea = document.getElementById(containerId)
+      if (!tmpArea) {
+        tmpArea = document.createElement('div')
+        tmpArea.id = containerId
+        tmpArea.style.display = 'none'
+        document.body.appendChild(tmpArea)
+      }
+
+      // create editor that parses html
+      const parsedEditor = E.createEditor({ selector: `#${containerId}`, html, mode: 'default' })
+
+      // show parsed node tree
+      setTimeout(() => {
+        try {
+          const json = JSON.stringify(parsedEditor.children, null, 2)
+          document.getElementById('parse-result').value = json
+        } catch (err) {
+          document.getElementById('parse-result').value = String(err)
+        }
+      }, 50)
+    })
+  </script>
+</body>
+
+</html>
