@@ -44,7 +44,12 @@ class TableFullWidth implements IButtonMenu {
     const props: Partial<TableElement> = {
       width: value ? 'auto' : '100%', // 切换 'auto' 和 '100%'
     }
-    Transforms.setNodes(editor, props, { mode: 'highest' })
+    const tableNode = DomEditor.getSelectedNodeByType(editor, 'table')
+    if (tableNode == null) return
+
+    // 获取 tableNode 的 path
+    const tablePath = DomEditor.findPath(editor, tableNode)
+    Transforms.setNodes(editor, props, { at: tablePath })
   }
 }
 

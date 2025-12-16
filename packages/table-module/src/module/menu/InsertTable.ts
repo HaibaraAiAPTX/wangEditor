@@ -166,13 +166,21 @@ class InsertTable implements IDropPanelMenu {
     if (rowNum <= 0 || colNum <= 0) return
 
     // 如果当前是空 p ，则删除该 p
-    if (DomEditor.isSelectedEmptyParagraph(editor)) {
-      Transforms.removeNodes(editor, { mode: 'highest' })
+    // if (DomEditor.isSelectedEmptyParagraph(editor)) {
+    //   Transforms.removeNodes(editor, { mode: 'highest' })
+    // }
+
+    const { selection } = editor
+    if (selection == null) return
+    const parentEntry = Editor.parent(editor, selection)
+    if (DomEditor.isEmptyParagraph(parentEntry[0])) {
+      Transforms.removeNodes(editor, { at: parentEntry[1] })
     }
 
     // 插入表格
     const tableNode = genTableNode(rowNum, colNum)
-    Transforms.insertNodes(editor, tableNode, { mode: 'highest' })
+    // Transforms.insertNodes(editor, tableNode, { mode: 'highest' })
+    Transforms.insertNodes(editor, tableNode, { at: parentEntry[1], select: true })
   }
 }
 

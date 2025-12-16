@@ -812,6 +812,23 @@ export const DomEditor = {
   },
 
   /**
+   * 判断 node 是否是空的段落
+   * @param node
+   */
+  isEmptyParagraph(node: Node) {
+    if (!Element.isElement(node)) return false
+    if (node.type !== 'paragraph') return false
+
+    const { children } = node
+    if (children.length !== 1) return false
+
+    const { text } = children[0] as Text
+    if (text === '') return true
+
+    return false
+  },
+
+  /**
    * 当前 path 指向的 node ，是否是空的（无内容）
    * @param editor editor
    * @param path path
