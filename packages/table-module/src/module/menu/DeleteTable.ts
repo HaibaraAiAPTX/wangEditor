@@ -37,8 +37,12 @@ class DeleteTable implements IButtonMenu {
   exec(editor: IDomEditor, value: string | boolean) {
     if (this.isDisabled(editor)) return
 
-    // 删除表格
-    Transforms.removeNodes(editor, { mode: 'highest' })
+    const tableNode = DomEditor.getSelectedNodeByType(editor, 'table')
+    if (tableNode == null) return
+
+    // 获取 tableNode 的 path
+    const tablePath = DomEditor.findPath(editor, tableNode)
+    Transforms.removeNodes(editor, { at: tablePath })
   }
 }
 
