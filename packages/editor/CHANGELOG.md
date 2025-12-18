@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.14
+
+### Patch Changes
+
+- 统一更新版本号
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.14
+  - @wangeditor/code-highlight@2.0.11
+  - @wangeditor/core@1.2.11
+  - @wangeditor/list-module@2.0.11
+  - @wangeditor/table-module@2.0.11
+  - @wangeditor/upload-image-module@2.0.14
+  - @wangeditor/video-module@2.0.11
+
 ## 5.2.13
 
 ### Patch Changes

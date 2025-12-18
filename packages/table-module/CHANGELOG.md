@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.11
+
+### Patch Changes
+
+- 统一更新版本号
+- Updated dependencies
+  - @wangeditor/core@1.2.11
+
 ## 2.0.10
 
 ### Patch Changes

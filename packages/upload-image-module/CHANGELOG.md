@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.14
+
+### Patch Changes
+
+- 统一更新版本号
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.14
+  - @wangeditor/core@1.2.11
+
 ## 2.0.13
 
 ### Patch Changes
