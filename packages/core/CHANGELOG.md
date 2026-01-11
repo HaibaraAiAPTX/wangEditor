@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.14
+
+### Patch Changes
+
+- 更健壮的 syncSelection
+
 ## 1.2.13
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @wangeditor/core@1.2.14
+
 ## 2.0.16
 
 ### Patch Changes
