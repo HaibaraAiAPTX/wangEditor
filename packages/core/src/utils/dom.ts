@@ -187,15 +187,46 @@ export const hasShadowRoot = () => {
 }
 
 /**
- * Get the element with the specified id
+ * Get the element with the specified id.
+ * Prioritizes search in editor's shadow DOM for performance.
  */
 export const getElementById = (id: string, editor?: IDomEditor): null | HTMLElement => {
-  return (
-    window.document.getElementById(id) ??
-    window.document.activeElement?.shadowRoot?.getElementById(id) ??
-    (editor?.getEditableContainer().getRootNode() as ShadowRoot)?.getElementById(id) ??
-    null
-  )
+  let element = window.document.getElementById(id)
+  if (element) return element
+
+  const searchInShadowRoots = (root: Document | ShadowRoot): HTMLElement | null => {
+    const found = root.getElementById(id)
+    if (found) return found
+
+    const elements = root.querySelectorAll('*')
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i]
+      if ('shadowRoot' in el && el.shadowRoot instanceof ShadowRoot) {
+        const result = searchInShadowRoots(el.shadowRoot)
+        if (result) return result
+      }
+    }
+    return null
+  }
+
+  if (editor) {
+    try {
+      const container = editor.getEditableContainer()
+      const root = container.getRootNode()
+
+      if (root instanceof ShadowRoot) {
+        element = searchInShadowRoots(root)
+        if (element) return element
+      }
+    } catch (e) {
+      //
+    }
+  }
+
+  element = searchInShadowRoots(window.document)
+  if (element) return element
+
+  return null
 }
 
 /**

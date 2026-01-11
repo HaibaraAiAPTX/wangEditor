@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.12
+
+### Patch Changes
+
+- 优化了一下 getElementById 的查找逻辑及多层 shadow 嵌套的修复
+
 ## 1.2.11
 
 ### Patch Changes
