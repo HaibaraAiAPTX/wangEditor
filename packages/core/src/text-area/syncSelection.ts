@@ -12,7 +12,7 @@ import type TextArea from './TextArea'
 import { EDITOR_TO_ELEMENT, IS_FOCUSED } from '../utils/weak-maps'
 import { IS_FIREFOX } from '../utils/ua'
 import { hasEditableTarget, isTargetInsideNonReadonlyVoid } from './helpers'
-import type { DOMElement } from '../utils/dom'
+import type { DOMElement, DOMRange } from '../utils/dom'
 
 /**
  * editor onchange 时，将 editor selection 同步给 DOM
@@ -99,7 +99,15 @@ export function editorSelectionToDOM(textarea: TextArea, editor: IDomEditor, foc
   // Otherwise the DOM selection is out of sync, so update it.
   textarea.isUpdatingSelection = true
 
-  const newDomRange = selection && DomEditor.toDOMRange(editor, selection)
+  let newDomRange: DOMRange | null = null
+  if (selection) {
+    try {
+      newDomRange = DomEditor.toDOMRange(editor, selection)
+    } catch {
+      // 节点未渲染到 DOM，跳过本次同步
+    }
+  }
+
   if (newDomRange) {
     if (Range.isBackward(selection!)) {
       domSelection.setBaseAndExtent(
