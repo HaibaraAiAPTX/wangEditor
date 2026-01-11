@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.2.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @wangeditor/core@1.2.13
+  - @wangeditor/basic-modules@2.0.16
+  - @wangeditor/code-highlight@2.0.13
+  - @wangeditor/list-module@2.0.13
+  - @wangeditor/table-module@2.0.13
+  - @wangeditor/upload-image-module@2.0.16
+  - @wangeditor/video-module@2.0.13
+
 ## 5.2.15
 
 ### Patch Changes
