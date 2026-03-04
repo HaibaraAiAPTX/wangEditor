@@ -126,3 +126,6 @@ bak/
 stats.html
 
 .turbo
+
+# Git worktrees
+.worktrees/
