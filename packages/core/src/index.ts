@@ -43,6 +43,9 @@ export * from './upload/index'
 // i18n
 export * from './i18n/index'
 
+// utils - utilities for Shadow DOM and other common operations
+export { getEventTarget } from './utils/dom'
+
 export interface IModuleConf {
   // 注册菜单
   menus: Array<IRegisterMenuConf>
