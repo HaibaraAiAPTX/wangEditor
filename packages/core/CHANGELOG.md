@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.15
+
+### Patch Changes
+
+- 修复表格拖拽调整宽度在 shadow 模式下失效的问题
+
 ## 1.2.14
 
 ### Patch Changes

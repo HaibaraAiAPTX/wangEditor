@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.18
+
+### Patch Changes
+
+- 修复表格拖拽调整宽度在 shadow 模式下失效的问题
+- Updated dependencies
+  - @wangeditor/basic-modules@2.0.18
+  - @wangeditor/core@1.2.15
+
 ## 2.0.17
 
 ### Patch Changes
