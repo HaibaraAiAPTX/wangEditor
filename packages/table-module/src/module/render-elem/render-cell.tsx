@@ -9,7 +9,7 @@ import { Transforms } from 'slate'
 import type { VNode } from 'snabbdom'
 import { jsx } from 'snabbdom'
 import type { IDomEditor } from '@wangeditor/core'
-import { DomEditor } from '@wangeditor/core'
+import { DomEditor, getEventTarget } from '@wangeditor/core'
 import type { TableCellElement } from '../custom-types'
 import { isCellInFirstRow } from '../helpers'
 import $ from '../../utils/dom'
@@ -20,29 +20,6 @@ let clientXWhenMouseDown = 0
 let cellWidthWhenMouseDown = 0
 let cellPathWhenMouseDown: Location | null = null
 let editorWhenMouseDown: IDomEditor | null = null
-const $body = $('body')
-
-function onMouseDown(event: Event) {
-  const elem = event.target as HTMLElement
-  if (elem.tagName !== 'TH' && elem.tagName !== 'TD') return
-
-  if (elem.style.cursor !== 'col-resize') return
-  elem.style.cursor = 'auto'
-
-  event.preventDefault()
-
-  // 记录必要信息
-  isMouseDownForResize = true
-  const { clientX } = event as MouseEvent
-  clientXWhenMouseDown = clientX
-  const { width } = elem.getBoundingClientRect()
-  cellWidthWhenMouseDown = width
-
-  // 绑定事件
-  $body.on('mousemove', onMouseMove)
-  $body.on('mouseup', onMouseUp)
-}
-$body.on('mousedown', onMouseDown) // 绑定事件
 
 function onMouseUp(event: Event) {
   isMouseDownForResize = false
@@ -50,8 +27,8 @@ function onMouseUp(event: Event) {
   cellPathWhenMouseDown = null
 
   // 解绑事件
-  $body.off('mousemove', onMouseMove)
-  $body.off('mouseup', onMouseUp)
+  $(document).off('mousemove', onMouseMove)
+  $(document).off('mouseup', onMouseUp)
 }
 
 const onMouseMove = throttle(function (event: Event) {
@@ -124,6 +101,34 @@ function renderTableCell(
             }
           }
         }, 100),
+
+        // 新增 mousedown 事件处理
+        mousedown: (event: MouseEvent) => {
+          // 使用 getEventTarget 兼容 Shadow DOM
+          const elem = getEventTarget(
+            event as Event,
+            el => el.tagName === 'TH' || el.tagName === 'TD'
+          )
+          if (!elem) return
+
+          // 检查是否在列宽调整模式
+          if (elem.style.cursor !== 'col-resize') return
+
+          // 开始拖拽
+          elem.style.cursor = 'auto'
+          event.preventDefault()
+
+          // 记录必要信息
+          isMouseDownForResize = true
+          clientXWhenMouseDown = event.clientX
+          cellWidthWhenMouseDown = elem.getBoundingClientRect().width
+          editorWhenMouseDown = editor
+          cellPathWhenMouseDown = DomEditor.findPath(editor, cellNode)
+
+          // 绑定 document 级事件以确保拖拽过程不丢失
+          $(document).on('mousemove', onMouseMove)
+          $(document).on('mouseup', onMouseUp)
+        },
       }}
     >
       {children}
