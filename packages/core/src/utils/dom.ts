@@ -416,3 +416,35 @@ export function getTagName($elem: Dom7Array): string {
   if (elem.nodeType !== NodeType.ELEMENT_NODE) return ''
   return elem.tagName.toLowerCase()
 }
+
+/**
+ * 从事件中获取目标元素，兼容 Shadow DOM
+ * @param event 事件对象
+ * @param selector CSS 选择器或匹配函数
+ * @returns 匹配的元素，未找到返回 null
+ *
+ * @example
+ * // 使用 CSS 选择器
+ * const cell = getEventTarget(event, 'td')
+ *
+ * // 使用自定义匹配函数
+ * const editable = getEventTarget(event, (el) => el.contentEditable === 'true')
+ */
+export function getEventTarget(
+  event: Event,
+  selector: string | ((el: HTMLElement) => boolean)
+): HTMLElement | null {
+  const path = event.composedPath()
+
+  for (const item of path) {
+    if (item instanceof HTMLElement) {
+      if (typeof selector === 'string') {
+        if (item.matches(selector)) return item
+      } else if (selector(item)) {
+        return item
+      }
+    }
+  }
+
+  return null
+}
