@@ -2,6 +2,7 @@
  * @description code-block elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { codeToHtmlConf, preToHtmlConf } from '../../src/modules/code-block/elem-to-html'
 

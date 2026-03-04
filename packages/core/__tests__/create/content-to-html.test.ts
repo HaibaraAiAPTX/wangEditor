@@ -2,6 +2,7 @@
  * @description convert to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../src/create/create-editor'
 

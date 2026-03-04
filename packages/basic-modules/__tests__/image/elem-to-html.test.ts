@@ -2,6 +2,7 @@
  * @description image - elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { imageToHtmlConf } from '../../src/modules/image/elem-to-html'
 
@@ -22,7 +23,7 @@ describe('image to html', () => {
     const html = imageToHtmlConf.elemToHtml(elem, '')
 
     expect(html).toBe(
-      `<img src="${src}" alt="logo" data-href="${href}" style="width: 100;height: 80;"/>`
+      `<img src="${src}" alt="logo" data-href="${href}"  width="100" height="80" style="width: 100;height: 80;"/>`
     )
   })
 })

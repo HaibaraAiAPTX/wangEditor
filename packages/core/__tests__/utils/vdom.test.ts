@@ -2,6 +2,7 @@
  * @description vdom util fns test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import type { VNode } from 'snabbdom'
 import { h } from 'snabbdom'

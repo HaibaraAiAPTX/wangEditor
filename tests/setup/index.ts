@@ -1,11 +1,23 @@
-import '@testing-library/jest-dom'
-import nodeCrypto from 'crypto'
+import { expect } from 'vitest'
+import * as matchers from '@testing-library/jest-dom/matchers'
+expect.extend(matchers)
+import { randomFillSync } from 'node:crypto'
 
-// @ts-ignore
-global.crypto = {
-  getRandomValues: function (buffer: any) {
-    return nodeCrypto.randomFillSync(buffer)
-  },
+if (!global.crypto) {
+  // @ts-ignore
+  global.crypto = {
+    getRandomValues: function (buffer: any) {
+      return randomFillSync(buffer)
+    },
+  }
+} else {
+  // If crypto exists (in newer jsdom), just add getRandomValues if missing
+  if (!global.crypto.getRandomValues) {
+    // @ts-ignore
+    global.crypto.getRandomValues = function (buffer: any) {
+      return randomFillSync(buffer)
+    }
+  }
 }
 
 // Jest environment not contains DataTransfer object, so mock a DataTransfer class

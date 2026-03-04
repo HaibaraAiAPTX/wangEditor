@@ -2,6 +2,7 @@
  * @description text style test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { jsx } from 'snabbdom'
 import { renderStyle } from '../../src/modules/text-style/render-style'

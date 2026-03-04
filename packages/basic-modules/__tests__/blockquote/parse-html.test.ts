@@ -2,6 +2,7 @@
  * @description parse html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { $ } from 'dom7'
 import { BaseElement } from 'slate'

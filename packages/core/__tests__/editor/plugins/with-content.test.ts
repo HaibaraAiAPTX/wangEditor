@@ -2,6 +2,7 @@
  * @description content API test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach, test } from 'vitest'
 
 import type { Selection } from 'slate'
 import { Editor, Transforms, Node } from 'slate'

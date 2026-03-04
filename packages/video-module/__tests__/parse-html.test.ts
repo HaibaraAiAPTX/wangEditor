@@ -2,10 +2,11 @@
  * @description parse html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { $ } from 'dom7'
 import createEditor from '../../../tests/utils/create-editor'
-import videoModule from '../src'
+import videoModule from '../src/module'
 
 const { parseElemsHtml, preParseHtml } = videoModule
 const [parseHtmlConf] = parseElemsHtml!

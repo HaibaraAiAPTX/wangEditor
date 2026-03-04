@@ -3,6 +3,7 @@
  * @author wangfupeng
  */
 
+import { describe, it, expect, beforeEach, afterEach, vi, test } from 'vitest'
 import createUploader from '../../src/upload/createUploader'
 import type { IUploadConfig } from '../../src/upload/interface'
 import nock from 'nock'
@@ -64,7 +65,7 @@ describe('uploader', () => {
       .post('/')
       .reply(200, {})
 
-    const fn = jest.fn()
+    const fn = vi.fn()
     const uppy = createUploader({
       server,
       fieldName: 'file1',
@@ -98,7 +99,7 @@ describe('uploader', () => {
       .post('/')
       .reply(200, {})
 
-    const fn = jest.fn()
+    const fn = vi.fn()
     const uppy = createUploader({
       server,
       fieldName: 'file1',
@@ -133,7 +134,7 @@ describe('uploader', () => {
       .post('/')
       .reply(400, {})
 
-    const fn = jest.fn()
+    const fn = vi.fn()
     const uppy = createUploader({
       server,
       fieldName: 'file1',
@@ -167,7 +168,7 @@ describe('uploader', () => {
       .post('/')
       .reply(400, {})
 
-    const fn = jest.fn()
+    const fn = vi.fn()
     console.error = fn
     const uppy = createUploader({
       server,
@@ -191,7 +192,7 @@ describe('uploader', () => {
   })
 
   test('it should invoke error callback if file size over max size', () => {
-    const fn = jest.fn()
+    const fn = vi.fn()
     const uppy = createUploader({
       server,
       fieldName: 'file1',

@@ -2,6 +2,7 @@
  * @description todo plugin test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import withTodo from '../../src/modules/todo/plugin'
 import createEditor from '../../../../tests/utils/create-editor'

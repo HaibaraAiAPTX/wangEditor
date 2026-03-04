@@ -2,6 +2,7 @@
  * @description link - elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { linkToHtmlConf } from '../../src/modules/link/elem-to-html'
 

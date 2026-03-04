@@ -2,6 +2,7 @@
  * @description paragraph plugin test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import type { Point } from 'slate'
 import { Editor, Transforms } from 'slate'

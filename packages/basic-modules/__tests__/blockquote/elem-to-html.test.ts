@@ -2,6 +2,7 @@
  * @description blockquote - elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { quoteToHtmlConf } from '../../src/modules/blockquote/elem-to-html'
 

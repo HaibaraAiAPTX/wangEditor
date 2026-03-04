@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach, vi, test } from 'vitest'
 import DeleteCol from '../../src/module/menu/DeleteCol'
 import createEditor from '../../../../tests/utils/create-editor'
 import { DEL_COL_SVG } from '../../src/constants/svg'
@@ -47,7 +48,7 @@ describe('Table Module Delete Col Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => false)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => false)
 
     expect(deleteColMenu.isDisabled(editor)).toBeTruthy()
   })
@@ -57,8 +58,8 @@ describe('Table Module Delete Col Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
 
     expect(deleteColMenu.isDisabled(editor)).toBeTruthy()
   })
@@ -68,8 +69,8 @@ describe('Table Module Delete Col Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
 
     expect(deleteColMenu.isDisabled(editor)).toBeFalsy()
   })
@@ -86,8 +87,8 @@ describe('Table Module Delete Col Menu', () => {
     const deleteColMenu = new DeleteCol()
     const editor = createEditor()
 
-    jest.spyOn(deleteColMenu, 'isDisabled').mockImplementation(() => false)
-    jest.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
+    vi.spyOn(deleteColMenu, 'isDisabled').mockImplementation(() => false)
+    vi.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
       type: 'table-col',
       children: [],
     }))
@@ -101,9 +102,9 @@ describe('Table Module Delete Col Menu', () => {
         [0, 1],
       ] as slate.NodeEntry<slate.Element>
     }
-    jest.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
-    const removeNodesFn = jest.fn()
-    jest.spyOn(slate.Transforms, 'removeNodes').mockImplementation(removeNodesFn)
+    vi.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
+    const removeNodesFn = vi.fn()
+    vi.spyOn(slate.Transforms, 'removeNodes').mockImplementation(removeNodesFn)
 
     deleteColMenu.exec(editor, '')
     expect(removeNodesFn).toBeCalled()
@@ -113,8 +114,8 @@ describe('Table Module Delete Col Menu', () => {
     const deleteColMenu = new DeleteCol()
     const editor = createEditor()
 
-    jest.spyOn(deleteColMenu, 'isDisabled').mockImplementation(() => false)
-    jest.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
+    vi.spyOn(deleteColMenu, 'isDisabled').mockImplementation(() => false)
+    vi.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
       type: 'table-row',
       children: [
         {
@@ -137,10 +138,10 @@ describe('Table Module Delete Col Menu', () => {
         [0, 1],
       ] as slate.NodeEntry<slate.Element>
     }
-    jest.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
-    jest.spyOn(core.DomEditor, 'findPath').mockImplementation(() => [0, 1] as slate.Path)
-    const removeNodesFn = jest.fn()
-    jest.spyOn(slate.Transforms, 'removeNodes').mockImplementation(removeNodesFn)
+    vi.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
+    vi.spyOn(core.DomEditor, 'findPath').mockImplementation(() => [0, 1] as slate.Path)
+    const removeNodesFn = vi.fn()
+    vi.spyOn(slate.Transforms, 'removeNodes').mockImplementation(removeNodesFn)
 
     deleteColMenu.exec(editor, '')
     expect(removeNodesFn).toBeCalledTimes(2)

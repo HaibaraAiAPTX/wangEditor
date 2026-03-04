@@ -2,6 +2,7 @@
  * @description code-block menu test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import type { Element } from 'slate'
 import { Editor, Transforms } from 'slate'
@@ -33,7 +34,7 @@ describe('code-block menu', () => {
     startLocation = null
   })
 
-  it('getValue and isActive', done => {
+  it('getValue and isActive', async () => {
     editor.select(startLocation)
     expect(menu.isActive(editor)).toBeFalsy()
     expect(menu.getValue(editor)).toBe('')
@@ -43,11 +44,9 @@ describe('code-block menu', () => {
       path: [1, 0, 0], // 选中 code node
       offset: 3,
     })
-    setTimeout(() => {
-      expect(menu.isActive(editor)).toBeTruthy()
-      expect(menu.getValue(editor)).toBe('javascript')
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    expect(menu.isActive(editor)).toBeTruthy()
+    expect(menu.getValue(editor)).toBe('javascript')
   })
 
   it('is disabled', () => {

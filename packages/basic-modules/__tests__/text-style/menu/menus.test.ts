@@ -2,6 +2,7 @@
  * @description style menus test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import type { Element } from 'slate'
 import { Editor, Transforms } from 'slate'

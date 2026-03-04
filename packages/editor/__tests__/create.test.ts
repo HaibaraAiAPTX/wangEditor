@@ -2,6 +2,7 @@
  * @description create editor and toolbar test
  * @author wangfupeng
  */
+import { describe, expect, test } from 'vitest'
 
 import { createEditor, createToolbar } from '../../../packages/editor/src/index'
 import type { ICreateEditorOption, ICreateToolbarOption } from '../../../packages/editor/src/create'

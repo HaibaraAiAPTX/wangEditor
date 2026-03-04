@@ -2,6 +2,7 @@
  * @description list plugin test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import withList from '../src/module/plugin'
 import createEditor from '../../../tests/utils/create-editor'

@@ -2,6 +2,7 @@
  * @description parse html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 // import { $ } from 'dom7'
 // import { parseStyleHtml } from '../../../../packages/basic-modules/src/modules/text-style/parse-style-html'

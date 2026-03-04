@@ -26,8 +26,8 @@
     "dist"
   ],
   "scripts": {
-    "test": "jest",
-    "test-c": "jest --coverage",
+    "test": "vitest run --root ../.. packages/table-module",
+    "test-c": "vitest run --root ../.. packages/table-module --coverage",
     "build": "rolldown -c rolldown.config.mjs",
     "build:rollup": "cross-env NODE_ENV=production,size_stats rollup -c rollup.config.js && pnpm build:type",
     "build:type": "node ../../build/build-type.mjs"

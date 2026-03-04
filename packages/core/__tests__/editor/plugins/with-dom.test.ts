@@ -3,6 +3,7 @@
  * @author wangfupeng
  */
 
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { Editor } from 'slate'
 import createCoreEditor from '../../create-core-editor' // packages/core 不依赖 packages/editor ，不能使用后者的 createEditor
 import { withDOM } from '../../../src/editor/plugins/with-dom'
@@ -21,7 +22,7 @@ describe('editor DOM API', () => {
     expect(editor.id).not.toBeNull()
   })
 
-  it('isFullScreen fullScreen unFullScreen', done => {
+  it('isFullScreen fullScreen unFullScreen', async () => {
     const editor = createEditor()
 
     expect(editor.isFullScreen).toBeFalsy()
@@ -30,10 +31,8 @@ describe('editor DOM API', () => {
     expect(editor.isFullScreen).toBeTruthy()
 
     editor.unFullScreen()
-    setTimeout(() => {
-      expect(editor.isFullScreen).toBeFalsy()
-      done()
-    }, 1000)
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    expect(editor.isFullScreen).toBeFalsy()
   })
 
   // TODO focus blur isFocused 用 jest 测试异常，以及 editor-config.test.ts 中的 `onFocus` `onBlur`
@@ -57,27 +56,23 @@ describe('editor DOM API', () => {
     expect(editor.getText().length).toBe(6)
   })
 
-  it('destroy', done => {
+  it('destroy', async () => {
     const editor = createEditor()
     expect(editor.isDestroyed).toBeFalsy()
 
-    setTimeout(() => {
-      editor.destroy()
-      expect(editor.isDestroyed).toBeTruthy()
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    editor.destroy()
+    expect(editor.isDestroyed).toBeTruthy()
   })
 
-  it('toDOMNode', done => {
+  it('toDOMNode', async () => {
     const p = { type: 'paragraph', children: [{ text: 'hello' }] }
     const editor = createEditor({
       content: [p],
     })
 
-    setTimeout(() => {
-      const domNode = editor.toDOMNode(p)
-      expect(domNode.tagName).toBe('DIV')
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    const domNode = editor.toDOMNode(p)
+    expect(domNode.tagName).toBe('DIV')
   })
 })

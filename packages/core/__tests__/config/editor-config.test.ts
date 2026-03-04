@@ -3,6 +3,7 @@
  * @author wangfupeng
  */
 
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { Editor } from 'slate'
 import createCoreEditor from '../create-core-editor' // packages/core 不依赖 packages/editor ，不能使用后者的 createEditor
 
@@ -57,12 +58,13 @@ describe('editor config', () => {
     expect(editor.getText()).toBe('')
   })
 
-  it('if set maxLength option, the editor can not update content when text length is equal to maxLength', done => {
+  it('if set maxLength option, the editor can not update content when text length is equal to maxLength', async () => {
+    let callbackCalled = false
     const editor = createCoreEditor({
       config: {
         maxLength: 10,
         onMaxLength: () => {
-          done() // 触发回调，才能完成该测试
+          callbackCalled = true
         },
       },
     })
@@ -75,10 +77,14 @@ describe('editor config', () => {
     // 再插入其他字符，则只能插入一个
     editor.insertText('abc')
     expect(editor.getText()).toBe('123456789a')
+
+    // 等待回调被触发
+    await new Promise(resolve => setTimeout(resolve, 10))
+    expect(callbackCalled).toBe(true)
   })
 
-  it('if set onCreated option, it will be called when created editor', done => {
-    const fn = jest.fn()
+  it('if set onCreated option, it will be called when created editor', async () => {
+    const fn = vi.fn()
 
     createCoreEditor({
       config: {
@@ -86,14 +92,12 @@ describe('editor config', () => {
       },
     })
 
-    setTimeout(() => {
-      expect(fn).toHaveBeenCalled()
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    expect(fn).toHaveBeenCalled()
   })
 
-  it('if set onChange option, it will be called when change editor selection', done => {
-    const fn = jest.fn()
+  it('if set onChange option, it will be called when change editor selection', async () => {
+    const fn = vi.fn()
 
     const editor = createCoreEditor({
       config: {
@@ -102,14 +106,12 @@ describe('editor config', () => {
     })
 
     editor.select(getStartLocation(editor)) // 选区变化，触发 onchange
-    setTimeout(() => {
-      expect(fn).toHaveBeenCalledWith(editor)
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    expect(fn).toHaveBeenCalledWith(editor)
   })
 
-  it('if set onChange option, it will be called when change editor content', done => {
-    const fn = jest.fn()
+  it('if set onChange option, it will be called when change editor content', async () => {
+    const fn = vi.fn()
 
     const editor = createCoreEditor({
       config: {
@@ -120,30 +122,24 @@ describe('editor config', () => {
     editor.select(getStartLocation(editor))
 
     // 避免选区干扰
-    setTimeout(() => {
-      editor.insertText('123')
-    }, 50)
-    setTimeout(() => {
-      expect(fn).toHaveBeenCalledTimes(2)
-      done()
-    }, 80)
+    await new Promise(resolve => setTimeout(resolve, 50))
+    editor.insertText('123')
+    await new Promise(resolve => setTimeout(resolve, 80))
+    expect(fn).toHaveBeenCalledTimes(2)
   })
 
-  it('if set onDestroyed option, it will be called when destroy editor', done => {
-    const fn = jest.fn()
+  it('if set onDestroyed option, it will be called when destroy editor', async () => {
+    const fn = vi.fn()
     const editor = createCoreEditor({
       config: {
         onDestroyed: fn,
       },
     })
 
-    setTimeout(() => {
-      editor.destroy()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    editor.destroy()
 
-    setTimeout(() => {
-      expect(fn).toHaveBeenCalledWith(editor)
-      done()
-    }, 20)
+    await new Promise(resolve => setTimeout(resolve, 20))
+    expect(fn).toHaveBeenCalledWith(editor)
   })
 })

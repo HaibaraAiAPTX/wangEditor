@@ -2,6 +2,7 @@
  * @description image helper test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { Editor, Transforms } from 'slate'
 import { DomEditor } from '@wangeditor/core'

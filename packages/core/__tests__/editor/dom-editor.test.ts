@@ -2,6 +2,7 @@
  * @description core editor test
  * @author luochao
  */
+import { describe, it, expect, beforeEach, afterEach, test } from 'vitest'
 
 import type { Range as SlateRange } from 'slate'
 import { Editor } from 'slate'

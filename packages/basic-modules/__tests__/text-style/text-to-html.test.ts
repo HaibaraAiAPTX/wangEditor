@@ -2,6 +2,7 @@
  * @description text to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { styleToHtml } from '../../src/modules/text-style/style-to-html'
 

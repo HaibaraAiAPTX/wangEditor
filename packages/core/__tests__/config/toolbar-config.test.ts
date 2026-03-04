@@ -2,6 +2,7 @@
  * @description toolbar config test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createCoreEditor from '../create-core-editor'
 import type { IDomEditor } from '../../src/editor/interface'

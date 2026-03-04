@@ -2,6 +2,7 @@
  * @description list NumberedListMenu test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import NumberedListMenu from '../../src/module/menu/NumberedListMenu'
 import createEditor from '../../../../tests/utils/create-editor'

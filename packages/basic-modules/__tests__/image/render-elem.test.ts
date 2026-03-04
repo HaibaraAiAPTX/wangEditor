@@ -2,6 +2,7 @@
  * @description image - render elem test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { Editor } from 'slate'
 import { renderImageConf } from '../../src/modules/image/render-elem'
@@ -38,7 +39,7 @@ describe('image render elem', () => {
     }
 
     const containerVnode = renderImageConf.renderElem(elem, null, editor) as any
-    expect(containerVnode.sel).toBe('div')
+    expect(containerVnode.sel).toBe('span')
     expect(containerVnode.data.className).toBe('w-e-image-container')
     expect(containerVnode.data.style.width).toBe('100')
     expect(containerVnode.data.style.height).toBe('80')
@@ -69,7 +70,7 @@ describe('image render elem', () => {
     })
 
     const containerVnode = renderImageConf.renderElem(elem, null, editor) as any
-    expect(containerVnode.sel).toBe('div')
+    expect(containerVnode.sel).toBe('span')
     expect(containerVnode.data.className.indexOf('w-e-selected-image-container')).toBeGreaterThan(0)
     expect(containerVnode.children.length).toBe(5) // image + 4 个拖拽触手
   })

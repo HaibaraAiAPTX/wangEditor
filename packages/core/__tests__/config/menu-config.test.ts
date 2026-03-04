@@ -2,6 +2,7 @@
  * @description menu config test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createCoreEditor from '../create-core-editor' // packages/core 不依赖 packages/editor ，不能使用后者的 createEditor
 import { registerGlobalMenuConf } from '../../src/config/register'

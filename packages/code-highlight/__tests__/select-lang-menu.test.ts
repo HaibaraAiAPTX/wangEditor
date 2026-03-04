@@ -2,6 +2,7 @@
  * @description code-highlight select lang menu test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 
 import type { IDomEditor } from '@wangeditor/core'
 import createEditor from '../../../tests/utils/create-editor'
@@ -88,19 +89,17 @@ describe('code-highlight select lang menu', () => {
     expect(menu.isDisabled(editor)).toBeFalsy()
   })
 
-  it('menu exec (change lang)', done => {
+  it('menu exec (change lang)', async () => {
     if (editor == null || menu == null) throw new Error('editor or menu is null')
 
     // select codeNode
     editor.select(codeLocation)
     menu.exec(editor, 'html') // change lang
 
-    setTimeout(() => {
-      if (editor == null || menu == null) return
+    await new Promise(resolve => setTimeout(resolve))
+    if (editor == null || menu == null) return
 
-      editor.select(codeLocation)
-      expect(menu.getValue(editor)).toBe('html')
-      done()
-    })
+    editor.select(codeLocation)
+    expect(menu.getValue(editor)).toBe('html')
   })
 })

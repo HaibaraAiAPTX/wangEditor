@@ -2,6 +2,7 @@
  * @description code-highlight decorate test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 
 import type { IDomEditor } from '@wangeditor/core'
 import createEditor from '../../../tests/utils/create-editor'

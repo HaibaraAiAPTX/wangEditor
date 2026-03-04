@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import createEditor from '../../../tests/utils/create-editor'
 import { renderTableConf, renderTableCellConf, renderTableRowConf } from '../src/module/render-elem'
 

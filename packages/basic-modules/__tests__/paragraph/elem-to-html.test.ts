@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { html } from 'dom7'
 /**
  * @description paragraph - elem to html test

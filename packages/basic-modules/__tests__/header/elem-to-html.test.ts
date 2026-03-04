@@ -2,6 +2,7 @@
  * @description header - elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import {
   header1ToHtmlConf,

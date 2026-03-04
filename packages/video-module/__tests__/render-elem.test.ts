@@ -2,6 +2,7 @@
  * @description video render elem test
  * @author luochao
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../../tests/utils/create-editor'
 import { renderVideoConf } from '../src/module/render-elem'

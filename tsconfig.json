@@ -20,8 +20,7 @@
     "jsxFactory": "jsx", /* snabbdom jsx */
     "downlevelIteration": true,
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "verbatimModuleSyntax": true
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",

@@ -2,6 +2,7 @@
  * @description bulletedList menu test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import BulletedListMenu from '../../src/module/menu/BulletedListMenu'
 import createEditor from '../../../../tests/utils/create-editor'

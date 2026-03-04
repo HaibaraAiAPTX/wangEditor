@@ -2,6 +2,7 @@
  * @description divider - elem to html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { dividerToHtmlConf } from '../../src/modules/divider/elem-to-html'
 

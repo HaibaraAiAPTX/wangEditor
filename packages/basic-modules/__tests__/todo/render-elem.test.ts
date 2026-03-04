@@ -2,6 +2,7 @@
  * @description todo render elem
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../../../tests/utils/create-editor'
 import { renderTodoConf } from '../../src/modules/todo/render-elem'

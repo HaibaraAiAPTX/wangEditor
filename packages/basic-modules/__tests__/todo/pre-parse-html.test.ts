@@ -2,6 +2,7 @@
  * @description todo pre-parse html
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { $ } from 'dom7'
 import { preParseHtmlConf } from '../../src/modules/todo/pre-parse-html'

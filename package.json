@@ -2,8 +2,9 @@
   "name": "@wangeditor-team/wangeditor",
   "private": true,
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--unhandled-rejections=warn jest --detectOpenHandles --passWithNoTests",
-    "test-c": "cross-env NODE_OPTIONS=--unhandled-rejections=warn jest --coverage",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test-c": "vitest run --coverage",
     "dev": "pnpm clear && turbo watch build",
     "build": "pnpm clear && turbo build --no-daemon --force",
     "build:rollup": "pnpm clear && turbo build:rollup --no-daemon --force",
@@ -26,8 +27,7 @@
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [
-      "pnpm format",
-      "git add ."
+      "pnpm format"
     ]
   },
   "config": {
@@ -52,10 +52,9 @@
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-replace": "^2.4.2",
     "@testing-library/jest-dom": "^5.14.1",
-    "@types/jest": "^25.2.1",
+    "@types/node": "^25.3.3",
+    "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.21",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^27.0.6",
     "babel-plugin-istanbul": "^6.0.0",
     "commitlint": "^11.0.0",
     "commitlint-config-cz": "^0.13.2",
@@ -68,7 +67,6 @@
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "jest": "^27.0.6",
     "lerna": "^8.2.2",
     "lerna-changelog": "^1.0.1",
     "less": "^3.11.1",
@@ -92,12 +90,12 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "rollup-plugin-visualizer": "^5.14.0",
     "slate": "^0.72.8",
-    "ts-jest": "^27.0.4",
     "tslib": "^2.8.1",
     "turbo": "^2.5.4",
     "typescript": "5.8.3",
     "typescript-eslint": "^8.34.0",
-    "unplugin-dts": "1.0.0-beta.0"
+    "unplugin-dts": "1.0.0-beta.0",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.27.6"

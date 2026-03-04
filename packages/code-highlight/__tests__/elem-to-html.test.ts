@@ -2,6 +2,7 @@
  * @description code-hight elem-to-html
  * @author wangfupeng
  */
+import { describe, it, expect, afterAll, beforeAll } from 'vitest'
 
 import type { IDomEditor } from '@wangeditor/core'
 import createEditor from '../../../tests/utils/create-editor'

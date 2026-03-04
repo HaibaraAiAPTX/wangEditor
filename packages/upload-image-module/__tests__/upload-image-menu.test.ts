@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach, vi, test } from 'vitest'
 import type { IDomEditor } from '../../../packages/editor/src'
 import UploadImageMenu from '../src/module/menu/UploadImageMenu'
 import createEditor from '../../../tests/utils/create-editor'
@@ -24,7 +25,7 @@ describe('Upload image menu', () => {
   })
 
   test('UploadImageMenu invoke exec should exec customBrowseAndUpload if config has customBrowseAndUpload option', () => {
-    const jestFn = jest.fn()
+    const jestFn = vi.fn()
     const editor = createEditor({
       config: {
         MENU_CONF: {

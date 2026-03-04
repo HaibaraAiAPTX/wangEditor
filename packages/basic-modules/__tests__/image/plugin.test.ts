@@ -2,6 +2,7 @@
  * @description image plugin test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../../../tests/utils/create-editor'
 import withImage from '../../src/modules/image/plugin'

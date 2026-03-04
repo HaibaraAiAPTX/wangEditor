@@ -2,8 +2,9 @@
  * @description video menu test
  * @author luochao
  */
+import { describe, it, expect, beforeEach, afterEach, test } from 'vitest'
 
-import videoModule from '../src/'
+import videoModule from '../src/module'
 
 const videoToHtmlConf = videoModule.elemsToHtml![0]
 

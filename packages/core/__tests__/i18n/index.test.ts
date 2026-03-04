@@ -2,6 +2,7 @@
  * @description i18n test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import i18next, { i18nAddResources, i18nChangeLanguage, t } from '../../src/i18n'
 

@@ -2,6 +2,7 @@
  * @description paragraph render elem test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../../../tests/utils/create-editor'
 import { renderParagraphConf } from '../../src/modules/paragraph/render-elem'

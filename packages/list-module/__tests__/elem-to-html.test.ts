@@ -2,6 +2,7 @@
  * @description list toHtml test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach, test } from 'vitest'
 
 import createEditor from '../../../tests/utils/create-editor'
 import { ELEM_TO_EDITOR } from '../src/utils/maps'

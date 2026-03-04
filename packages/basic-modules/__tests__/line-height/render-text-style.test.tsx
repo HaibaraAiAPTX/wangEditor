@@ -2,6 +2,7 @@
  * @description line-height render text style test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { jsx } from 'snabbdom'
 import { renderStyle } from '../../src/modules/line-height/render-style'

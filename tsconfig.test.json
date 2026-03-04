@@ -10,5 +10,6 @@
   "include": [
     "./packages/*/__tests__",
     "./packages/*/src",
+    "./tests/**/*"
   ]
 }

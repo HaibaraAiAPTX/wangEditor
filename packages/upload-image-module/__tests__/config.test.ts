@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach, test } from 'vitest'
 import { genUploadImageConfig } from '../src/module/menu/config'
 
 describe('Upload image default config', () => {

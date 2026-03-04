@@ -2,6 +2,7 @@
  * @description link plugin test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { Editor } from 'slate'
 import withLink from '../../src/modules/link/plugin'
@@ -27,7 +28,7 @@ describe('link plugin', () => {
     expect(editor.isInline(elem)).toBeTruthy()
   })
 
-  it('link insert data', done => {
+  it('link insert data', async () => {
     const url = 'https://www.wangeditor.com/'
 
     const data = new MyDataTransfer()
@@ -37,12 +38,10 @@ describe('link plugin', () => {
     // @ts-ignore
     editor.insertData(data)
 
-    setTimeout(() => {
-      const links = editor.getElemsByTypePrefix('link')
-      expect(links.length).toBe(1)
-      const linkElem = links[0] as any
-      expect(linkElem.url).toBe(url)
-      done()
-    })
+    await new Promise(resolve => setTimeout(resolve))
+    const links = editor.getElemsByTypePrefix('link')
+    expect(links.length).toBe(1)
+    const linkElem = links[0] as any
+    expect(linkElem.url).toBe(url)
   })
 })

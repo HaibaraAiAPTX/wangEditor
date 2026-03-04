@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach, vi, test } from 'vitest'
 import FullWidth from '../../src/module/menu/FullWidth'
 import createEditor from '../../../../tests/utils/create-editor'
 import { FULL_WIDTH_SVG } from '../../src/constants/svg'
@@ -27,7 +28,7 @@ describe('Table Module Full Width Menu', () => {
     const fullWidthMenu = new FullWidth()
     const editor = createEditor()
 
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
     expect(fullWidthMenu.getValue(editor)).toBeFalsy()
   })
 
@@ -35,16 +36,16 @@ describe('Table Module Full Width Menu', () => {
     const fullWidthMenu = new FullWidth()
     const editor = createEditor()
 
-    jest
-      .spyOn(core.DomEditor, 'getSelectedNodeByType')
-      .mockImplementation(() => ({ width: '100%' }) as any)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(
+      () => ({ width: '100%' }) as any
+    )
     expect(fullWidthMenu.getValue(editor)).toBeTruthy()
   })
 
   test('isActive should get falsy value if editor selected node is not table', () => {
     const fullWidthMenu = new FullWidth()
     const editor = createEditor()
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
 
     expect(fullWidthMenu.isActive(editor)).toBeFalsy()
   })
@@ -61,7 +62,7 @@ describe('Table Module Full Width Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => false)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => false)
 
     expect(fullWidthMenu.isDisabled(editor)).toBeTruthy()
   })
@@ -71,8 +72,8 @@ describe('Table Module Full Width Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => null)
 
     expect(fullWidthMenu.isDisabled(editor)).toBeTruthy()
   })
@@ -82,8 +83,8 @@ describe('Table Module Full Width Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
 
     expect(fullWidthMenu.isDisabled(editor)).toBeFalsy()
   })
@@ -101,11 +102,15 @@ describe('Table Module Full Width Menu', () => {
     const editor = createEditor()
     setEditorSelection(editor)
 
-    jest.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
-    jest.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({}) as any)
+    vi.spyOn(slate.Range, 'isCollapsed').mockImplementation(() => true)
+    vi.spyOn(core.DomEditor, 'getSelectedNodeByType').mockImplementation(() => ({
+      type: 'table',
+      children: [],
+    }))
+    vi.spyOn(core.DomEditor, 'findPath').mockImplementation(() => [0])
 
-    const fn = jest.fn()
-    jest.spyOn(slate.Transforms, 'setNodes').mockImplementation(fn)
+    const fn = vi.fn()
+    vi.spyOn(slate.Transforms, 'setNodes').mockImplementation(fn)
 
     fullWidthMenu.exec(editor, true)
 

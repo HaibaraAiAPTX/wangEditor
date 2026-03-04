@@ -2,6 +2,7 @@
  * @description line-height text-style-to-html test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { styleToHtml } from '../../src/modules/line-height/style-to-html'
 

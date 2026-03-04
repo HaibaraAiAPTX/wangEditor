@@ -3,6 +3,8 @@
  * @author wangfupeng
  */
 
+import { describe, expect, it } from 'vitest'
+
 export const text = 'const a = 100;'
 
 export const textNode = { text: text }

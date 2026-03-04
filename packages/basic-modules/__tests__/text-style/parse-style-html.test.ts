@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { parseStyleHtml } from '../../src/modules/text-style/parse-style-html'
 import $ from '../../src/utils/dom'
 import createEditor from '../../../../tests/utils/create-editor'

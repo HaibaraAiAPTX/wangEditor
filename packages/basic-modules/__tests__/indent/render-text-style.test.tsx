@@ -2,6 +2,7 @@
  * @description indent - render text style
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { jsx } from 'snabbdom'
 import { renderStyle } from '../../src/modules/indent/render-style'

@@ -2,6 +2,7 @@
  * @description blockquote render elem test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import createEditor from '../../../../tests/utils/create-editor'
 import { renderBlockQuoteConf } from '../../src/modules/blockquote/render-elem'

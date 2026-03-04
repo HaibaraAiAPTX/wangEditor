@@ -2,6 +2,7 @@
  * @description util fns test
  * @author wangfupeng
  */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import {
   genRandomStr,
