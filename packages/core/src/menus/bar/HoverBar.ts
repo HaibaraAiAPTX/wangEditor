@@ -203,6 +203,21 @@ class HoverBar {
   }
 
   /**
+   * 使用自定义位置显示
+   * @param node 当前节点（用于参考）
+   * @param position 自定义位置样式
+   */
+  setPositionWithCustom(
+    node: Node,
+    position: { top: string; left: string; [key: string]: string }
+  ) {
+    const $elem = this.$elem
+    $elem.attr('style', '') // 先清空 style
+    $elem.css(position) // 应用自定义位置
+    this.show()
+  }
+
+  /**
    * 获取选中的 node ，以及对应的 menu keys
    */
   getSelectedNodeAndMenuKeys(): { node: Node; menuKeys: string[] } | null {
